@@ -4,78 +4,249 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>OUTSIIDE — Coming Soon</title>
-  <meta name="description" content="OUTSIIDE — Coming soon." />
+  <meta name="description" content="OUTSIIDE — Discover events, activities, and experiences. Coming soon." />
+  <meta name="robots" content="index,follow" />
+
   <style>
     :root{
-      --bg:#050505; --text:#f2f2f2; --muted:rgba(242,242,242,.72);
-      --card:rgba(255,255,255,.06); --border:rgba(255,255,255,.12);
+      --bg:#050505;
+      --text:#f2f2f2;
+      --muted:rgba(242,242,242,.72);
+      --card:rgba(255,255,255,.06);
+      --border:rgba(255,255,255,.12);
+      --input:rgba(255,255,255,.08);
+      --inputBorder:rgba(255,255,255,.16);
+      --good:rgba(140,255,180,.9);
+      --bad:rgba(255,140,140,.9);
     }
     *{box-sizing:border-box}
     body{
-      margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
-      padding:28px; font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      margin:0;
+      min-height:100vh;
       background:
         radial-gradient(1200px 700px at 50% 20%, rgba(255,255,255,.10), transparent 60%),
         radial-gradient(900px 500px at 80% 70%, rgba(255,255,255,.06), transparent 55%),
         var(--bg);
-      color:var(--text);
+      color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 28px;
+    }
+    .wrap{
+      width: min(980px, 100%);
+      display:flex;
+      justify-content:center;
     }
     .card{
-      width:min(760px,100%);
+      width: min(760px, 100%);
+      padding: 34px 26px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--card);
+      backdrop-filter: blur(10px);
       text-align:center;
-      padding:34px 26px;
-      border:1px solid var(--border);
-      border-radius:22px;
-      background:var(--card);
-      backdrop-filter:blur(10px);
     }
     .logo{
-      width:min(360px,75vw);
+      width: min(340px, 70vw);
       height:auto;
       display:block;
-      margin:0 auto 14px;
-      filter:drop-shadow(0 18px 26px rgba(0,0,0,.55));
+      margin: 0 auto 14px;
+      filter: drop-shadow(0 18px 26px rgba(0,0,0,.55));
     }
     h1{
-      margin:10px 0 8px;
-      font-size:clamp(22px,3.2vw,32px);
-      letter-spacing:.08em;
+      margin: 10px 0 8px;
+      font-size: clamp(22px, 3.2vw, 32px);
+      letter-spacing: .08em;
     }
     p{
-      margin:0 auto;
-      max-width:56ch;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.6;
+      margin: 0 auto;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.6;
     }
     .pill{
       display:inline-block;
-      margin-top:18px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      color:var(--muted);
-      font-size:13px;
-      letter-spacing:.06em;
-      text-transform:uppercase;
+      margin-top: 18px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
     }
+
+    /* Email capture panel */
+    .capture{
+      margin: 22px auto 0;
+      width: min(560px, 100%);
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: rgba(0,0,0,.25);
+    }
+    .captureTitle{
+      margin: 0 0 6px;
+      font-size: 14px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(242,242,242,.78);
+    }
+    .captureSub{
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    form{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    input[type="email"]{
+      flex: 1 1 260px;
+      min-width: 220px;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--inputBorder);
+      background: var(--input);
+      color: var(--text);
+      outline: none;
+    }
+    input[type="email"]::placeholder{ color: rgba(242,242,242,.45); }
+    button{
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 0;
+      font-weight: 700;
+      cursor: pointer;
+      background: #fff;
+      color: #000;
+      flex: 0 0 auto;
+    }
+    button:disabled{
+      opacity: .6;
+      cursor: not-allowed;
+    }
+    .msg{
+      margin-top: 10px;
+      font-size: 13px;
+      color: var(--muted);
+      min-height: 18px;
+    }
+    .msg.good{ color: var(--good); }
+    .msg.bad{ color: var(--bad); }
+
     .footer{
-      margin-top:18px;
-      font-size:12px;
-      color:rgba(242,242,242,.45);
+      margin-top: 18px;
+      font-size: 12px;
+      color: rgba(242,242,242,.45);
     }
+    .footer a{
+      color: rgba(242,242,242,.70);
+      text-decoration:none;
+    }
+    .footer a:hover{ text-decoration:underline; }
   </style>
 </head>
+
 <body>
-  <main class="card">
-    <img class="logo" src="assets/outsiide-logo.png" alt="OUTSIIDE logo" />
-    <h1>COMING SOON</h1>
-    <p>
-      OUTSIIDE is launching soon — a new way to discover what’s happening around you.
-    </p>
-    <div class="pill">Ottawa • Canada</div>
-    <div class="footer">© <span id="y"></span> OUTSIIDE</div>
-  </main>
-  <script>document.getElementById("y").textContent=new Date().getFullYear();</script>
+  <div class="wrap">
+    <main class="card" role="main">
+      <img class="logo" src="assets/outsiide-logo.png" alt="OUTSIIDE logo" />
+
+      <h1>COMING SOON</h1>
+
+      <p>
+        OUTSIIDE is launching soon — a new way to discover what’s happening around you.
+        Events, activities, and experiences — all in one place.
+      </p>
+
+      <div class="pill">Ottawa • Canada</div>
+
+      <!-- Email capture -->
+      <section class="capture" aria-label="Email capture">
+        <div class="captureTitle">Get launch updates</div>
+        <div class="captureSub">
+          Drop your email and we’ll let you know when OUTSIIDE goes live. (Testing mode — no spam.)
+        </div>
+
+        <form id="notifyForm">
+          <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            required
+          />
+          <button id="btn" type="submit">Notify me</button>
+        </form>
+
+        <div id="msg" class="msg" role="status" aria-live="polite"></div>
+      </section>
+
+      <div class="footer">
+        © <span id="y"></span> OUTSIIDE
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // 1) Create a free form at Formspree
+    // 2) Replace this URL with your Formspree endpoint
+    const FORMSPREE_URL = "https://formspree.io/f/mzdddzgj";
+
+    const form = document.getElementById("notifyForm");
+    const btn = document.getElementById("btn");
+    const msg = document.getElementById("msg");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      msg.textContent = "";
+      msg.className = "msg";
+      btn.disabled = true;
+
+      const email = document.getElementById("email").value.trim();
+      if (!email) {
+        btn.disabled = false;
+        msg.textContent = "Please enter a valid email address.";
+        msg.classList.add("bad");
+        return;
+      }
+
+      try {
+        const res = await fetch(FORMSPREE_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({
+            email,
+            source: "outsiide.ca coming soon page",
+            timestamp: new Date().toISOString()
+          })
+        });
+
+        if (res.ok) {
+          form.reset();
+          msg.textContent = "You’re on the list. We’ll notify you at launch.";
+          msg.classList.add("good");
+        } else {
+          msg.textContent = "Could not submit right now. Please try again.";
+          msg.classList.add("bad");
+        }
+      } catch (err) {
+        msg.textContent = "Network error. Please try again.";
+        msg.classList.add("bad");
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
