@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OUTSIIDE Privacy Policy</title>
+  <meta name="description" content="OUTSIIDE Privacy Policy" />
+  <meta name="robots" content="index,follow" />
+
+  <style>
+    :root{
+      --bg:#050505;
+      --bgImage:url("../assets/outsiide-bg.jpg");
+      --text:#f2f2f2;
+      --muted:rgba(242,242,242,.75);
+      --card:rgba(255,255,255,.08);
+      --border:rgba(255,255,255,.14);
+      --ghost:rgba(255,255,255,.08);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      min-height:100vh;
+      color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+      background:
+        linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.72)),
+        var(--bgImage) center / cover no-repeat,
+        var(--bg);
+      animation: slowZoom 40s ease-in-out infinite alternate;
+    }
+
+    @keyframes slowZoom {
+      from { background-size:auto, 100% auto, auto; }
+      to   { background-size:auto, 108% auto, auto; }
+    }
+
+    .wrap{
+      width:min(1100px,100%);
+      display:flex;
+      justify-content:center;
+    }
+
+    .card{
+      width:min(920px,100%);
+      padding:36px 28px;
+      border:1px solid var(--border);
+      border-radius:24px;
+      background:var(--card);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      box-shadow:0 26px 60px rgba(0,0,0,.45);
+    }
+
+    .logo{
+      width:min(240px,65vw);
+      height:auto;
+      display:block;
+      margin:0 auto 16px;
+    }
+
+    .top{
+      text-align:center;
+      margin-bottom:24px;
+    }
+
+    h1{
+      margin:0 0 8px;
+      font-size:clamp(26px,3.5vw,38px);
+    }
+
+    h2{
+      margin:24px 0 10px;
+      font-size:18px;
+    }
+
+    p, li{
+      color:var(--muted);
+      line-height:1.75;
+      font-size:15px;
+    }
+
+    ul{
+      padding-left:20px;
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:center;
+      margin-top:26px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 18px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:800;
+      border:1px solid var(--border);
+      background:var(--ghost);
+      color:var(--text);
+    }
+
+    .btn:hover{
+      text-decoration:underline;
+    }
+
+    .footer{
+      margin-top:24px;
+      text-align:center;
+      font-size:12px;
+      color:rgba(242,242,242,.55);
+    }
+
+    .footer a{
+      color:rgba(242,242,242,.8);
+      text-decoration:none;
+      margin:0 8px;
+    }
+
+    .footer a:hover{
+      text-decoration:underline;
+    }
+
+    @media (max-width:640px){
+      .card{ padding:28px 18px; }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      body{ animation:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="card" role="main">
+      <div class="top">
+        <img class="logo" src="../assets/outsiide-logo.png" alt="OUTSIIDE logo" />
+        <h1>Privacy Policy</h1>
+        <p>Last updated: [INSERT DATE]</p>
+      </div>
+
+      <h2>1. Information We Collect</h2>
+      <p>
+        We may collect information you provide directly to us, such as your name, email address,
+        feedback submissions, and any information you send through our support forms.
+      </p>
+
+      <h2>2. How We Use Your Information</h2>
+      <p>
+        We use the information we collect to respond to your inquiries, improve our website and app,
+        provide updates, and communicate with you about OUTSIIDE.
+      </p>
+
+      <h2>3. Email Updates</h2>
+      <p>
+        If you choose to submit your email through our website, we may use it to send launch updates,
+        product news, and relevant communications about OUTSIIDE. You may unsubscribe at any time.
+      </p>
+
+      <h2>4. Third-Party Services</h2>
+      <p>
+        We may use trusted third-party services, such as hosted form providers, analytics services,
+        and app distribution platforms, to operate our website and collect submissions.
+      </p>
+
+      <h2>5. Data Protection</h2>
+      <p>
+        We take reasonable measures to protect your information. However, no website or online
+        transmission is completely secure, and we cannot guarantee absolute security.
+      </p>
+
+      <h2>6. Your Rights</h2>
+      <p>
+        You may contact us at any time to request access to, correction of, or deletion of your
+        personal information, subject to applicable law.
+      </p>
+
+      <h2>7. Contact Us</h2>
+      <p>
+        If you have any questions about this Privacy Policy, please contact us at
+        <a href="mailto:info@outsiide.ca" style="color:#fff;">info@outsiide.ca</a>.
+      </p>
+
+      <div class="actions">
+        <a class="btn" href="/">Back Home</a>
+        <a class="btn" href="/support/">Support</a>
+      </div>
+
+      <div class="footer">
+        <a href="/">Home</a>
+        <a href="/support/">Support</a>
+        © <span id="y"></span> OUTSIIDE
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
