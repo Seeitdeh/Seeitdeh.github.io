@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OUTSIIDE Terms of Service</title>
+  <meta name="description" content="OUTSIIDE Terms of Service" />
+  <meta name="robots" content="index,follow" />
+
+  <style>
+    :root{
+      --bg:#050505;
+      --bgImage:url("../assets/outsiide-bg.jpg");
+      --text:#f2f2f2;
+      --muted:rgba(242,242,242,.75);
+      --card:rgba(255,255,255,.08);
+      --border:rgba(255,255,255,.14);
+      --ghost:rgba(255,255,255,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      color:var(--text);
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px;
+      background:
+        linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.72)),
+        var(--bgImage) center / cover no-repeat,
+        var(--bg);
+      animation: slowZoom 40s ease-in-out infinite alternate;
+    }
+    @keyframes slowZoom {
+      from { background-size:auto, 100% auto, auto; }
+      to   { background-size:auto, 108% auto, auto; }
+    }
+    .wrap{
+      width:min(1100px,100%);
+      display:flex;
+      justify-content:center;
+    }
+    .card{
+      width:min(940px,100%);
+      padding:36px 28px;
+      border:1px solid var(--border);
+      border-radius:24px;
+      background:var(--card);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      box-shadow:0 26px 60px rgba(0,0,0,.45);
+    }
+    .logo{
+      width:min(240px,65vw);
+      height:auto;
+      display:block;
+      margin:0 auto 16px;
+    }
+    .top{
+      text-align:center;
+      margin-bottom:24px;
+    }
+    h1{
+      margin:0 0 8px;
+      font-size:clamp(26px,3.5vw,38px);
+    }
+    h2{
+      margin:24px 0 10px;
+      font-size:19px;
+    }
+    h3{
+      margin:18px 0 8px;
+      font-size:16px;
+    }
+    p, li{
+      color:var(--muted);
+      line-height:1.75;
+      font-size:15px;
+    }
+    ul{
+      padding-left:20px;
+    }
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      justify-content:center;
+      margin-top:26px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:14px 18px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:800;
+      border:1px solid var(--border);
+      background:var(--ghost);
+      color:var(--text);
+    }
+    .btn:hover{
+      text-decoration:underline;
+    }
+    .footer{
+      margin-top:24px;
+      text-align:center;
+      font-size:12px;
+      color:rgba(242,242,242,.55);
+    }
+    .footer a{
+      color:rgba(242,242,242,.8);
+      text-decoration:none;
+      margin:0 8px;
+    }
+    .footer a:hover{
+      text-decoration:underline;
+    }
+    @media (max-width:640px){
+      .card{ padding:28px 18px; }
+    }
+    @media (prefers-reduced-motion: reduce){
+      body{ animation:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <main class="card" role="main">
+      <div class="top">
+        <img class="logo" src="../assets/outsiide-logo.png" alt="OUTSIIDE logo" />
+        <h1>Terms of Service</h1>
+        <p>Effective Date: December 27, 2025<br>Last Updated: December 27, 2025</p>
+      </div>
+
+      <p>
+        These Terms of Service (“Terms”) form a binding agreement between you (“you”, “User”, “Patron”, “Host”)
+        and Outsiide Inc. (“Outsiide”, “we”, “us”, “our”). They govern your access to and use of the Outsiide
+        mobile apps (iOS and Android), website, and related services (collectively, the “Platform”).
+      </p>
+
+      <p>
+        By creating an account, accessing, or using the Platform, you agree to these Terms. If you do not agree,
+        you must not use Outsiide.
+      </p>
+
+      <p>
+        Note: This is a global document designed to comply with Canadian law (including PIPEDA), U.S. standards
+        (including CCPA/CPRA where applicable), and EU GDPR principles, but it is not a substitute for independent legal advice.
+      </p>
+
+      <h2>1. Roles & Eligibility</h2>
+      <h3>1.1 User Types</h3>
+      <ul>
+        <li><strong>Patrons (Outsiiders):</strong> Individuals using the Platform to discover, RSVP to, and attend events, activities, and experiences.</li>
+        <li><strong>Hosts:</strong> Individuals or entities using the Platform to create, publish, and manage posts and interact with Patrons.</li>
+        <li><strong>Admins:</strong> Outsiide personnel who manage and moderate content, analytics, reports, and platform operations.</li>
+      </ul>
+
+      <h3>1.2 Eligibility</h3>
+      <ul>
+        <li>You must be at least 13 years old to use Outsiide.</li>
+        <li>You must be at least 18 years old to act as a Host, organize events, or access paid features.</li>
+        <li>By using the Platform, you represent that you have the legal capacity to enter a binding contract in your jurisdiction.</li>
+      </ul>
+
+      <h2>2. Account Creation, Authentication & Onboarding</h2>
+      <p>To use key features, you must create an account and provide accurate information. We may use verification codes, sync data across devices, and show errors where connectivity interrupts platform actions.</p>
+
+      <h2>3. Platform Features & Functionality</h2>
+      <p>Outsiide may provide feed discovery, event/activity/experience details, RSVPs, QR/barcode check-ins, profiles, host event management, reporting tools, and admin analytics.</p>
+
+      <h2>4. Host Responsibilities & Disclaimers</h2>
+      <p>Hosts are solely responsible for ensuring events are lawful, safe, properly supervised, accurately described, and compliant with permits, capacity, and refund obligations.</p>
+
+      <h2>5. User Conduct & Misuse</h2>
+      <p>Users may not misuse check-in systems, manipulate analytics, or abuse reporting features. Misuse may result in warnings, suspension, or permanent bans.</p>
+
+      <h2>6. Payments, Fees & Refunds</h2>
+      <p>Outsiide may charge service or transaction fees, and payment processing may be handled by third-party processors. For pay-at-venue models, payment and refund issues remain between Patron and Host unless explicitly stated otherwise.</p>
+
+      <h2>7. Intellectual Property & License</h2>
+      <p>All rights, title, and interest in the Platform remain with Outsiide or its licensors. Users retain ownership of their content but grant Outsiide a non-exclusive, worldwide, royalty-free license to host, use, reproduce, display, and distribute that content as necessary to operate and promote the Platform.</p>
+
+      <h2>8. Termination & Suspension</h2>
+      <p>Outsiide may suspend or terminate accounts without notice where Terms are violated, fraud or abuse occurs, or law requires it.</p>
+
+      <h2>9. Warranty Disclaimer</h2>
+      <p>Outsiide is provided “as is” and “as available” without warranties of any kind.</p>
+
+      <h2>10. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by law, Outsiide will not be liable for indirect, incidental, special, consequential, or punitive damages, and total liability is limited to the amount paid to Outsiide, if any, in the prior twelve months.</p>
+
+      <h2>11. Indemnification</h2>
+      <p>You agree to indemnify and hold harmless Outsiide from claims, damages, losses, or expenses arising from your use of the Platform, your content or events, or your breach of these Terms or laws.</p>
+
+      <h2>12. Governing Law & Dispute Resolution</h2>
+      <p>These Terms are governed by Ontario law for Canadian users, and local mandatory consumer protections may also apply depending on jurisdiction. Disputes may be resolved by individual arbitration where legally permitted.</p>
+
+      <h2>13. Changes to These Terms</h2>
+      <p>We may update these Terms from time to time. Continued use after material updates means you accept the revised Terms.</p>
+
+      <h2>14. Host Subscription Plans & Premium Features</h2>
+      <p>Outsiide may offer recurring plans for additional experience posts, featured placement, analytics dashboards, promotional tools, AI-generated summaries, and early access features.</p>
+
+      <h2>15. Refunds & Cancellation Policies</h2>
+      <p>Platform fees are generally non-refundable unless required by law. Ticketed event refunds may follow Host-defined policies unless they contradict consumer protection laws.</p>
+
+      <h2>16. Push Notifications, Email Communication, and Marketing</h2>
+      <p>By creating an account, users consent to operational notifications and may opt into marketing communications where required by law.</p>
+
+      <h2>17. Moderation, Content Review, and Takedown Compliance</h2>
+      <p>Outsiide may remove content or accounts that violate laws, safety policies, or app store rules, and is not obligated to review all content.</p>
+
+      <h2>18. Assumption of Risk</h2>
+      <p>Participation in events, activities, or in-person experiences may involve risk. By attending, you assume those risks and acknowledge that Outsiide is not liable for harm occurring at Host-controlled venues or events.</p>
+
+      <h2>19. Suspension for Safety</h2>
+      <p>Outsiide may suspend Hosts, Patrons, or events without notice where there are credible safety concerns, illegal conduct, unresolved complaints, or instructions from authorities.</p>
+
+      <div class="actions">
+        <a class="btn" href="/">Back Home</a>
+        <a class="btn" href="/conditions/">Conditions of Use</a>
+        <a class="btn" href="/privacy/">Privacy Policy</a>
+      </div>
+
+      <div class="footer">
+        <a href="/">Home</a>
+        <a href="/support/">Support</a>
+        <a href="/conditions/">Conditions of Use</a>
+        <a href="/privacy/">Privacy Policy</a>
+        © <span id="y"></span> OUTSIIDE
+      </div>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
