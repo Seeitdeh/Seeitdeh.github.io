@@ -105,6 +105,20 @@
       color:rgba(242,242,242,.84);
     }
 
+    .posterWrap{
+      margin-top:20px;
+      display:flex;
+      justify-content:center;
+    }
+
+    .poster{
+      width:100%;
+      max-width:520px;
+      border-radius:18px;
+      border:1px solid var(--border);
+      box-shadow:0 20px 40px rgba(0,0,0,.45);
+    }
+
     .formWrap{
       margin-top:26px;
       padding:18px;
@@ -226,19 +240,21 @@
     <main class="card" role="main">
       <div class="top">
         <img class="logo" src="../assets/outsiide-logo.png" alt="OUTSIIDE logo" />
-        <h1>Host Info Session at Invest Ottawa </h1>
+        <h1>Host Info Session</h1>
         <p class="lead">
-          RSVP Below
+          Interested in hosting on OUTSIIDE? Register below to receive the details for our upcoming Host Info Session and learn how OUTSIIDE helps connect your events, activities, and experiences directly with the right audience.
         </p>
         <div class="highlight">Register Your Interest</div>
-      </div>
+
         <div class="posterWrap">
-        <img src="../assets/host-poster.jpg" alt="Host Info Session Poster" class="poster">
+          <img src="../assets/host-poster.jpg" alt="Host Info Session Poster" class="poster" />
+        </div>
       </div>
+
       <section class="formWrap">
-        <h2 class="formTitle">RSVP</h2>
+        <h2 class="formTitle">RSVP for the Host Info Session</h2>
         <p class="formSub">
-          Submit your host name and email address below to secure your spot.
+          Thank you for your interest. Please enter your host name or business name and email below to RSVP and receive the full event details.
         </p>
 
         <form id="hostForm">
@@ -247,7 +263,7 @@
             type="text"
             name="hostName"
             placeholder="Host name or business name"
-            autocomplete="name"
+            autocomplete="organization"
             required
           />
 
@@ -261,7 +277,7 @@
           />
 
           <div class="actions">
-            <button class="btn primary" id="btn" type="submit">Send Me the Details</button>
+            <button class="btn primary" id="btn" type="submit">RSVP Now</button>
             <a class="btn ghost" href="/">Back Home</a>
           </div>
 
@@ -315,7 +331,7 @@
 
         if (res.ok) {
           form.reset();
-          msg.textContent = "Thanks — your registration has been received. We’ll send you the Host Info Session details soon.";
+          msg.textContent = "You're in! We'll send you the Host Info Session details shortly.";
           msg.classList.add("good");
         } else {
           msg.textContent = "Could not submit right now. Please try again.";
