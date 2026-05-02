@@ -3,12 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OUTSIIDE Host Info Session</title>
-  <meta
-    name="description"
-    content="Register your interest for the OUTSIIDE Host Info Session."
-  />
-  <meta name="robots" content="index,follow" />
+  <title>Host on OUTSIIDE</title>
 
   <style>
     :root{
@@ -18,12 +13,8 @@
       --muted:rgba(242,242,242,.75);
       --card:rgba(255,255,255,.08);
       --border:rgba(255,255,255,.14);
-      --input:rgba(255,255,255,.10);
-      --inputBorder:rgba(255,255,255,.18);
       --button:#ffffff;
       --buttonText:#000000;
-      --good:rgba(140,255,180,.92);
-      --bad:rgba(255,140,140,.92);
       --ghost:rgba(255,255,255,.08);
     }
 
@@ -39,15 +30,8 @@
       justify-content:center;
       padding:28px;
       background:
-        linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.72)),
-        var(--bgImage) center / cover no-repeat,
-        var(--bg);
-      animation: slowZoom 40s ease-in-out infinite alternate;
-    }
-
-    @keyframes slowZoom {
-      from { background-size:auto, 100% auto, auto; }
-      to   { background-size:auto, 108% auto, auto; }
+        linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.75)),
+        var(--bgImage) center / cover no-repeat;
     }
 
     .wrap{
@@ -57,293 +41,163 @@
     }
 
     .card{
-      width:min(820px,100%);
+      width:100%;
       padding:36px 28px;
       border:1px solid var(--border);
       border-radius:24px;
       background:var(--card);
       backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
-      box-shadow:0 26px 60px rgba(0,0,0,.45);
-    }
-
-    .top{
       text-align:center;
-      margin-bottom:24px;
     }
 
     .logo{
-      width:min(300px,72vw);
-      height:auto;
-      display:block;
-      margin:0 auto 16px;
+      width:280px;
+      margin-bottom:12px;
     }
 
     h1{
-      margin:0 0 10px;
-      font-size:clamp(26px,3.6vw,40px);
+      margin:0 0 12px;
+      font-size:34px;
     }
 
     .lead{
-      margin:0 auto;
       max-width:60ch;
+      margin:0 auto 20px;
       color:var(--muted);
-      line-height:1.75;
-      font-size:15px;
+      line-height:1.7;
     }
 
-    .highlight{
-      margin-top:18px;
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:rgba(0,0,0,.20);
-      font-size:13px;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      color:rgba(242,242,242,.84);
-    }
-
-    .posterWrap{
+    /* VIDEO */
+    .videoWrap{
       margin-top:20px;
-      display:flex;
-      justify-content:center;
+      border-radius:18px;
+      overflow:hidden;
+      border:1px solid var(--border);
     }
 
-    .poster{
+    iframe, video{
       width:100%;
-      max-width:520px;
-      border-radius:18px;
-      border:1px solid var(--border);
-      box-shadow:0 20px 40px rgba(0,0,0,.45);
+      height:420px;
+      border:0;
     }
 
-    .formWrap{
-      margin-top:26px;
-      padding:18px;
-      border:1px solid var(--border);
-      border-radius:18px;
-      background:rgba(0,0,0,.22);
+    /* BENEFITS */
+    .benefits{
+      margin-top:24px;
+      text-align:left;
     }
 
-    .formTitle{
-      margin:0 0 8px;
-      font-size:16px;
-      text-transform:uppercase;
-      letter-spacing:.06em;
+    .benefits h2{
+      margin-bottom:10px;
     }
 
-    .formSub{
-      margin:0 0 16px;
+    .benefits ul{
+      padding-left:20px;
       color:var(--muted);
-      font-size:14px;
-      line-height:1.6;
+      line-height:1.7;
     }
 
-    form{
-      display:grid;
-      gap:12px;
-    }
-
-    input{
-      width:100%;
-      padding:14px 16px;
-      border-radius:16px;
-      border:1px solid var(--inputBorder);
-      background:var(--input);
-      color:var(--text);
-      outline:none;
-      font:inherit;
-    }
-
-    input::placeholder{
-      color:rgba(242,242,242,.50);
-    }
-
+    /* BUTTONS */
     .actions{
+      margin-top:24px;
       display:flex;
-      flex-wrap:wrap;
       gap:12px;
-      margin-top:8px;
+      justify-content:center;
+      flex-wrap:wrap;
     }
 
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
       padding:14px 18px;
       border-radius:999px;
       text-decoration:none;
       font-weight:800;
-      transition:transform 120ms ease;
-      border:1px solid transparent;
-      cursor:pointer;
-    }
-
-    .btn:hover{
-      transform:translateY(-1px);
     }
 
     .btn.primary{
-      background:var(--button);
-      color:var(--buttonText);
+      background:#fff;
+      color:#000;
     }
 
     .btn.ghost{
-      background:var(--ghost);
-      color:var(--text);
-      border-color:var(--border);
+      border:1px solid var(--border);
+      color:#fff;
     }
-
-    .msg{
-      margin-top:8px;
-      font-size:13px;
-      min-height:18px;
-      color:var(--muted);
-    }
-
-    .msg.good{ color:var(--good); }
-    .msg.bad{ color:var(--bad); }
 
     .footer{
-      margin-top:24px;
-      text-align:center;
+      margin-top:20px;
       font-size:12px;
-      color:rgba(242,242,242,.55);
+      opacity:.7;
     }
 
-    .footer a{
-      color:rgba(242,242,242,.8);
-      text-decoration:none;
-      margin:0 8px;
-    }
-
-    .footer a:hover{
-      text-decoration:underline;
-    }
-
-    @media (max-width:640px){
-      .card{ padding:28px 18px; }
-      .actions{ flex-direction:column; }
-      .btn{ width:100%; }
-    }
-
-    @media (prefers-reduced-motion: reduce){
-      body{ animation:none; }
-      .btn:hover{ transform:none; }
+    @media(max-width:640px){
+      iframe, video{
+        height:220px;
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
-    <main class="card" role="main">
-      <div class="top">
-        <img class="logo" src="../assets/outsiide-logo.png" alt="OUTSIIDE logo" />
-        <h1>Host Info Session</h1>
-        <p class="lead">
-          Interested in hosting on OUTSIIDE? Register below to receive the details for our upcoming Host Info Session and learn how OUTSIIDE helps connect your events, activities, and experiences directly with the right audience.
-        </p>
-        <div class="highlight">Register Your Interest</div>
+    <main class="card">
 
-        <div class="posterWrap">
-          <img src="../assets/host-poster.jpg" alt="Host Info Session Poster" class="poster" />
-        </div>
+      <img src="../assets/outsiide-logo.png" class="logo" />
+
+      <h1>Host on OUTSIIDE</h1>
+
+      <p class="lead">
+        OUTSIIDE connects your events, activities, and experiences directly with the right audience.
+        Watch below to learn how hosting works and how you can start growing your reach.
+      </p>
+
+      <!-- ================= VIDEO SECTION ================= -->
+
+      <!-- OPTION 1: YOUTUBE (RECOMMENDED) -->
+      <div class="videoWrap">
+        <iframe 
+          src="https://www.youtube.com/embed/DkLr8lV80Qg
+          title="OUTSIIDE Host Video"
+          allowfullscreen>
+        </iframe>
       </div>
 
-      <section class="formWrap">
-        <h2 class="formTitle">RSVP for the Host Info Session</h2>
-        <p class="formSub">
-          Thank you for your interest. Please enter your host name or business name and email below to RSVP and receive the full event details.
-        </p>
+      <!-- OPTION 2: LOCAL VIDEO (if not using YouTube) -->
+      <!--
+      <div class="videoWrap">
+        <video controls>
+          <source src="../assets/host-video.mp4" type="video/mp4">
+        </video>
+      </div>
+      -->
 
-        <form id="hostForm">
-          <input
-            id="hostName"
-            type="text"
-            name="hostName"
-            placeholder="Host name or business name"
-            autocomplete="organization"
-            required
-          />
+      <!-- ================= BENEFITS ================= -->
 
-          <input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="Email address"
-            autocomplete="email"
-            required
-          />
+      <div class="benefits">
+        <h2>Why Host on OUTSIIDE?</h2>
+        <ul>
+          <li>Reach people actively looking for things to do</li>
+          <li>Promote events, activities, and experiences in one place</li>
+          <li>Drive real foot traffic to your business or event</li>
+          <li>Simple, fast onboarding — no upfront cost to get started</li>
+        </ul>
+      </div>
 
-          <div class="actions">
-            <button class="btn primary" id="btn" type="submit">RSVP Now</button>
-            <a class="btn ghost" href="/">Back Home</a>
-          </div>
+      <!-- ================= ACTIONS ================= -->
 
-          <div id="msg" class="msg" role="status" aria-live="polite"></div>
-        </form>
-      </section>
+      <div class="actions">
+        <a class="btn primary" href="/host/">Get Started</a>
+        <a class="btn ghost" href="mailto:info@outsiide.ca">Contact Us</a>
+      </div>
 
       <div class="footer">
-        <a href="/">Home</a>
-        <a href="/support/">Support</a>
-        <a href="/privacy/">Privacy Policy</a>
-        <a href="mailto:info@outsiide.ca">info@outsiide.ca</a>
         © <span id="y"></span> OUTSIIDE
       </div>
+
     </main>
   </div>
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
-
-    // Replace this with your Formspree endpoint
-    const FORMSPREE_URL = "https://formspree.io/f/meevgpla";
-
-    const form = document.getElementById("hostForm");
-    const btn = document.getElementById("btn");
-    const msg = document.getElementById("msg");
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      msg.textContent = "";
-      msg.className = "msg";
-      btn.disabled = true;
-
-      const payload = {
-        hostName: document.getElementById("hostName").value.trim(),
-        email: document.getElementById("email").value.trim(),
-        source: "outsiide.ca/host",
-        timestamp: new Date().toISOString()
-      };
-
-      try {
-        const res = await fetch(FORMSPREE_URL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-          },
-          body: JSON.stringify(payload)
-        });
-
-        if (res.ok) {
-          form.reset();
-          msg.textContent = "You're in! We'll send you the Host Info Session details shortly.";
-          msg.classList.add("good");
-        } else {
-          msg.textContent = "Could not submit right now. Please try again.";
-          msg.classList.add("bad");
-        }
-      } catch (err) {
-        msg.textContent = "Network error. Please try again.";
-        msg.classList.add("bad");
-      } finally {
-        btn.disabled = false;
-      }
-    });
   </script>
 </body>
 </html>
