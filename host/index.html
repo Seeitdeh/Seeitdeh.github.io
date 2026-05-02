@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Host on OUTSIIDE</title>
+  <meta name="description" content="Host your events, activities, and experiences on OUTSIIDE. First month free for all hosts." />
 
   <style>
     :root{
@@ -16,6 +17,7 @@
       --button:#ffffff;
       --buttonText:#000000;
       --ghost:rgba(255,255,255,.08);
+      --accent:rgba(140,255,180,.95);
     }
 
     *{box-sizing:border-box}
@@ -30,8 +32,9 @@
       justify-content:center;
       padding:28px;
       background:
-        linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.75)),
-        var(--bgImage) center / cover no-repeat;
+        linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.76)),
+        var(--bgImage) center / cover no-repeat,
+        var(--bg);
     }
 
     .wrap{
@@ -47,59 +50,104 @@
       border-radius:24px;
       background:var(--card);
       backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
       text-align:center;
+      box-shadow:0 26px 60px rgba(0,0,0,.45);
     }
 
     .logo{
-      width:280px;
-      margin-bottom:12px;
+      width:min(300px,72vw);
+      height:auto;
+      display:block;
+      margin:0 auto 16px;
     }
 
     h1{
       margin:0 0 12px;
-      font-size:34px;
+      font-size:clamp(28px,4vw,44px);
     }
 
     .lead{
-      max-width:60ch;
-      margin:0 auto 20px;
+      max-width:64ch;
+      margin:0 auto 18px;
       color:var(--muted);
-      line-height:1.7;
+      line-height:1.75;
+      font-size:16px;
     }
 
-    /* VIDEO */
+    .offer{
+      display:inline-block;
+      margin:8px auto 22px;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid rgba(140,255,180,.35);
+      background:rgba(140,255,180,.10);
+      color:var(--accent);
+      font-weight:800;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      font-size:13px;
+    }
+
     .videoWrap{
-      margin-top:20px;
+      margin-top:18px;
       border-radius:18px;
       overflow:hidden;
       border:1px solid var(--border);
+      box-shadow:0 20px 40px rgba(0,0,0,.45);
+      background:#000;
     }
 
-    iframe, video{
+    iframe{
       width:100%;
-      height:420px;
+      height:460px;
       border:0;
+      display:block;
     }
 
-    /* BENEFITS */
     .benefits{
-      margin-top:24px;
+      margin-top:26px;
       text-align:left;
+      padding:18px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:rgba(0,0,0,.22);
     }
 
     .benefits h2{
-      margin-bottom:10px;
+      margin:0 0 10px;
+      font-size:20px;
     }
 
     .benefits ul{
+      margin:0;
       padding-left:20px;
       color:var(--muted);
-      line-height:1.7;
+      line-height:1.8;
     }
 
-    /* BUTTONS */
+    .downloadSection{
+      margin-top:26px;
+      padding:18px;
+      border:1px solid var(--border);
+      border-radius:18px;
+      background:rgba(0,0,0,.22);
+    }
+
+    .downloadSection h2{
+      margin:0 0 8px;
+      font-size:20px;
+    }
+
+    .downloadSection p{
+      margin:0 auto 14px;
+      color:var(--muted);
+      line-height:1.6;
+      max-width:54ch;
+    }
+
     .actions{
-      margin-top:24px;
+      margin-top:18px;
       display:flex;
       gap:12px;
       justify-content:center;
@@ -107,89 +155,121 @@
     }
 
     .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
       padding:14px 18px;
       border-radius:999px;
       text-decoration:none;
       font-weight:800;
+      transition:transform 120ms ease, opacity 120ms ease;
+      min-width:190px;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
     }
 
     .btn.primary{
-      background:#fff;
-      color:#000;
+      background:var(--button);
+      color:var(--buttonText);
     }
 
     .btn.ghost{
+      background:var(--ghost);
+      color:var(--text);
       border:1px solid var(--border);
-      color:#fff;
     }
 
     .footer{
-      margin-top:20px;
+      margin-top:24px;
+      text-align:center;
       font-size:12px;
-      opacity:.7;
+      color:rgba(242,242,242,.55);
+    }
+
+    .footer a{
+      color:rgba(242,242,242,.8);
+      text-decoration:none;
+      margin:0 8px;
+    }
+
+    .footer a:hover{
+      text-decoration:underline;
     }
 
     @media(max-width:640px){
-      iframe, video{
-        height:220px;
-      }
+      .card{ padding:28px 18px; }
+      iframe{ height:240px; }
+      .btn{ width:100%; min-width:unset; }
+      .actions{ flex-direction:column; }
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <main class="card">
+    <main class="card" role="main">
 
-      <img src="../assets/outsiide-logo.png" class="logo" />
+      <img src="../assets/outsiide-logo.png" class="logo" alt="OUTSIIDE logo" />
 
       <h1>Host on OUTSIIDE</h1>
 
       <p class="lead">
-        OUTSIIDE connects your events, activities, and experiences directly with the right audience.
-        Watch below to learn how hosting works and how you can start growing your reach.
+        OUTSIIDE helps hosts promote events, activities, and experiences directly to people looking for something to do. 
+        Watch the video below to learn how OUTSIIDE can help you reach the right audience and turn attention into attendance.
       </p>
 
-      <!-- ================= VIDEO SECTION ================= -->
+      <div class="offer">First month free for all hosts</div>
 
-      <!-- OPTION 1: YOUTUBE (RECOMMENDED) -->
       <div class="videoWrap">
-        <iframe 
-          src="https://www.youtube.com/embed/DkLr8lV80Qg
-          title="OUTSIIDE Host Video"
+        <iframe
+          src="https://www.youtube.com/embed/DkLr8lV80Qg"
+          title="OUTSIIDE Host Info Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen>
         </iframe>
       </div>
 
-      <!-- OPTION 2: LOCAL VIDEO (if not using YouTube) -->
-      <!--
-      <div class="videoWrap">
-        <video controls>
-          <source src="../assets/host-video.mp4" type="video/mp4">
-        </video>
-      </div>
-      -->
-
-      <!-- ================= BENEFITS ================= -->
-
-      <div class="benefits">
+      <section class="benefits">
         <h2>Why Host on OUTSIIDE?</h2>
         <ul>
-          <li>Reach people actively looking for things to do</li>
-          <li>Promote events, activities, and experiences in one place</li>
-          <li>Drive real foot traffic to your business or event</li>
-          <li>Simple, fast onboarding — no upfront cost to get started</li>
+          <li>Promote your events, activities, and experiences in one place.</li>
+          <li>Reach people actively looking for things to do around the city.</li>
+          <li>Showcase your business, venue, community, or experience to local Outsiiders.</li>
+          <li>Drive more visibility, RSVPs, and real-world attendance.</li>
+          <li>Start with your first month free as an early host.</li>
         </ul>
-      </div>
+      </section>
 
-      <!-- ================= ACTIONS ================= -->
+      <section class="downloadSection">
+        <h2>Download OUTSIIDE</h2>
+        <p>
+          Get the app and start exploring how your events, activities, and experiences can be discovered by the OUTSIIDE community.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="https://apps.apple.com/ca/app/outsiide/id6758898068" target="_blank" rel="noopener noreferrer">
+            Download on App Store
+          </a>
+
+          <a class="btn primary" href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile&hl=en_CA" target="_blank" rel="noopener noreferrer">
+            Get it on Google Play
+          </a>
+        </div>
+      </section>
 
       <div class="actions">
-        <a class="btn primary" href="/host/">Get Started</a>
         <a class="btn ghost" href="mailto:info@outsiide.ca">Contact Us</a>
+        <a class="btn ghost" href="/">Back Home</a>
       </div>
 
       <div class="footer">
+        <a href="/">Home</a>
+        <a href="/support/">Support</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/conditions/">Conditions of Use</a>
+        <a href="/privacy/">Privacy Policy</a>
         © <span id="y"></span> OUTSIIDE
       </div>
 
