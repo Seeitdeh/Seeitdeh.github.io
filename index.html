@@ -6,7 +6,7 @@
   <title>OUTSIIDE — Discover Events, Activities & Experiences</title>
   <meta
     name="description"
-    content="OUTSIIDE helps you discover events, activities, and experiences happening around you. Now available on the App Store and Google Play."
+    content="OUTSIIDE helps you discover events, activities, and experiences happening around you."
   />
   <meta name="robots" content="index,follow" />
 
@@ -15,12 +15,14 @@
       --bg:#050505;
       --bgImage:url("assets/outsiide-bg.jpg");
       --text:#f2f2f2;
-      --muted:rgba(242,242,242,.75);
+      --muted:rgba(242,242,242,.76);
       --card:rgba(255,255,255,.08);
+      --panel:rgba(0,0,0,.28);
       --border:rgba(255,255,255,.14);
       --button:#ffffff;
       --buttonText:#000000;
       --ghost:rgba(255,255,255,.08);
+      --accent:rgba(140,255,180,.95);
     }
 
     *{box-sizing:border-box}
@@ -30,113 +32,93 @@
       min-height:100vh;
       color:var(--text);
       font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.80)),
+        var(--bgImage) center / cover fixed no-repeat,
+        var(--bg);
+    }
+
+    .page{
+      width:min(1120px,100%);
+      margin:0 auto;
+      padding:28px;
+    }
+
+    .hero{
+      min-height:92vh;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding:28px;
-      background:
-        linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.72)),
-        var(--bgImage) center / cover no-repeat,
-        var(--bg);
-      animation: slowZoom 40s ease-in-out infinite alternate;
-    }
-
-    @keyframes slowZoom {
-      from { background-size:auto, 100% auto, auto; }
-      to   { background-size:auto, 108% auto, auto; }
-    }
-
-    .wrap{
-      width:min(980px,100%);
-      display:flex;
-      justify-content:center;
+      text-align:center;
     }
 
     .card{
-      width:min(820px,100%);
-      padding:36px 28px;
+      width:100%;
+      padding:38px 28px;
       border:1px solid var(--border);
-      border-radius:24px;
+      border-radius:26px;
       background:var(--card);
       backdrop-filter:blur(12px);
       -webkit-backdrop-filter:blur(12px);
-      text-align:center;
       box-shadow:0 26px 60px rgba(0,0,0,.45);
     }
 
     .logo{
-      width:min(360px,78vw);
+      width:min(340px,75vw);
       height:auto;
       display:block;
-      margin:0 auto 16px;
+      margin:0 auto 18px;
       filter:drop-shadow(0 18px 26px rgba(0,0,0,.55));
     }
 
     h1{
-      margin:8px 0 10px;
-      font-size:clamp(24px,3.6vw,38px);
-      letter-spacing:.04em;
+      margin:0 auto 14px;
+      max-width:850px;
+      font-size:clamp(32px,5vw,58px);
+      line-height:1.05;
+      letter-spacing:-.04em;
     }
 
-    .sub{
-      margin:0 auto 10px;
-      max-width:60ch;
+    .lead{
+      margin:0 auto;
+      max-width:760px;
       color:var(--muted);
-      font-size:16px;
+      font-size:clamp(16px,2vw,20px);
       line-height:1.7;
     }
 
     .pill{
       display:inline-block;
-      margin-top:14px;
+      margin:18px auto 0;
       padding:10px 14px;
       border-radius:999px;
-      border:1px solid var(--border);
-      color:rgba(242,242,242,.82);
+      border:1px solid rgba(140,255,180,.35);
+      background:rgba(140,255,180,.10);
+      color:var(--accent);
+      font-weight:800;
+      letter-spacing:.04em;
+      text-transform:uppercase;
       font-size:13px;
-      letter-spacing:.06em;
-      text-transform:uppercase;
-      background:rgba(0,0,0,.18);
     }
 
-    .description{
-      margin:22px auto 0;
-      max-width:64ch;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.75;
-    }
-
-    .storeSection{
-      margin-top:26px;
-    }
-
-    .storeTitle{
-      font-size:14px;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:rgba(242,242,242,.82);
-      margin-bottom:12px;
-    }
-
-    .buttonRow{
+    .actions{
+      margin-top:24px;
       display:flex;
       flex-wrap:wrap;
       gap:12px;
       justify-content:center;
-      margin-top:10px;
     }
 
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      min-width:190px;
       padding:14px 18px;
       border-radius:999px;
       text-decoration:none;
-      font-weight:800;
+      font-weight:850;
       transition:transform 120ms ease, opacity 120ms ease;
+      min-width:190px;
       border:1px solid transparent;
     }
 
@@ -155,86 +137,295 @@
       border-color:var(--border);
     }
 
-    .miniLinks{
-      margin-top:22px;
-      display:flex;
-      flex-wrap:wrap;
+    section{
+      margin-top:28px;
+    }
+
+    .sectionCard{
+      padding:28px;
+      border:1px solid var(--border);
+      border-radius:24px;
+      background:var(--card);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      box-shadow:0 22px 50px rgba(0,0,0,.35);
+    }
+
+    .sectionTitle{
+      margin:0 0 10px;
+      text-align:center;
+      font-size:clamp(24px,3vw,36px);
+      letter-spacing:-.03em;
+    }
+
+    .sectionText{
+      margin:0 auto 22px;
+      text-align:center;
+      max-width:720px;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:15px;
+    }
+
+    .screenshots{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      align-items:start;
+    }
+
+    .phoneShot{
+      border:1px solid var(--border);
+      border-radius:26px;
+      overflow:hidden;
+      background:rgba(0,0,0,.35);
+      box-shadow:0 20px 40px rgba(0,0,0,.42);
+    }
+
+    .phoneShot img{
+      width:100%;
+      display:block;
+    }
+
+    .tabsGrid{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
       gap:14px;
-      justify-content:center;
-      font-size:14px;
+      margin-top:20px;
     }
 
-    .miniLinks a{
-      color:rgba(242,242,242,.82);
-      text-decoration:none;
+    .tabBox{
+      padding:18px 14px;
+      border:1px solid var(--border);
+      border-radius:20px;
+      background:var(--panel);
+      text-align:center;
     }
 
-    .miniLinks a:hover{
-      text-decoration:underline;
+    .tabIcon{
+      font-size:28px;
+      margin-bottom:8px;
+    }
+
+    .tabBox h3{
+      margin:0 0 6px;
+      font-size:15px;
+    }
+
+    .tabBox p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .audienceBox{
+      padding:24px;
+      border:1px solid var(--border);
+      border-radius:22px;
+      background:var(--panel);
+      text-align:left;
+    }
+
+    .audienceBox h3{
+      margin:0 0 8px;
+      font-size:22px;
+    }
+
+    .audienceBox p{
+      margin:0 0 16px;
+      color:var(--muted);
+      line-height:1.65;
+    }
+
+    .downloadBox{
+      text-align:center;
+      padding:26px;
+      border:1px solid var(--border);
+      border-radius:24px;
+      background:rgba(0,0,0,.25);
     }
 
     .footer{
-      margin-top:22px;
+      margin:28px 0 8px;
+      text-align:center;
       font-size:12px;
       color:rgba(242,242,242,.55);
     }
 
-    @media (max-width: 520px){
-      .card{ padding:28px 18px; }
-      .btn{ width:100%; min-width:unset; }
-      .buttonRow{ flex-direction:column; }
+    .footer a{
+      color:rgba(242,242,242,.82);
+      text-decoration:none;
+      margin:0 8px;
     }
 
-    @media (prefers-reduced-motion: reduce){
-      body{ animation:none; }
-      .btn:hover{ transform:none; }
+    .footer a:hover{
+      text-decoration:underline;
+    }
+
+    @media(max-width:860px){
+      .hero{ min-height:auto; padding-top:24px; }
+      .screenshots{ grid-template-columns:1fr; }
+      .tabsGrid{ grid-template-columns:1fr 1fr; }
+      .split{ grid-template-columns:1fr; }
+    }
+
+    @media(max-width:520px){
+      .page{ padding:18px; }
+      .card,.sectionCard{ padding:24px 18px; }
+      .tabsGrid{ grid-template-columns:1fr; }
+      .btn{ width:100%; min-width:unset; }
+      .actions{ flex-direction:column; }
     }
   </style>
 </head>
+
 <body>
-  <div class="wrap">
-    <main class="card" role="main">
-      <img class="logo" src="assets/outsiide-logo.png" alt="OUTSIIDE logo" />
+  <div class="page">
 
-      <h1>Discover What’s Happening Around You</h1>
+    <header class="hero">
+      <main class="card" role="main">
+        <img class="logo" src="assets/outsiide-logo.png" alt="OUTSIIDE logo" />
 
-      <p class="sub">
-        OUTSIIDE helps you discover events, activities, and experiences happening in your city — all in one place.
+        <h1>Find your next move in the city.</h1>
+
+        <p class="lead">
+          OUTSIIDE helps you discover events, activities, and experiences happening around you.
+          Explore what’s live, see what’s worth checking out, and connect with the places and hosts shaping your city.
+        </p>
+
+        <div class="pill">Now available on iOS & Android</div>
+
+        <div class="actions">
+          <a class="btn primary" href="/user/">I’m a User</a>
+          <a class="btn primary" href="/host/">I’m a Host</a>
+          <a class="btn ghost" href="#download">Download App</a>
+        </div>
+      </main>
+    </header>
+
+    <section class="sectionCard">
+      <h2 class="sectionTitle">See what OUTSIIDE looks like</h2>
+      <p class="sectionText">
+        Browse local happenings, discover experiences, and move through the app using simple tabs built around how people actually explore a city.
       </p>
 
-      <div class="pill">Now Available</div>
+      <div class="screenshots">
+        <div class="phoneShot">
+          <img src="assets/screenshot-1.png" alt="OUTSIIDE app screenshot 1">
+        </div>
 
-      <p class="description">
-        Explore local happenings, find new places to go, and stay connected to the energy of your city.
-        Whether you’re looking for something to do tonight, planning ahead for the weekend, or discovering new experiences, OUTSIIDE keeps you in the know.
+        <div class="phoneShot">
+          <img src="assets/screenshot-2.png" alt="OUTSIIDE app screenshot 2">
+        </div>
+
+        <div class="phoneShot">
+          <img src="assets/screenshot-3.png" alt="OUTSIIDE app screenshot 3">
+        </div>
+      </div>
+    </section>
+
+    <section class="sectionCard">
+      <h2 class="sectionTitle">Explore by what you’re looking for</h2>
+      <p class="sectionText">
+        OUTSIIDE is organized around discovery. Whether you’re looking for something happening now, planning your weekend, or finding a new local spot, each tab helps you get there faster.
       </p>
 
-      <section class="storeSection" aria-label="App download links">
-        <div class="storeTitle">Download the app</div>
+      <div class="tabsGrid">
+        <div class="tabBox">
+          <div class="tabIcon">🎉</div>
+          <h3>Events</h3>
+          <p>Concerts, pop-ups, markets, socials, parties, shows, and special gatherings.</p>
+        </div>
 
-        <div class="buttonRow">
-          <a class="btn primary" href="https://apps.apple.com/ca/app/outsiide/id6758898068">
-            Download on the App Store
+        <div class="tabBox">
+          <div class="tabIcon">🏃</div>
+          <h3>Activities</h3>
+          <p>Fitness, games, workshops, classes, clubs, outdoor plans, and things to do.</p>
+        </div>
+
+        <div class="tabBox">
+          <div class="tabIcon">🌆</div>
+          <h3>Experiences</h3>
+          <p>Venues, vibes, ambience, local favorites, patios, lounges, and hidden gems.</p>
+        </div>
+
+        <div class="tabBox">
+          <div class="tabIcon">📍</div>
+          <h3>Live</h3>
+          <p>See what’s happening nearby and discover options based on your city.</p>
+        </div>
+
+        <div class="tabBox">
+          <div class="tabIcon">⭐</div>
+          <h3>Saved</h3>
+          <p>Keep track of events, activities, and experiences you want to revisit.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sectionCard">
+      <h2 class="sectionTitle">Choose your path</h2>
+      <p class="sectionText">
+        Whether you are looking for something to do or looking to bring people to what you host, OUTSIIDE gives you a clear place to start.
+      </p>
+
+      <div class="split">
+        <div class="audienceBox">
+          <h3>I’m a User</h3>
+          <p>
+            Discover events, activities, and experiences around you. Find what’s happening, save what you like, and explore the city with more confidence.
+          </p>
+          <a class="btn primary" href="/user/">Explore as a User</a>
+        </div>
+
+        <div class="audienceBox">
+          <h3>I’m a Host</h3>
+          <p>
+            Promote what you host, showcase your experience, and reach people actively looking for something to do. First month free for early hosts.
+          </p>
+          <a class="btn primary" href="/host/">Learn About Hosting</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="download" class="sectionCard">
+      <div class="downloadBox">
+        <h2 class="sectionTitle">Download OUTSIIDE</h2>
+        <p class="sectionText">
+          Start discovering events, activities, and experiences around you today.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="https://apps.apple.com/ca/app/outsiide/id6758898068" target="_blank" rel="noopener noreferrer">
+            Download on App Store
           </a>
 
-          <a class="btn primary" href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile&hl=en_CA">
+          <a class="btn primary" href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile&hl=en_CA" target="_blank" rel="noopener noreferrer">
             Get it on Google Play
           </a>
         </div>
-      </section>
+      </div>
+    </section>
 
-     <div class="miniLinks">
-        <a href="/support/">Support</a>
-        <a href="/terms/">Terms of Service</a>
-        <a href="/conditions/">Conditions of Use</a>
-        <a href="/privacy/">Privacy Policy</a>
-        <a href="mailto:info@outsiide.ca">info@outsiide.ca</a>
-      </div>
-      
-      <div class="footer">
-        © <span id="y"></span> OUTSIIDE
-      </div>
-    </main>
+    <footer class="footer">
+      <a href="/user/">User</a>
+      <a href="/host/">Host</a>
+      <a href="/support/">Support</a>
+      <a href="/terms/">Terms</a>
+      <a href="/conditions/">Conditions</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="mailto:info@outsiide.ca">info@outsiide.ca</a>
+      <br><br>
+      © <span id="y"></span> OUTSIIDE
+    </footer>
+
   </div>
 
   <script>
