@@ -1,551 +1,350 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OUTSIIDE — Discover Events, Activities & Experiences</title>
-  <meta name="description" content="OUTSIIDE helps you discover events, activities, and experiences happening around you." />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OUTSIIDE</title>
 
-  <style>
-    :root{
-      --bg:#050505;
-      --bgImage:url("assets/outsiide-bg.jpg");
-      --text:#f5f5f5;
-      --muted:rgba(245,245,245,.76);
-      --card:rgba(255,255,255,.08);
-      --panel:rgba(0,0,0,.30);
-      --border:rgba(255,255,255,.14);
-      --button:#ffffff;
-      --buttonText:#000000;
-      --ghost:rgba(255,255,255,.08);
-      --accent:rgba(140,255,180,.95);
-    }
+<style>
+:root{
+  --bg:#050505;
+  --bgImage:url("assets/outsiide-bg.jpg");
+  --text:#f5f5f5;
+  --muted:rgba(245,245,245,.75);
+  --card:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.14);
+  --ghost:rgba(255,255,255,.08);
+}
 
-    *{box-sizing:border-box}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
-    html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:system-ui;
+  color:var(--text);
+  background:
+    linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.85)),
+    var(--bgImage) center / cover fixed no-repeat;
+}
 
-    body{
-      margin:0;
-      color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:
-        linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.84)),
-        var(--bgImage) center / cover fixed no-repeat,
-        var(--bg);
-    }
+/* NAV */
+.nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  padding:12px;
+}
 
-    .page{
-      width:min(1180px,100%);
-      margin:0 auto;
-      padding:28px;
-    }
+.navInner{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 18px;
+  border-radius:999px;
+  background:rgba(0,0,0,.5);
+  backdrop-filter:blur(10px);
+  border:1px solid var(--border);
+}
 
-    .nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
-      margin-bottom:22px;
-      padding:14px 18px;
-      border:1px solid var(--border);
-      border-radius:999px;
-      background:rgba(0,0,0,.28);
-      backdrop-filter:blur(12px);
-    }
+.nav img{width:120px}
 
-    .nav img{
-      width:135px;
-      height:auto;
-    }
+.navLinks{
+  display:flex;
+  gap:16px;
+  align-items:center;
+}
 
-    .navLinks{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-      font-size:14px;
-    }
+.navLinks a{
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+}
 
-    .navLinks a{
-      color:rgba(255,255,255,.82);
-      text-decoration:none;
-    }
+.navBtn{
+  padding:8px 14px;
+  border-radius:999px;
+  background:#fff;
+  color:#000;
+  font-weight:800;
+  text-decoration:none;
+}
 
-    .navLinks a:hover{text-decoration:underline}
+/* HERO */
+.hero{
+  text-align:center;
+  padding:80px 20px;
+}
 
-    .hero{
-      min-height:82vh;
-      display:grid;
-      place-items:center;
-      text-align:center;
-    }
+.hero img{width:280px}
 
-    .card,.sectionCard{
-      border:1px solid var(--border);
-      border-radius:28px;
-      background:var(--card);
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
-      box-shadow:0 26px 70px rgba(0,0,0,.48);
-    }
+.hero h1{
+  font-size:52px;
+  margin:20px 0 10px;
+}
 
-    .card{
-      width:100%;
-      padding:46px 30px;
-    }
+.hero p{
+  max-width:600px;
+  margin:auto;
+  color:var(--muted);
+}
 
-    .logo{
-      width:min(360px,76vw);
-      display:block;
-      margin:0 auto 20px;
-      filter:drop-shadow(0 18px 26px rgba(0,0,0,.55));
-    }
+/* BUTTONS */
+.actions{
+  margin-top:20px;
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
 
-    .badge{
-      display:inline-block;
-      margin-bottom:18px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(140,255,180,.35);
-      background:rgba(140,255,180,.10);
-      color:var(--accent);
-      font-weight:850;
-      letter-spacing:.05em;
-      text-transform:uppercase;
-      font-size:13px;
-    }
+.btn{
+  padding:14px 18px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:800;
+}
 
-    h1{
-      margin:0 auto 14px;
-      max-width:900px;
-      font-size:clamp(40px,7vw,76px);
-      line-height:.98;
-      letter-spacing:-.065em;
-    }
+.primary{background:#fff;color:#000}
+.ghost{border:1px solid var(--border);color:#fff}
 
-    .lead{
-      max-width:760px;
-      margin:0 auto;
-      color:var(--muted);
-      font-size:clamp(16px,2vw,21px);
-      line-height:1.72;
-    }
+/* SECTIONS */
+.section{
+  padding:40px 20px;
+  max-width:1100px;
+  margin:auto;
+}
 
-    .actions{
-      margin-top:26px;
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
+.section h2{text-align:center}
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:15px 20px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:900;
-      min-width:190px;
-      transition:transform 140ms ease, opacity 140ms ease;
-      border:1px solid transparent;
-    }
+/* SCREENSHOTS */
+.screens{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+}
 
-    .btn:hover{transform:translateY(-2px)}
+.screens img{
+  width:100%;
+  border-radius:16px;
+}
 
-    .btn.primary{
-      background:var(--button);
-      color:var(--buttonText);
-    }
+/* FEATURES */
+.features{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
 
-    .btn.ghost{
-      background:var(--ghost);
-      color:var(--text);
-      border-color:var(--border);
-    }
+.feature{
+  padding:18px;
+  border-radius:16px;
+  background:rgba(0,0,0,.4);
+  border:1px solid var(--border);
+}
 
-    section{margin-top:30px}
+/* AUDIENCE */
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
 
-    .sectionCard{
-      padding:34px 28px;
-    }
+.box{
+  padding:20px;
+  border-radius:16px;
+  background:rgba(0,0,0,.4);
+}
 
-    .sectionTitle{
-      margin:0 0 10px;
-      text-align:center;
-      font-size:clamp(28px,4vw,44px);
-      line-height:1.05;
-      letter-spacing:-.045em;
-    }
+/* DOWNLOAD */
+.store{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
 
-    .sectionText{
-      max-width:760px;
-      margin:0 auto 24px;
-      color:var(--muted);
-      text-align:center;
-      line-height:1.7;
-      font-size:16px;
-    }
+.store a{
+  background:#fff;
+  color:#000;
+  padding:12px 18px;
+  border-radius:12px;
+  font-weight:800;
+  text-decoration:none;
+}
 
-    .screenshots{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:14px;
-      align-items:start;
-    }
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,.7);
+}
 
-    .phoneShot{
-      border-radius:26px;
-      overflow:hidden;
-      border:1px solid var(--border);
-      background:rgba(0,0,0,.35);
-      box-shadow:0 22px 46px rgba(0,0,0,.42);
-      transition:transform 180ms ease;
-    }
+.modalContent{
+  width:90%;
+  max-width:400px;
+  padding:20px;
+  border-radius:12px;
+  background:#111;
+}
 
-    .phoneShot:hover{transform:translateY(-6px)}
+.modal input,
+.modal textarea{
+  width:100%;
+  margin-top:10px;
+  padding:10px;
+  border-radius:8px;
+  background:#000;
+  color:#fff;
+  border:1px solid var(--border);
+}
 
-    .phoneShot img{
-      width:100%;
-      display:block;
-    }
+.modal button{
+  margin-top:10px;
+  width:100%;
+  padding:10px;
+  background:#fff;
+  color:#000;
+  border-radius:999px;
+  font-weight:800;
+}
 
-    .tabsGrid{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:14px;
-    }
+.success{
+  color:#7fff9f;
+  margin-top:10px;
+  display:none;
+}
 
-    .tabBox,.audienceBox,.featureBox{
-      padding:20px 16px;
-      border:1px solid var(--border);
-      border-radius:22px;
-      background:var(--panel);
-    }
-
-    .tabBox{text-align:center}
-
-    .tabIcon{
-      font-size:30px;
-      margin-bottom:8px;
-    }
-
-    .tabBox h3,.featureBox h3,.audienceBox h3{
-      margin:0 0 8px;
-      font-size:18px;
-    }
-
-    .tabBox p,.featureBox p,.audienceBox p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.58;
-      font-size:14px;
-    }
-
-    .featuresGrid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
-    }
-
-    .split{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-    }
-
-    .audienceBox{
-      text-align:left;
-      padding:26px;
-    }
-
-    .audienceBox h3{
-      font-size:24px;
-    }
-
-    .audienceBox p{
-      margin-bottom:18px;
-      font-size:15px;
-    }
-
-    .downloadBox{
-      text-align:center;
-      padding:28px;
-      border:1px solid var(--border);
-      border-radius:24px;
-      background:rgba(0,0,0,.25);
-    }
-
-    .storeBtn{
-      display:inline-flex;
-      flex-direction:column;
-      align-items:flex-start;
-      justify-content:center;
-      min-width:210px;
-      padding:13px 18px;
-      border-radius:16px;
-      background:#fff;
-      color:#000;
-      text-decoration:none;
-      font-weight:900;
-      line-height:1.15;
-    }
-
-    .storeBtn span{
-      font-size:12px;
-      font-weight:700;
-      opacity:.75;
-    }
-
-    .storeBtn strong{
-      font-size:18px;
-    }
-
-    .footer{
-      margin:34px 0 8px;
-      text-align:center;
-      font-size:12px;
-      color:rgba(245,245,245,.56);
-    }
-
-    .footer a{
-      color:rgba(245,245,245,.82);
-      text-decoration:none;
-      margin:0 8px;
-    }
-
-    .footer a:hover{text-decoration:underline}
-
-    .reveal{
-      opacity:0;
-      transform:translateY(18px);
-      transition:opacity 700ms ease, transform 700ms ease;
-    }
-
-    .reveal.show{
-      opacity:1;
-      transform:translateY(0);
-    }
-
-    @media(max-width:980px){
-      .screenshots{grid-template-columns:repeat(2,1fr)}
-      .tabsGrid{grid-template-columns:repeat(2,1fr)}
-      .featuresGrid{grid-template-columns:1fr}
-      .split{grid-template-columns:1fr}
-    }
-
-    @media(max-width:620px){
-      .page{padding:18px}
-      .nav{
-        border-radius:24px;
-        align-items:flex-start;
-        flex-direction:column;
-      }
-      .navLinks{
-        justify-content:flex-start;
-      }
-      .card,.sectionCard{padding:26px 18px}
-      .screenshots{grid-template-columns:1fr}
-      .tabsGrid{grid-template-columns:1fr}
-      .actions{flex-direction:column}
-      .btn,.storeBtn{width:100%;min-width:unset}
-    }
-
-    @media(prefers-reduced-motion:reduce){
-      .reveal{opacity:1;transform:none;transition:none}
-      .btn:hover,.phoneShot:hover{transform:none}
-    }
-  </style>
+/* MOBILE */
+@media(max-width:900px){
+  .screens{grid-template-columns:1fr 1fr}
+  .features{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
+}
+</style>
 </head>
 
 <body>
-  <div class="page">
 
-    <nav class="nav">
-      <img src="assets/outsiide-logo.png" alt="OUTSIIDE logo">
-      <div class="navLinks">
-        <a href="/user/">User</a>
-        <a href="/host/">Host</a>
-        <a href="#screenshots">App</a>
-        <a href="#download">Download</a>
-        <a href="/support/">Support</a>
-      </div>
-    </nav>
-
-    <header class="hero">
-      <main class="card reveal">
-        <img class="logo" src="assets/outsiide-logo.png" alt="OUTSIIDE logo" />
-
-        <div class="badge">Now available on iOS & Android</div>
-
-        <h1>Your city has plans. OUTSIIDE helps you find them.</h1>
-
-        <p class="lead">
-          Discover events, activities, and experiences happening around you. Whether you’re looking for something to do or you’re a host trying to reach the right audience, OUTSIIDE brings the city together in one place.
-        </p>
-
-        <div class="actions">
-          <a class="btn primary" href="/user/">I’m a User</a>
-          <a class="btn primary" href="/host/">I’m a Host</a>
-          <a class="btn ghost" href="#download">Download App</a>
-        </div>
-      </main>
-    </header>
-
-    <section id="screenshots" class="sectionCard reveal">
-      <h2 class="sectionTitle">A cleaner way to discover what’s happening.</h2>
-      <p class="sectionText">
-        OUTSIIDE is built for quick discovery: browse, explore, save, and connect with local events, activities, and experiences from your phone.
-      </p>
-
-      <div class="screenshots">
-        <div class="phoneShot"><img src="assets/screenshot-1.png" alt="OUTSIIDE screenshot 1"></div>
-        <div class="phoneShot"><img src="assets/screenshot-2.png" alt="OUTSIIDE screenshot 2"></div>
-        <div class="phoneShot"><img src="assets/screenshot-3.png" alt="OUTSIIDE screenshot 3"></div>
-        <div class="phoneShot"><img src="assets/screenshot-4.png" alt="OUTSIIDE screenshot 4"></div>
-        <div class="phoneShot"><img src="assets/screenshot-5.png" alt="OUTSIIDE screenshot 5"></div>
-      </div>
-    </section>
-
-    <section class="sectionCard reveal">
-      <h2 class="sectionTitle">Built around how people actually explore.</h2>
-      <p class="sectionText">
-        Move through the city by category, timing, vibe, and saved interests.
-      </p>
-
-      <div class="tabsGrid">
-        <div class="tabBox">
-          <div class="tabIcon">🎉</div>
-          <h3>Events</h3>
-          <p>Concerts, socials, markets, parties, shows, launches, and special gatherings.</p>
-        </div>
-
-        <div class="tabBox">
-          <div class="tabIcon">🏃</div>
-          <h3>Activities</h3>
-          <p>Classes, clubs, fitness, games, workshops, outdoor plans, and things to do.</p>
-        </div>
-
-        <div class="tabBox">
-          <div class="tabIcon">🌆</div>
-          <h3>Experiences</h3>
-          <p>Venues, vibes, ambience, hidden gems, lounges, patios, and local favourites.</p>
-        </div>
-
-        <div class="tabBox">
-          <div class="tabIcon">📍</div>
-          <h3>Live</h3>
-          <p>Find what’s happening nearby and explore based on where you are.</p>
-        </div>
-
-        <div class="tabBox">
-          <div class="tabIcon">⭐</div>
-          <h3>Saved</h3>
-          <p>Keep track of the things you want to attend, visit, or revisit later.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="sectionCard reveal">
-      <h2 class="sectionTitle">Why OUTSIIDE?</h2>
-      <p class="sectionText">
-        OUTSIIDE helps reduce the noise. Instead of scrolling everywhere, users can quickly find what fits their mood, city, and plans.
-      </p>
-
-      <div class="featuresGrid">
-        <div class="featureBox">
-          <h3>Local Discovery</h3>
-          <p>Find real things happening around your city without jumping between apps, flyers, and social feeds.</p>
-        </div>
-
-        <div class="featureBox">
-          <h3>For Hosts</h3>
-          <p>Give your event, activity, or experience a direct discovery channel to people looking for something to do.</p>
-        </div>
-
-        <div class="featureBox">
-          <h3>For the Community</h3>
-          <p>Make it easier for people to connect with local culture, businesses, creators, and experiences.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="sectionCard reveal">
-      <h2 class="sectionTitle">Choose your path.</h2>
-      <p class="sectionText">
-        Start where you belong: discover as a user or grow your visibility as a host.
-      </p>
-
-      <div class="split">
-        <div class="audienceBox">
-          <h3>I’m a User</h3>
-          <p>
-            Discover events, activities, and experiences around you. Save what you like, explore what’s happening, and find your next move.
-          </p>
-          <a class="btn primary" href="/user/">Explore as a User</a>
-        </div>
-
-        <div class="audienceBox">
-          <h3>I’m a Host</h3>
-          <p>
-            Promote what you host, showcase your experience, and reach people actively looking for things to do. First month free for early hosts.
-          </p>
-          <a class="btn primary" href="/host/">Learn About Hosting</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="download" class="sectionCard reveal">
-      <div class="downloadBox">
-        <h2 class="sectionTitle">Download OUTSIIDE</h2>
-        <p class="sectionText">
-          Available now on the App Store and Google Play.
-        </p>
-
-        <div class="actions">
-          <a class="storeBtn" href="https://apps.apple.com/ca/app/outsiide/id6758898068" target="_blank" rel="noopener noreferrer">
-            <span>Download on the</span>
-            <strong>App Store</strong>
-          </a>
-
-          <a class="storeBtn" href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile&hl=en_CA" target="_blank" rel="noopener noreferrer">
-            <span>Get it on</span>
-            <strong>Google Play</strong>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
+<!-- NAV -->
+<div class="nav">
+  <div class="navInner">
+    <img src="assets/outsiide-logo.png">
+    <div class="navLinks">
       <a href="/user/">User</a>
       <a href="/host/">Host</a>
-      <a href="/support/">Support</a>
-      <a href="/terms/">Terms</a>
-      <a href="/conditions/">Conditions</a>
-      <a href="/privacy/">Privacy</a>
-      <a href="mailto:info@outsiide.ca">info@outsiide.ca</a>
-      <br><br>
-      © <span id="y"></span> OUTSIIDE
-    </footer>
-
+      <a href="#download">Download</a>
+      <a class="navBtn" href="/host/">Join Early Hosts</a>
+      <button id="contactBtn" class="navBtn">Contact</button>
+    </div>
   </div>
+</div>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+<!-- HERO -->
+<div class="hero">
+  <img src="assets/outsiide-logo.png">
+  <h1>Find your next move.</h1>
+  <p>Discover events, activities, and experiences happening around you.</p>
 
-    const reveals = document.querySelectorAll(".reveal");
+  <div class="actions">
+    <a class="btn primary" href="/user/">I’m a User</a>
+    <a class="btn primary" href="/host/">I’m a Host</a>
+  </div>
+</div>
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add("show");
-        }
-      });
-    }, { threshold: 0.12 });
+<!-- SCREENSHOTS -->
+<div class="section">
+  <h2>See the App</h2>
+  <div class="screens">
+    <img src="assets/screenshot-1.png">
+    <img src="assets/screenshot-2.png">
+    <img src="assets/screenshot-3.png">
+    <img src="assets/screenshot-4.png">
+    <img src="assets/screenshot-5.png">
+  </div>
+</div>
 
-    reveals.forEach(el => observer.observe(el));
-  </script>
+<!-- FEATURES -->
+<div class="section">
+  <h2>Why OUTSIIDE</h2>
+  <div class="features">
+    <div class="feature">Find local events instantly</div>
+    <div class="feature">Promote your experiences</div>
+    <div class="feature">Connect people to real life</div>
+  </div>
+</div>
+
+<!-- AUDIENCE -->
+<div class="section">
+  <h2>Choose your path</h2>
+  <div class="split">
+    <div class="box">
+      <h3>User</h3>
+      <p>Discover things to do.</p>
+      <a class="btn primary" href="/user/">Explore</a>
+    </div>
+    <div class="box">
+      <h3>Host</h3>
+      <p>Promote your events.</p>
+      <a class="btn primary" href="/host/">Start Hosting</a>
+    </div>
+  </div>
+</div>
+
+<!-- DOWNLOAD -->
+<div id="download" class="section">
+  <h2>Download</h2>
+  <div class="store">
+    <a href="https://apps.apple.com/ca/app/outsiide/id6758898068">App Store</a>
+    <a href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile&hl=en_CA">Google Play</a>
+  </div>
+</div>
+
+<!-- CONTACT MODAL -->
+<div id="modal" class="modal">
+  <div class="modalContent">
+    <h3>Contact Us</h3>
+
+    <form id="form">
+      <input name="name" placeholder="Name" required>
+      <input name="email" type="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+
+    <div id="success" class="success">Message sent ✔</div>
+  </div>
+</div>
+
+<script>
+const modal = document.getElementById("modal");
+document.getElementById("contactBtn").onclick = ()=>modal.style.display="flex";
+window.onclick = e=>{ if(e.target===modal) modal.style.display="none"; }
+
+const form = document.getElementById("form");
+form.addEventListener("submit", async e=>{
+  e.preventDefault();
+
+  const data = new FormData(form);
+
+  const res = await fetch("https://formspree.io/f/meevgpla", {
+    method:"POST",
+    body:data,
+    headers:{'Accept':'application/json'}
+  });
+
+  if(res.ok){
+    form.reset();
+    document.getElementById("success").style.display="block";
+    setTimeout(()=>modal.style.display="none",2000);
+  }
+});
+</script>
+
 </body>
 </html>
