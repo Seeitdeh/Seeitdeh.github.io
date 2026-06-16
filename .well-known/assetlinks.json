@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "ca.outsiide.mobile",
+      "sha256_cert_fingerprints": [
+        "1F:90:CF:FE:84:31:F1:62:F9:AD:41:A1:F5:21:76:61:81:33:21:2E:DD:A3:9F:6F:69:95:76:C9:7D:6B:D3:48"
+      ]
+    }
+  }
+]
