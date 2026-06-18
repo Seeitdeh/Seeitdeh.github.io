@@ -2,7 +2,7 @@
   "applinks": {
     "details": [
       {
-        "appIDs": ["2B7K4YLS34.ca.outsiide.mobile"],
+        "appIDs": ["DA4FFH9DKC.ca.outsiide.mobile"],
         "components": [
           { "/": "/post/*", "comment": "Shared post deep links" }
         ]
