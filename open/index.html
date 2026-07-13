@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Open in OUTSIIDE</title>
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="OUTSIIDE">
+<meta property="og:description" content="Discover events, activities and experiences around you.">
+<meta property="og:url" content="https://outsiide.ca/open">
+
+<style>
+
+:root{
+  color-scheme:dark;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+
+  background:
+    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
+    url('/assets/outsiide-bg.jpg') center/cover no-repeat;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  color:white;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+
+  padding:24px;
+}
+
+.container{
+  max-width:900px;
+  text-align:center;
+}
+
+.logo{
+  width:280px;
+  margin-bottom:20px;
+}
+
+.badge{
+  display:inline-block;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(140,255,180,.12);
+  border:1px solid rgba(140,255,180,.3);
+  color:#8cffb4;
+  font-weight:700;
+  margin-bottom:20px;
+}
+
+h1{
+  font-size:42px;
+  margin-bottom:12px;
+}
+
+p{
+  color:#d0d0d0;
+  max-width:700px;
+  margin:auto;
+  line-height:1.7;
+}
+
+.screens{
+  margin-top:35px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+.screens img{
+  width:100%;
+  border-radius:18px;
+}
+
+.buttons{
+  margin-top:35px;
+}
+
+.btn{
+  display:inline-block;
+  margin:8px;
+  padding:14px 22px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:700;
+  background:white;
+  color:black;
+}
+
+.websiteLink{
+  display:block;
+  margin-top:20px;
+  color:white;
+  text-decoration:none;
+}
+
+@media(max-width:700px){
+
+  .screens{
+    grid-template-columns:1fr;
+  }
+
+  h1{
+    font-size:30px;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <img src="/assets/outsiide-logo.png" class="logo">
+
+  <div class="badge">
+    Opening OUTSIIDE...
+  </div>
+
+  <h1>Discover what's happening around you.</h1>
+
+  <p>
+    If OUTSIIDE is not installed, you'll be redirected to the appropriate app store shortly.
+  </p>
+
+  <div class="screens">
+
+    <img src="/assets/screenshot-1.png">
+    <img src="/assets/screenshot-2.png">
+    <img src="/assets/screenshot-3.png">
+
+  </div>
+
+  <div class="buttons">
+
+    <a class="btn"
+       href="https://apps.apple.com/ca/app/outsiide/id6758898068">
+      Download on App Store
+    </a>
+
+    <a class="btn"
+       href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile">
+      Get it on Google Play
+    </a>
+
+  </div>
+
+  <a class="websiteLink" href="https://outsiide.ca">
+    Continue on Website →
+  </a>
+
+</div>
+
+<script>
+
+(function(){
+
+  const ua = navigator.userAgent || "";
+
+  const isIOS =
+    /iphone|ipad|ipod/i.test(ua);
+
+  const isAndroid =
+    /android/i.test(ua);
+
+  const appStore =
+    "https://apps.apple.com/ca/app/outsiide/id6758898068";
+
+  const playStore =
+    "https://play.google.com/store/apps/details?id=ca.outsiide.mobile";
+
+  const storeUrl =
+    isIOS ? appStore :
+    isAndroid ? playStore :
+    null;
+
+  if(storeUrl){
+    setTimeout(()=>{
+      window.location.href = storeUrl;
+    },1500);
+  }
+
+})();
+
+</script>
+
+</body>
+</html>
