@@ -1,164 +1,215 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>OUTSIIDE Privacy Policy</title>
-  <meta name="description" content="OUTSIIDE Privacy Policy" />
+  <meta name="description" content="OUTSIIDE Privacy Policy — how we collect, use, and protect your personal information." />
   <meta name="robots" content="index,follow" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
   <style>
-    :root{
-      --bg:#050505;
-      --bgImage:url("../assets/outsiide-bg.jpg");
-      --text:#f2f2f2;
-      --muted:rgba(242,242,242,.75);
-      --card:rgba(255,255,255,.08);
-      --border:rgba(255,255,255,.14);
-      --ghost:rgba(255,255,255,.08);
+    :root {
+      color-scheme: dark;
+      --bg: #050505;
+      --text: #f5f5f5;
+      --muted: rgba(245,245,245,.68);
+      --card: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.10);
+      --border-light: rgba(255,255,255,.06);
+      --ghost: rgba(255,255,255,.07);
+      --accent: #8cffb4;
+      --accent-dim: rgba(140,255,180,.15);
+      --accent-border: rgba(140,255,180,.30);
+      --radius-md: 22px;
+      --radius-lg: 28px;
+      --radius-pill: 999px;
+      --shadow-card: 0 24px 64px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.05);
+      --transition: 200ms cubic-bezier(.4,0,.2,1);
     }
 
-    *{box-sizing:border-box}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body{
-      margin:0;
-      min-height:100vh;
-      color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:28px;
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
       background:
         linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.72)),
-        var(--bgImage) center / cover no-repeat,
+        url("../assets/outsiide-bg.jpg") center / cover no-repeat,
         var(--bg);
       animation: slowZoom 40s ease-in-out infinite alternate;
     }
 
     @keyframes slowZoom {
-      from { background-size:auto, 100% auto, auto; }
-      to   { background-size:auto, 108% auto, auto; }
+      from { background-size: auto, 100% auto, auto; }
+      to   { background-size: auto, 108% auto, auto; }
     }
 
-    .wrap{
-      width:min(1100px,100%);
-      display:flex;
-      justify-content:center;
+    .wrap {
+      width: min(1100px, 100%);
+      display: flex;
+      justify-content: center;
     }
 
-    .card{
-      width:min(940px,100%);
-      padding:36px 28px;
-      border:1px solid var(--border);
-      border-radius:24px;
-      background:var(--card);
-      backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
-      box-shadow:0 26px 60px rgba(0,0,0,.45);
+    .card {
+      width: min(940px, 100%);
+      padding: 40px 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-card);
     }
 
-    .logo{
-      width:min(240px,65vw);
-      height:auto;
-      display:block;
-      margin:0 auto 16px;
+    .logo {
+      width: min(240px, 65vw);
+      height: auto;
+      display: block;
+      margin: 0 auto 18px;
+      filter: drop-shadow(0 16px 24px rgba(0,0,0,.5));
     }
 
-    .top{
-      text-align:center;
-      margin-bottom:24px;
+    .top {
+      text-align: center;
+      margin-bottom: 28px;
     }
 
-    h1{
-      margin:0 0 8px;
-      font-size:clamp(26px,3.5vw,38px);
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 900;
+      letter-spacing: -.03em;
     }
 
-    h2{
-      margin:24px 0 10px;
-      font-size:19px;
+    h2 {
+      margin: 32px 0 12px;
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-light);
     }
 
-    h3{
-      margin:18px 0 8px;
-      font-size:16px;
+    h3 {
+      margin: 20px 0 8px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent);
     }
 
-    p, li{
-      color:var(--muted);
-      line-height:1.75;
-      font-size:15px;
+    p, li {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 15px;
     }
 
-    ul{
-      padding-left:20px;
+    p {
+      margin-bottom: 14px;
     }
 
-    .actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      justify-content:center;
-      margin-top:26px;
+    ul {
+      padding-left: 22px;
+      margin-bottom: 14px;
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:14px 18px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:800;
-      border:1px solid var(--border);
-      background:var(--ghost);
-      color:var(--text);
+    li {
+      padding: 2px 0;
     }
 
-    .btn:hover{
-      text-decoration:underline;
+    li::marker {
+      color: rgba(245,245,245,.3);
     }
 
-    .footer{
-      margin-top:24px;
-      text-align:center;
-      font-size:12px;
-      color:rgba(242,242,242,.55);
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity var(--transition);
     }
 
-    .footer a{
-      color:rgba(242,242,242,.8);
-      text-decoration:none;
-      margin:0 8px;
+    a:hover { opacity: .8; }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 32px;
     }
 
-    .footer a:hover{
-      text-decoration:underline;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      border: 1px solid var(--border);
+      background: var(--ghost);
+      color: var(--text);
+      cursor: pointer;
+      transition: transform var(--transition), background var(--transition);
     }
 
-    @media (max-width:640px){
-      .card{ padding:28px 18px; }
+    .btn:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.12);
+      opacity: 1;
     }
 
-    @media (prefers-reduced-motion: reduce){
-      body{ animation:none; }
+    .footer {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-light);
+      text-align: center;
+      font-size: 13px;
+      color: rgba(245,245,245,.45);
+    }
+
+    .footer a {
+      color: rgba(245,245,245,.75);
+      margin: 0 8px;
+    }
+
+    .footer a:hover {
+      color: var(--accent);
+      opacity: 1;
+    }
+
+    @media (max-width: 640px) {
+      .card { padding: 28px 18px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body { animation: none; }
+      .btn:hover { transform: none; }
     }
   </style>
 </head>
 <body>
   <div class="wrap">
-    <main class="card" role="main">
+    <main class="card">
       <div class="top">
         <img class="logo" src="../assets/outsiide-logo.png" alt="OUTSIIDE logo" />
         <h1>Privacy Policy</h1>
         <p>
-          Effective Date: INSERT_EFFECTIVE_DATE<br>
-          Last Updated: INSERT_LAST_UPDATED_DATE
+          Effective Date: January 1, 2025<br />
+          Last Updated: December 27, 2025
         </p>
       </div>
 
@@ -167,9 +218,7 @@
         This Privacy Policy explains how we collect, use, disclose, and protect your information when you use the Platform.
       </p>
 
-      <p>
-        This Policy is designed to align with:
-      </p>
+      <p>This Policy is designed to align with:</p>
       <ul>
         <li>PIPEDA (Canada)</li>
         <li>GDPR (EU/EEA/UK)</li>
@@ -198,7 +247,7 @@
 
       <h3>1.3 Location Data</h3>
       <ul>
-        <li>With your permission, we collect approximate or precise location to provide features such as “Live” and local discovery</li>
+        <li>With your permission, we collect approximate or precise location to provide features such as "Live" and local discovery</li>
         <li>You may disable location at the OS level, though some features may be limited</li>
       </ul>
 
@@ -234,7 +283,7 @@
         <li>Legal obligation (e.g., responding to lawful requests or court orders)</li>
       </ul>
 
-      <h2>4. Sharing & Disclosure of Data</h2>
+      <h2>4. Sharing &amp; Disclosure of Data</h2>
       <p>We may share personal data with:</p>
       <ul>
         <li>Service providers (hosting, analytics, payment processing, messaging)</li>
@@ -247,11 +296,11 @@
       </p>
 
       <p>
-        We do not sell your personal information in the conventional sense. If laws define “sale” broadly
+        We do not sell your personal information in the conventional sense. If laws define "sale" broadly
         (e.g., CCPA), we will provide appropriate opt-outs where required.
       </p>
 
-      <h2>5. Cookies & Tracking</h2>
+      <h2>5. Cookies &amp; Tracking</h2>
       <p>Our app and website may use cookies or similar technologies to:</p>
       <ul>
         <li>Maintain sessions</li>
@@ -273,16 +322,14 @@
         for record-keeping, security, and analytics, even after events are over.
       </p>
 
-      <p>
-        When data is no longer needed, we will delete or anonymize it.
-      </p>
+      <p>When data is no longer needed, we will delete or anonymize it.</p>
 
       <h2>7. Your Rights</h2>
       <p>Depending on your jurisdiction, you may have rights to:</p>
       <ul>
         <li>Access your personal data</li>
         <li>Correct or update inaccurate data</li>
-        <li>Delete certain data (“right to be forgotten”)</li>
+        <li>Delete certain data ("right to be forgotten")</li>
         <li>Object or restrict certain processing</li>
         <li>Data portability (exporting your data)</li>
         <li>Withdraw consent for consent-based processing</li>
@@ -291,14 +338,12 @@
 
       <p>
         To exercise rights, contact:
-        <a href="mailto:support@outsiide.ca" style="color:#fff;">privacy@outsiide.ca</a>
+        <a href="mailto:support@outsiide.ca">support@outsiide.ca</a>
       </p>
 
-      <p>
-        We may take steps to verify your identity before fulfilling requests.
-      </p>
+      <p>We may take steps to verify your identity before fulfilling requests.</p>
 
-      <h2>8. Children’s Privacy</h2>
+      <h2>8. Children's Privacy</h2>
       <p>
         Outsiide is not intended for children under 13. We do not knowingly collect personal data from children under 13.
         If we learn that a child under 13 has provided information, we will delete it.
@@ -312,9 +357,7 @@
         <li>Monitoring and logging for security events</li>
       </ul>
 
-      <p>
-        However, no system is completely secure. You use the Platform at your own risk.
-      </p>
+      <p>However, no system is completely secure. You use the Platform at your own risk.</p>
 
       <h2>10. International Data Transfers</h2>
       <p>
@@ -339,9 +382,9 @@
         If you have questions or concerns about these Terms or this Policy, or wish to exercise your rights, contact:
       </p>
       <p>
-        Outsiide Inc.<br>
-        Email: <a href="mailto:support@outsiide.ca" style="color:#fff;">privacy@outsiide.ca</a><br>
-        INSERT_PHYSICAL_ADDRESS
+        Outsiide Inc.<br />
+        Email: <a href="mailto:support@outsiide.ca">support@outsiide.ca</a><br />
+        Toronto, Ontario, Canada
       </p>
 
       <h2>13. Payment Information (PCI-DSS Compliant)</h2>
@@ -352,7 +395,7 @@
         <li>We may store transaction amount, transaction ID, timestamp, and the last 4 digits of the card</li>
       </ul>
 
-      <h2>14. User Behavior Data & Analytics</h2>
+      <h2>14. User Behavior Data &amp; Analytics</h2>
       <p>We collect usage data to:</p>
       <ul>
         <li>Monitor app performance</li>
@@ -360,7 +403,7 @@
         <li>Improve feed recommendations</li>
         <li>Track event popularity</li>
         <li>Ensure accurate Host analytics</li>
-        <li>Improve location-based discovery (“Happening Now”)</li>
+        <li>Improve location-based discovery ("Happening Now")</li>
       </ul>
 
       <p>This data may include:</p>
@@ -373,11 +416,9 @@
         <li>Heatmaps (if implemented)</li>
       </ul>
 
-      <p>
-        Data is used in aggregated form unless necessary for fraud prevention or safety.
-      </p>
+      <p>Data is used in aggregated form unless necessary for fraud prevention or safety.</p>
 
-      <h2>15. Profiling & Automated Recommendations (GDPR Requirement)</h2>
+      <h2>15. Profiling &amp; Automated Recommendations (GDPR Requirement)</h2>
       <p>Outsiide uses automated systems to recommend:</p>
       <ul>
         <li>Events, activities, and experiences</li>
@@ -386,9 +427,7 @@
         <li>Trending or local opportunities</li>
       </ul>
 
-      <p>
-        This is considered “profiling” under GDPR.
-      </p>
+      <p>This is considered "profiling" under GDPR.</p>
 
       <p>You may request:</p>
       <ul>
@@ -421,9 +460,7 @@
         <li>Where necessary to protect life or safety</li>
       </ul>
 
-      <p>
-        We attempt to notify users when legally permitted.
-      </p>
+      <p>We attempt to notify users when legally permitted.</p>
 
       <h2>18. Data Breach Notification</h2>
       <p>If a data breach occurs involving personal information, Outsiide will:</p>
@@ -434,7 +471,7 @@
         <li>Take corrective measures</li>
       </ul>
 
-      <h2>19. Host Analytics & Patron Visibility</h2>
+      <h2>19. Host Analytics &amp; Patron Visibility</h2>
       <p>Hosts may receive visibility into:</p>
       <ul>
         <li>RSVP counts</li>
@@ -450,39 +487,47 @@
         <li>Location tracking beyond event attendance windows</li>
       </ul>
 
-      <h2>20. Retention of Archived Events & Complaints</h2>
+      <h2>20. Retention of Archived Events &amp; Complaints</h2>
       <p>
         Archived events remain stored for compliance, analytics, and Host history.
         Patron complaints are retained even if an event is deleted or archived.
         This data is used for safety, fraud prevention, and platform integrity.
       </p>
-      
+
       <h2>21. Data Deletion</h2>
+      <p>You can delete your data directly within the Outsiide App:</p>
+
       <p>
-        You can delete your data directly withing the Outsiide App: 
-      <p>  
-        Delete Your Entire Account - 
-        Navigate to Settings>Account>Delete Account. 
-      <p>  
-        You will be able to confirm by typing your display name. This will permanently and immediatley
-        delete: 
-        - Your profile and personal information
-        - All RSVP, follows, and check-ins
-        - Your authentication credentials
-        - All associated account date
+        <strong>Delete Your Entire Account</strong> —
+        Navigate to Settings &gt; Account &gt; Delete Account.
+      </p>
+
       <p>
-        This action cannot be undone
+        You will be able to confirm by typing your display name. This will permanently and immediately
+        delete:
+      </p>
+      <ul>
+        <li>Your profile and personal information</li>
+        <li>All RSVP, follows, and check-ins</li>
+        <li>Your authentication credentials</li>
+        <li>All associated account data</li>
+      </ul>
+
+      <p>This action cannot be undone.</p>
+
       <p>
-        Delete Host Profile Only -  
-        If you have a host (business) profile, you can delete just the host profile from your Host Profile 
-        screen. This will delete your business profile, all your post, and notify Outsiiders (patrons) who RSVPed.
-        You profile will continue as an Outsiider only.
+        <strong>Delete Host Profile Only</strong> —
+        If you have a host (business) profile, you can delete just the host profile from your Host Profile
+        screen. This will delete your business profile, all your posts, and notify Outsiiders (patrons) who RSVPed.
+        Your profile will continue as an Outsiider only.
+      </p>
+
       <p>
-        Subscriptions - 
-        Deleting your account does not automatically cancel your subscription. You mush cancel your subscription
-        separately through the App Store (iOS) or Google Play Store (Android) before deleting your account. 
-      <p>
-          
+        <strong>Subscriptions</strong> —
+        Deleting your account does not automatically cancel your subscription. You must cancel your subscription
+        separately through the App Store (iOS) or Google Play Store (Android) before deleting your account.
+      </p>
+
       <div class="actions">
         <a class="btn" href="/">Back Home</a>
         <a class="btn" href="/support/">Support</a>
@@ -495,7 +540,8 @@
         <a href="/support/">Support</a>
         <a href="/terms/">Terms of Service</a>
         <a href="/conditions/">Conditions of Use</a>
-        © <span id="y"></span> OUTSIIDE
+        <br />
+        &copy; <span id="y"></span> OUTSIIDE
       </div>
     </main>
   </div>

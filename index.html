@@ -1,433 +1,538 @@
 <!doctype html>
-<html lang="en"><!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OUTSIIDE — Discover Events, Activities & Experiences</title>
+  <title>OUTSIIDE — Discover Events, Activities &amp; Experiences</title>
   <meta name="description" content="OUTSIIDE helps you discover events, activities, and experiences happening around you." />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
   <style>
-    :root{
-      --bg:#050505;
-      --bgImage:url("assets/outsiide-bg.jpg");
-      --text:#f5f5f5;
-      --muted:rgba(245,245,245,.76);
-      --card:rgba(255,255,255,.08);
-      --panel:rgba(0,0,0,.30);
-      --border:rgba(255,255,255,.14);
-      --button:#ffffff;
-      --buttonText:#000000;
-      --ghost:rgba(255,255,255,.08);
-      --accent:rgba(140,255,180,.95);
-      --good:rgba(140,255,180,.92);
-      --bad:rgba(255,140,140,.92); 
+    :root {
+      color-scheme: dark;
+      --bg: #050505;
+      --text: #f5f5f5;
+      --muted: rgba(245,245,245,.68);
+      --card: rgba(255,255,255,.06);
+      --panel: rgba(0,0,0,.30);
+      --border: rgba(255,255,255,.10);
+      --border-light: rgba(255,255,255,.06);
+      --button: #ffffff;
+      --buttonText: #000000;
+      --ghost: rgba(255,255,255,.07);
+      --accent: #8cffb4;
+      --accent-dim: rgba(140,255,180,.15);
+      --accent-border: rgba(140,255,180,.30);
+      --good: #8cffb4;
+      --bad: #ff8c8c;
+      --radius-sm: 14px;
+      --radius-md: 22px;
+      --radius-lg: 28px;
+      --radius-pill: 999px;
+      --shadow-card: 0 24px 64px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.05);
+      --shadow-btn: 0 4px 16px rgba(0,0,0,.25);
+      --transition: 200ms cubic-bezier(.4,0,.2,1);
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-    body{
-      margin:0;
-      color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       background:
         linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.84)),
-        var(--bgImage) center / cover fixed no-repeat,
+        url("assets/outsiide-bg.jpg") center / cover fixed no-repeat,
         var(--bg);
     }
 
-    .page{
-      width:min(1180px,100%);
-      margin:0 auto;
-      padding:28px;
+    .page {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      padding: 28px;
     }
 
-    .hero{
-      min-height:82vh;
-      display:grid;
-      place-items:center;
-      text-align:center;
+    /* ── Hero ─────────────────────────────────────────── */
+    .hero {
+      min-height: 82vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
     }
 
-    .card,.sectionCard{
-      border:1px solid var(--border);
-      border-radius:28px;
-      background:var(--card);
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
-      box-shadow:0 26px 70px rgba(0,0,0,.48);
+    .card, .sectionCard {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-card);
     }
 
-    .card{
-      width:100%;
-      padding:46px 30px;
+    .card {
+      width: 100%;
+      padding: 46px 30px;
     }
 
-    .logo{
-      width:min(360px,76vw);
-      display:block;
-      margin:0 auto 20px;
-      filter:drop-shadow(0 18px 26px rgba(0,0,0,.55));
+    .logo {
+      width: min(360px, 76vw);
+      display: block;
+      margin: 0 auto 20px;
+      filter: drop-shadow(0 18px 26px rgba(0,0,0,.55));
     }
 
-    .badge{
-      display:inline-block;
-      margin-bottom:18px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(140,255,180,.35);
-      background:rgba(140,255,180,.10);
-      color:var(--accent);
-      font-weight:850;
-      letter-spacing:.05em;
-      text-transform:uppercase;
-      font-size:13px;
+    .badge {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--accent-border);
+      background: var(--accent-dim);
+      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-size: 11px;
     }
 
-    h1{
-      margin:0 auto 14px;
-      max-width:900px;
-      font-size:clamp(40px,7vw,76px);
-      line-height:.98;
-      letter-spacing:-.065em;
+    h1 {
+      margin: 0 auto 14px;
+      max-width: 900px;
+      font-size: clamp(38px, 7vw, 80px);
+      line-height: .96;
+      letter-spacing: -.06em;
     }
 
-    h2{
-      margin-top:0;
+    h2 {
+      margin-top: 0;
     }
 
-    .lead{
-      max-width:760px;
-      margin:0 auto;
-      color:var(--muted);
-      font-size:clamp(16px,2vw,21px);
-      line-height:1.72;
+    .lead {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(16px, 2vw, 21px);
+      line-height: 1.72;
     }
 
-    .actions{
-      margin-top:26px;
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
+    .actions {
+      margin-top: 26px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:15px 20px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:900;
-      min-width:190px;
-      transition:transform 140ms ease, opacity 140ms ease;
-      border:1px solid transparent;
-      cursor:pointer;
-      font:inherit;
+    /* ── Buttons ──────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 20px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      font-weight: 900;
+      min-width: 190px;
+      transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition), background var(--transition);
+      border: 1px solid transparent;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 900;
     }
 
-    .btn:hover{transform:translateY(-2px)}
-
-    .btn.primary{
-      background:var(--button);
-      color:var(--buttonText);
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
-    .btn.ghost{
-      background:var(--ghost);
-      color:var(--text);
-      border-color:var(--border);
+    .btn.primary {
+      background: var(--button);
+      color: var(--buttonText);
+      box-shadow: var(--shadow-btn);
     }
 
-    section{margin-top:30px}
-
-    .sectionCard{
-      padding:34px 28px;
+    .btn.primary:hover {
+      box-shadow: 0 6px 28px rgba(255,255,255,.22), 0 2px 10px rgba(255,255,255,.10);
     }
 
-    .sectionTitle{
-      margin:0 0 10px;
-      text-align:center;
-      font-size:clamp(28px,4vw,44px);
-      line-height:1.05;
-      letter-spacing:-.045em;
+    .btn.ghost {
+      background: var(--ghost);
+      color: var(--text);
+      border-color: var(--border);
     }
 
-    .sectionText{
-      max-width:760px;
-      margin:0 auto 24px;
-      color:var(--muted);
-      text-align:center;
-      line-height:1.7;
-      font-size:16px;
+    .btn.ghost:hover {
+      background: rgba(255,255,255,.12);
     }
 
-    .screenshots{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:14px;
-      align-items:start;
+    /* ── Sections ─────────────────────────────────────── */
+    section {
+      margin-top: 36px;
     }
 
-    .phoneShot{
-      border-radius:26px;
-      overflow:hidden;
-      border:1px solid var(--border);
-      background:rgba(0,0,0,.35);
-      box-shadow:0 22px 46px rgba(0,0,0,.42);
-      transition:transform 180ms ease;
+    .sectionCard {
+      padding: 34px 28px;
     }
 
-    .phoneShot:hover{transform:translateY(-6px)}
-
-    .phoneShot img{
-      width:100%;
-      display:block;
+    .sectionTitle {
+      margin: 0 0 10px;
+      text-align: center;
+      font-size: clamp(26px, 4.5vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -.05em;
     }
 
-    .tabsGrid{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:14px;
+    .sectionText {
+      max-width: 760px;
+      margin: 0 auto 24px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.7;
+      font-size: 16px;
     }
 
-    .tabBox,.audienceBox,.featureBox{
-      padding:20px 16px;
-      border:1px solid var(--border);
-      border-radius:22px;
-      background:var(--panel);
+    /* ── Screenshots ──────────────────────────────────── */
+    .screenshots {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      align-items: start;
     }
 
-    .tabBox{text-align:center}
-
-    .tabIcon{
-      font-size:30px;
-      margin-bottom:8px;
+    .phoneShot {
+      border-radius: 26px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,.35);
+      box-shadow: 0 22px 46px rgba(0,0,0,.42);
+      transition: transform var(--transition), box-shadow var(--transition);
     }
 
-    .tabBox h3,.featureBox h3,.audienceBox h3{
-      margin:0 0 8px;
-      font-size:18px;
+    .phoneShot:nth-child(even) {
+      margin-top: 12px;
     }
 
-    .tabBox p,.featureBox p,.audienceBox p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.58;
-      font-size:14px;
+    .phoneShot:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 32px 60px rgba(0,0,0,.55);
     }
 
-    .featuresGrid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:16px;
+    .phoneShot img {
+      width: 100%;
+      display: block;
     }
 
-    .split{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
+    /* ── Tabs ─────────────────────────────────────────── */
+    .tabsGrid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
     }
 
-    .audienceBox{
-      text-align:left;
-      padding:26px;
+    .tabBox, .audienceBox, .featureBox {
+      padding: 20px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: linear-gradient(180deg, rgba(255,255,255,.05) 0%, var(--panel) 100%);
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
     }
 
-    .audienceBox h3{
-      font-size:24px;
+    .tabBox:hover, .featureBox:hover {
+      border-color: rgba(255,255,255,.18);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,.35);
     }
 
-    .audienceBox p{
-      margin-bottom:18px;
-      font-size:15px;
+    .tabBox { text-align: center; }
+
+    .tabIcon {
+      font-size: 30px;
+      margin-bottom: 8px;
     }
 
-    .downloadBox{
-      text-align:center;
-      padding:28px;
-      border:1px solid var(--border);
-      border-radius:24px;
-      background:rgba(0,0,0,.25);
+    .tabBox h3, .featureBox h3, .audienceBox h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
     }
 
-    .storeBtn{
-      display:inline-flex;
-      flex-direction:column;
-      align-items:flex-start;
-      justify-content:center;
-      min-width:210px;
-      padding:13px 18px;
-      border-radius:16px;
-      background:#fff;
-      color:#000;
-      text-decoration:none;
-      font-weight:900;
-      line-height:1.15;
+    .tabBox p, .featureBox p, .audienceBox p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.58;
+      font-size: 14px;
     }
 
-    .storeBtn span{
-      font-size:12px;
-      font-weight:700;
-      opacity:.75;
+    /* ── Features ─────────────────────────────────────── */
+    .featuresGrid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
     }
 
-    .storeBtn strong{
-      font-size:18px;
+    /* ── Choose your path ─────────────────────────────── */
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
     }
 
-    .footer{
-      margin:34px 0 8px;
-      text-align:center;
-      font-size:12px;
-      color:rgba(245,245,245,.56);
+    .audienceBox {
+      text-align: left;
+      padding: 26px;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
     }
 
-    .footerLinks{
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-      gap:12px;
-      margin-bottom:16px;
+    .audienceBox:hover {
+      border-color: rgba(255,255,255,.18);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 32px rgba(0,0,0,.35);
+    }
+
+    .audienceBox h3 {
+      font-size: 24px;
+    }
+
+    .audienceBox p {
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    /* ── Download ─────────────────────────────────────── */
+    .downloadBox {
+      text-align: center;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: rgba(0,0,0,.25);
+    }
+
+    .storeBtn {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      min-width: 210px;
+      padding: 13px 18px;
+      border-radius: 16px;
+      background: #fff;
+      color: #000;
+      text-decoration: none;
+      font-weight: 900;
+      line-height: 1.15;
+      box-shadow: var(--shadow-btn);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .storeBtn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 28px rgba(255,255,255,.12);
+    }
+
+    .storeBtn span {
+      font-size: 12px;
+      font-weight: 700;
+      opacity: .75;
+    }
+
+    .storeBtn strong {
+      font-size: 18px;
+    }
+
+    /* ── Footer ───────────────────────────────────────── */
+    .footer {
+      margin: 34px 0 8px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-light);
+      text-align: center;
+      font-size: 12px;
+      color: rgba(245,245,245,.56);
+    }
+
+    .footerLinks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 16px;
     }
 
     .footer a,
-    .footer button{
-      color:rgba(245,245,245,.86);
-      text-decoration:none;
-      background:none;
-      border:none;
-      cursor:pointer;
-      font:inherit;
-      padding:0;
+    .footer button {
+      color: rgba(245,245,245,.86);
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font: inherit;
+      padding: 0;
+      transition: color var(--transition);
     }
 
     .footer a:hover,
-    .footer button:hover{
-      text-decoration:underline;
+    .footer button:hover {
+      color: var(--accent);
+      text-decoration: underline;
     }
 
-    .modal{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.72);
-      display:none;
-      align-items:center;
-      justify-content:center;
-      z-index:9999;
-      padding:20px;
+    /* ── Modal ────────────────────────────────────────── */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.72);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
     }
 
-    .modalContent{
-      width:min(460px,100%);
-      padding:24px;
-      border-radius:22px;
-      background:#111;
-      border:1px solid var(--border);
-      box-shadow:0 26px 70px rgba(0,0,0,.65);
-      position:relative;
+    .modalContent {
+      width: min(460px, 100%);
+      padding: 24px;
+      border-radius: var(--radius-md);
+      background: #111;
+      border: 1px solid var(--border);
+      box-shadow: 0 26px 70px rgba(0,0,0,.65);
+      position: relative;
+      animation: modalSlideUp 350ms cubic-bezier(.4,0,.2,1) both;
     }
 
-    .modalContent h2{
-      margin:0 0 8px;
-      text-align:center;
+    @keyframes modalSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(32px) scale(.97);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
-    .modalContent p{
-      margin:0 0 14px;
-      color:var(--muted);
-      text-align:center;
-      line-height:1.5;
+    .modalContent h2 {
+      margin: 0 0 8px;
+      text-align: center;
+    }
+
+    .modalContent p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.5;
     }
 
     .modalContent input,
-    .modalContent textarea{
-      width:100%;
-      margin-top:10px;
-      padding:13px 14px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background:#000;
-      color:#fff;
-      font:inherit;
-      outline:none;
+    .modalContent textarea {
+      width: 100%;
+      margin-top: 10px;
+      padding: 13px 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: #000;
+      color: #fff;
+      font: inherit;
+      outline: none;
+      transition: border-color var(--transition);
     }
 
-    .modalContent textarea{
-      min-height:120px;
-      resize:vertical;
+    .modalContent input:focus,
+    .modalContent textarea:focus {
+      border-color: var(--accent-border);
     }
 
-    .modalContent button[type="submit"]{
-      width:100%;
-      margin-top:14px;
-      padding:14px 18px;
-      border-radius:999px;
-      border:none;
-      background:#fff;
-      color:#000;
-      font-weight:900;
-      cursor:pointer;
+    .modalContent textarea {
+      min-height: 120px;
+      resize: vertical;
     }
 
-    .closeModal{
-      position:absolute;
-      top:12px;
-      right:16px;
-      cursor:pointer;
-      font-size:24px;
-      color:#fff;
-      background:none;
-      border:none;
+    .modalContent button[type="submit"] {
+      width: 100%;
+      margin-top: 14px;
+      padding: 14px 18px;
+      border-radius: var(--radius-pill);
+      border: none;
+      background: #fff;
+      color: #000;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
     }
 
-    .formMsg{
-      margin-top:12px;
-      min-height:18px;
-      text-align:center;
-      font-size:14px;
-      color:var(--muted);
+    .modalContent button[type="submit"]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(255,255,255,.18);
     }
 
-    .formMsg.good{color:var(--good)}
-    .formMsg.bad{color:var(--bad)}
-
-    .reveal{
-      opacity:0;
-      transform:translateY(18px);
-      transition:opacity 700ms ease, transform 700ms ease;
+    .closeModal {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      cursor: pointer;
+      font-size: 24px;
+      color: #fff;
+      background: none;
+      border: none;
+      transition: opacity var(--transition);
     }
 
-    .reveal.show{
-      opacity:1;
-      transform:translateY(0);
+    .closeModal:hover {
+      opacity: .6;
     }
 
-    @media(max-width:980px){
-      .screenshots{grid-template-columns:repeat(2,1fr)}
-      .tabsGrid{grid-template-columns:repeat(2,1fr)}
-      .featuresGrid{grid-template-columns:1fr}
-      .split{grid-template-columns:1fr}
+    .formMsg {
+      margin-top: 12px;
+      min-height: 18px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
     }
 
-    @media(max-width:620px){
-      .page{padding:18px}
-      .card,.sectionCard{padding:26px 18px}
-      .screenshots{grid-template-columns:1fr}
-      .tabsGrid{grid-template-columns:1fr}
-      .actions{flex-direction:column}
-      .btn,.storeBtn{width:100%;min-width:unset}
+    .formMsg.good { color: var(--good); }
+    .formMsg.bad { color: var(--bad); }
+
+    /* ── Reveal animations ────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 600ms ease, transform 600ms ease;
     }
 
-    @media(prefers-reduced-motion:reduce){
-      .reveal{opacity:1;transform:none;transition:none}
-      .btn:hover,.phoneShot:hover{transform:none}
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ───────────────────────────────────── */
+    @media (max-width: 980px) {
+      .screenshots { grid-template-columns: repeat(2, 1fr); }
+      .tabsGrid { grid-template-columns: repeat(2, 1fr); }
+      .featuresGrid { grid-template-columns: 1fr; }
+      .split { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .page { padding: 18px; }
+      .card, .sectionCard { padding: 26px 18px; }
+      .screenshots { grid-template-columns: 1fr; }
+      .tabsGrid { grid-template-columns: 1fr; }
+      .actions { flex-direction: column; }
+      .btn, .storeBtn { width: 100%; min-width: unset; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .btn:hover, .phoneShot:hover, .storeBtn:hover, .tabBox:hover, .featureBox:hover, .audienceBox:hover { transform: none; }
+      .modalContent { animation: none; }
     }
   </style>
 </head>
@@ -436,149 +541,153 @@
   <div class="page">
 
     <header class="hero">
-      <main class="card reveal">
+      <div class="card reveal">
         <img class="logo" src="assets/outsiide-logo.png" alt="OUTSIIDE logo" />
 
-        <div class="badge">Now available on iOS & Android</div>
+        <div class="badge">Now available on iOS &amp; Android</div>
 
         <h1>Your city has plans. OUTSIIDE helps you find them.</h1>
 
         <p class="lead">
-          Discover events, activities, and experiences happening around you. Whether you’re looking for something to do or you’re a host trying to reach the right audience, OUTSIIDE brings the city together in one place.
+          Discover events, activities, and experiences happening around you. Whether you're looking for something to do or you're a host trying to reach the right audience, OUTSIIDE brings the city together in one place.
         </p>
 
         <div class="actions">
-          <a class="btn primary" href="/user/">I’m a User</a>
-          <a class="btn primary" href="/host/">I’m a Host</a>
+          <a class="btn primary" href="/user/">I'm a User</a>
+          <a class="btn primary" href="/host/">I'm a Host</a>
           <a class="btn ghost" href="#download">Download App</a>
           <button class="btn ghost" id="contactBtnHero" type="button">Contact Us</button>
         </div>
-      </main>
+      </div>
     </header>
 
-    <section id="screenshots" class="sectionCard reveal">
-      <h2 class="sectionTitle">A cleaner way to discover what’s happening.</h2>
-      <p class="sectionText">
-        OUTSIIDE is built for quick discovery: browse, explore, save, and connect with local events, activities, and experiences from your phone.
-      </p>
+    <main>
 
-      <div class="screenshots">
-        <div class="phoneShot"><img src="assets/screenshot-1.png" alt="OUTSIIDE screenshot 1"></div>
-        <div class="phoneShot"><img src="assets/screenshot-2.png" alt="OUTSIIDE screenshot 2"></div>
-        <div class="phoneShot"><img src="assets/screenshot-3.png" alt="OUTSIIDE screenshot 3"></div>
-        <div class="phoneShot"><img src="assets/screenshot-4.png" alt="OUTSIIDE screenshot 4"></div>
-        <div class="phoneShot"><img src="assets/screenshot-5.png" alt="OUTSIIDE screenshot 5"></div>
-      </div>
-    </section>
-
-    <section class="sectionCard reveal">
-      <h2 class="sectionTitle">Built around how people actually explore.</h2>
-      <p class="sectionText">
-        Move through the city by category, timing, vibe, and saved interests.
-      </p>
-
-      <div class="tabsGrid">
-        <div class="tabBox">
-          <div class="tabIcon">🎉</div>
-          <h3>Events</h3>
-          <p>Concerts, socials, markets, parties, shows, launches, and special gatherings.</p>
-        </div>
-
-        <div class="tabBox">
-          <div class="tabIcon">🏃</div>
-          <h3>Activities</h3>
-          <p>Classes, clubs, fitness, games, workshops, outdoor plans, and things to do.</p>
-        </div>
-
-        <div class="tabBox">
-          <div class="tabIcon">🌆</div>
-          <h3>Experiences</h3>
-          <p>Venues, vibes, ambience, hidden gems, lounges, patios, and local favourites.</p>
-        </div>
-
-        <div class="tabBox">
-          <div class="tabIcon">📍</div>
-          <h3>Live</h3>
-          <p>Find what’s happening nearby and explore based on where you are.</p>
-        </div>
-
-        <div class="tabBox">
-          <div class="tabIcon">⭐</div>
-          <h3>Saved</h3>
-          <p>Keep track of the things you want to attend, visit, or revisit later.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="sectionCard reveal">
-      <h2 class="sectionTitle">Why OUTSIIDE?</h2>
-      <p class="sectionText">
-        OUTSIIDE helps reduce the noise. Instead of scrolling everywhere, users can quickly find what fits their mood, city, and plans.
-      </p>
-
-      <div class="featuresGrid">
-        <div class="featureBox">
-          <h3>Local Discovery</h3>
-          <p>Find real things happening around your city without jumping between apps, flyers, and social feeds.</p>
-        </div>
-
-        <div class="featureBox">
-          <h3>For Hosts</h3>
-          <p>Give your event, activity, or experience a direct discovery channel to people looking for something to do.</p>
-        </div>
-
-        <div class="featureBox">
-          <h3>For the Community</h3>
-          <p>Make it easier for people to connect with local culture, businesses, creators, and experiences.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="sectionCard reveal">
-      <h2 class="sectionTitle">Choose your path.</h2>
-      <p class="sectionText">
-        Start where you belong: discover as a user or grow your visibility as a host.
-      </p>
-
-      <div class="split">
-        <div class="audienceBox">
-          <h3>I’m a User</h3>
-          <p>
-            Discover events, activities, and experiences around you. Save what you like, explore what’s happening, and find your next move.
-          </p>
-          <a class="btn primary" href="/user/">Explore as a User</a>
-        </div>
-
-        <div class="audienceBox">
-          <h3>I’m a Host</h3>
-          <p>
-            Promote what you host, showcase your experience, and reach people actively looking for things to do. First month free for early hosts.
-          </p>
-          <a class="btn primary" href="/host/">Learn About Hosting</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="download" class="sectionCard reveal">
-      <div class="downloadBox">
-        <h2 class="sectionTitle">Download OUTSIIDE</h2>
+      <section id="screenshots" class="sectionCard reveal">
+        <h2 class="sectionTitle">A cleaner way to discover what's happening.</h2>
         <p class="sectionText">
-          Available now on the App Store and Google Play.
+          OUTSIIDE is built for quick discovery: browse, explore, save, and connect with local events, activities, and experiences from your phone.
         </p>
 
-        <div class="actions">
-          <a class="storeBtn" href="https://apps.apple.com/ca/app/outsiide/id6758898068" target="_blank" rel="noopener noreferrer">
-            <span>Download on the</span>
-            <strong>App Store</strong>
-          </a>
-
-          <a class="storeBtn" href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile&hl=en_CA" target="_blank" rel="noopener noreferrer">
-            <span>Get it on</span>
-            <strong>Google Play</strong>
-          </a>
+        <div class="screenshots">
+          <div class="phoneShot"><img src="assets/screenshot-1.png" alt="OUTSIIDE app home feed" /></div>
+          <div class="phoneShot"><img src="assets/screenshot-2.png" alt="OUTSIIDE app event details view" loading="lazy" /></div>
+          <div class="phoneShot"><img src="assets/screenshot-3.png" alt="OUTSIIDE app map discovery screen" loading="lazy" /></div>
+          <div class="phoneShot"><img src="assets/screenshot-4.png" alt="OUTSIIDE app saved events list" loading="lazy" /></div>
+          <div class="phoneShot"><img src="assets/screenshot-5.png" alt="OUTSIIDE app user profile page" loading="lazy" /></div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <section class="sectionCard reveal">
+        <h2 class="sectionTitle">Built around how people actually explore.</h2>
+        <p class="sectionText">
+          Move through the city by category, timing, vibe, and saved interests.
+        </p>
+
+        <div class="tabsGrid">
+          <div class="tabBox">
+            <div class="tabIcon">🎉</div>
+            <h3>Events</h3>
+            <p>Concerts, socials, markets, parties, shows, launches, and special gatherings.</p>
+          </div>
+
+          <div class="tabBox">
+            <div class="tabIcon">🏃</div>
+            <h3>Activities</h3>
+            <p>Classes, clubs, fitness, games, workshops, outdoor plans, and things to do.</p>
+          </div>
+
+          <div class="tabBox">
+            <div class="tabIcon">🌆</div>
+            <h3>Experiences</h3>
+            <p>Venues, vibes, ambience, hidden gems, lounges, patios, and local favourites.</p>
+          </div>
+
+          <div class="tabBox">
+            <div class="tabIcon">📍</div>
+            <h3>Live</h3>
+            <p>Find what's happening nearby and explore based on where you are.</p>
+          </div>
+
+          <div class="tabBox">
+            <div class="tabIcon">⭐</div>
+            <h3>Saved</h3>
+            <p>Keep track of the things you want to attend, visit, or revisit later.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sectionCard reveal">
+        <h2 class="sectionTitle">Why OUTSIIDE?</h2>
+        <p class="sectionText">
+          OUTSIIDE helps reduce the noise. Instead of scrolling everywhere, users can quickly find what fits their mood, city, and plans.
+        </p>
+
+        <div class="featuresGrid">
+          <div class="featureBox">
+            <h3>Local Discovery</h3>
+            <p>Find real things happening around your city without jumping between apps, flyers, and social feeds.</p>
+          </div>
+
+          <div class="featureBox">
+            <h3>For Hosts</h3>
+            <p>Give your event, activity, or experience a direct discovery channel to people looking for something to do.</p>
+          </div>
+
+          <div class="featureBox">
+            <h3>For the Community</h3>
+            <p>Make it easier for people to connect with local culture, businesses, creators, and experiences.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="sectionCard reveal">
+        <h2 class="sectionTitle">Choose your path.</h2>
+        <p class="sectionText">
+          Start where you belong: discover as a user or grow your visibility as a host.
+        </p>
+
+        <div class="split">
+          <div class="audienceBox">
+            <h3>I'm a User</h3>
+            <p>
+              Discover events, activities, and experiences around you. Save what you like, explore what's happening, and find your next move.
+            </p>
+            <a class="btn primary" href="/user/">Explore as a User</a>
+          </div>
+
+          <div class="audienceBox">
+            <h3>I'm a Host</h3>
+            <p>
+              Promote what you host, showcase your experience, and reach people actively looking for things to do. First month free for early hosts.
+            </p>
+            <a class="btn primary" href="/host/">Learn About Hosting</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="download" class="sectionCard reveal">
+        <div class="downloadBox">
+          <h2 class="sectionTitle">Download OUTSIIDE</h2>
+          <p class="sectionText">
+            Available now on the App Store and Google Play.
+          </p>
+
+          <div class="actions">
+            <a class="storeBtn" href="https://apps.apple.com/ca/app/outsiide/id6758898068" target="_blank" rel="noopener noreferrer">
+              <span>Download on the</span>
+              <strong>App Store</strong>
+            </a>
+
+            <a class="storeBtn" href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile&hl=en_CA" target="_blank" rel="noopener noreferrer">
+              <span>Get it on</span>
+              <strong>Google Play</strong>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
 
     <footer class="footer">
       <div class="footerLinks">
@@ -592,20 +701,20 @@
         <a href="mailto:info@outsiide.ca">info@outsiide.ca</a>
       </div>
 
-      © <span id="y"></span> OUTSIIDE
+      &copy; <span id="y"></span> OUTSIIDE
     </footer>
 
   </div>
 
-  <div id="contactModal" class="modal" aria-hidden="true">
+  <div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="modalContent">
-      <button class="closeModal" id="closeModal" type="button">×</button>
+      <button class="closeModal" id="closeModal" type="button" aria-label="Close contact form">&times;</button>
       <h2>Contact Us</h2>
       <p>Have a question, issue, or suggestion? Send us a message below.</p>
 
       <form id="contactForm">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Your email" required>
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
         <textarea name="message" placeholder="Your message" required></textarea>
         <button type="submit">Send Message</button>
         <div id="formMsg" class="formMsg"></div>
@@ -616,11 +725,12 @@
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
+    /* ── Reveal on scroll ──────────────────────────── */
     const reveals = document.querySelectorAll(".reveal");
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if(entry.isIntersecting){
+        if (entry.isIntersecting) {
           entry.target.classList.add("show");
         }
       });
@@ -628,19 +738,20 @@
 
     reveals.forEach(el => observer.observe(el));
 
+    /* ── Modal ─────────────────────────────────────── */
     const modal = document.getElementById("contactModal");
-    const closeModal = document.getElementById("closeModal");
+    const closeModalBtn = document.getElementById("closeModal");
     const contactBtnHero = document.getElementById("contactBtnHero");
     const contactBtnFooter = document.getElementById("contactBtnFooter");
     const contactForm = document.getElementById("contactForm");
     const formMsg = document.getElementById("formMsg");
 
-    function openContact(){
+    function openContact() {
       modal.style.display = "flex";
       modal.setAttribute("aria-hidden", "false");
     }
 
-    function closeContact(){
+    function closeContact() {
       modal.style.display = "none";
       modal.setAttribute("aria-hidden", "true");
       formMsg.textContent = "";
@@ -649,14 +760,21 @@
 
     contactBtnHero.addEventListener("click", openContact);
     contactBtnFooter.addEventListener("click", openContact);
-    closeModal.addEventListener("click", closeContact);
+    closeModalBtn.addEventListener("click", closeContact);
 
     window.addEventListener("click", (e) => {
-      if(e.target === modal){
+      if (e.target === modal) {
         closeContact();
       }
     });
 
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.style.display === "flex") {
+        closeContact();
+      }
+    });
+
+    /* ── Form submission ───────────────────────────── */
     contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
 
@@ -665,14 +783,14 @@
 
       const data = new FormData(contactForm);
 
-      try{
+      try {
         const res = await fetch("https://formspree.io/f/meevgpla", {
           method: "POST",
           body: data,
           headers: { "Accept": "application/json" }
         });
 
-        if(res.ok){
+        if (res.ok) {
           contactForm.reset();
           formMsg.textContent = "Message sent. Thank you!";
           formMsg.classList.add("good");
@@ -684,7 +802,7 @@
           formMsg.textContent = "Something went wrong. Please try again.";
           formMsg.classList.add("bad");
         }
-      } catch(error){
+      } catch (error) {
         formMsg.textContent = "Network error. Please try again.";
         formMsg.classList.add("bad");
       }
@@ -692,173 +810,3 @@
   </script>
 </body>
 </html>
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>OUTSIIDE — Discover Events, Activities & Experiences</title>
-
-  <style>
-    :root{
-      --bg:#050505;
-      --bgImage:url("assets/outsiide-bg.jpg");
-      --text:#f2f2f2;
-      --muted:rgba(242,242,242,.76);
-      --card:rgba(255,255,255,.08);
-      --border:rgba(255,255,255,.14);
-      --button:#ffffff;
-      --buttonText:#000000;
-      --ghost:rgba(255,255,255,.08);
-    }
-
-    *{box-sizing:border-box}
-
-    body{
-      margin:0;
-      color:var(--text);
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:
-        linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.80)),
-        var(--bgImage) center / cover fixed no-repeat;
-    }
-
-    .page{
-      width:min(1100px,100%);
-      margin:0 auto;
-      padding:28px;
-    }
-
-    .card{
-      padding:36px 28px;
-      border:1px solid var(--border);
-      border-radius:26px;
-      background:var(--card);
-      backdrop-filter:blur(12px);
-      text-align:center;
-    }
-
-    .logo{
-      width:300px;
-      margin-bottom:16px;
-    }
-
-    h1{
-      font-size:48px;
-      margin-bottom:10px;
-    }
-
-    .lead{
-      color:var(--muted);
-      max-width:700px;
-      margin:0 auto 20px;
-      line-height:1.6;
-    }
-
-    .actions{
-      margin-top:20px;
-      display:flex;
-      gap:12px;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      padding:14px 18px;
-      border-radius:999px;
-      text-decoration:none;
-      font-weight:800;
-    }
-
-    .btn.primary{
-      background:#fff;
-      color:#000;
-    }
-
-    .btn.ghost{
-      border:1px solid var(--border);
-      color:#fff;
-    }
-
-    section{
-      margin-top:28px;
-    }
-
-    .sectionCard{
-      padding:28px;
-      border:1px solid var(--border);
-      border-radius:24px;
-      background:var(--card);
-    }
-
-    .sectionTitle{
-      font-size:30px;
-      margin-bottom:10px;
-    }
-
-    .sectionText{
-      color:var(--muted);
-      margin-bottom:20px;
-    }
-
-    /* SCREENSHOTS */
-    .screenshots{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:12px;
-    }
-
-    .phoneShot{
-      border-radius:20px;
-      overflow:hidden;
-      border:1px solid var(--border);
-    }
-
-    .phoneShot img{
-      width:100%;
-    }
-
-    /* TABS */
-    .tabs{
-      display:grid;
-      grid-template-columns:repeat(5,1fr);
-      gap:10px;
-      margin-top:20px;
-    }
-
-    .tab{
-      background:rgba(0,0,0,.3);
-      padding:16px;
-      border-radius:16px;
-      border:1px solid var(--border);
-    }
-
-    .footer{
-      margin-top:30px;
-      text-align:center;
-      font-size:12px;
-      opacity:.7;
-    }
-
-    .footer a{
-      margin:0 6px;
-      color:#fff;
-      text-decoration:none;
-    }
-
-    @media(max-width:900px){
-      .screenshots{grid-template-columns:1fr 1fr;}
-      .tabs{grid-template-columns:1fr 1fr;}
-    }
-
-    @media(max-width:500px){
-      .screenshots{grid-template-columns:1fr;}
-      .tabs{grid-template-columns:1fr;}
-      h1{font-size:34px;}
-    }
-
-  </style>
-</head>
-
-<body>
-
-<div class="page">
-

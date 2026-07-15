@@ -1,204 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Open in OUTSIIDE</title>
+  <meta name="description" content="Discover events, activities and experiences around you with OUTSIIDE." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="OUTSIIDE" />
+  <meta property="og:description" content="Discover events, activities and experiences around you." />
+  <meta property="og:url" content="https://outsiide.ca/open" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-<title>Open in OUTSIIDE</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #050505;
+      --text: #f5f5f5;
+      --muted: rgba(245,245,245,.68);
+      --card: rgba(255,255,255,.06);
+      --border: rgba(255,255,255,.10);
+      --border-light: rgba(255,255,255,.06);
+      --button: #ffffff;
+      --buttonText: #000000;
+      --accent: #8cffb4;
+      --accent-dim: rgba(140,255,180,.15);
+      --accent-border: rgba(140,255,180,.30);
+      --radius-md: 22px;
+      --radius-lg: 28px;
+      --radius-pill: 999px;
+      --shadow-card: 0 24px 64px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.05);
+      --transition: 200ms cubic-bezier(.4,0,.2,1);
+    }
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="OUTSIIDE">
-<meta property="og:description" content="Discover events, activities and experiences around you.">
-<meta property="og:url" content="https://outsiide.ca/open">
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-<style>
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 28px;
+      background:
+        linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.82)),
+        url('/assets/outsiide-bg.jpg') center / cover no-repeat,
+        var(--bg);
+    }
 
-:root{
-  color-scheme:dark;
-}
+    .card {
+      max-width: 900px;
+      width: 100%;
+      padding: 40px 32px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-card);
+      text-align: center;
+    }
 
-body{
-  margin:0;
-  min-height:100vh;
+    .logo {
+      width: min(280px, 70vw);
+      height: auto;
+      display: block;
+      margin: 0 auto 20px;
+      filter: drop-shadow(0 16px 24px rgba(0,0,0,.5));
+    }
 
-  background:
-    linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
-    url('/assets/outsiide-bg.jpg') center/cover no-repeat;
+    .badge {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      background: var(--accent-dim);
+      border: 1px solid var(--accent-border);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
 
-  display:flex;
-  justify-content:center;
-  align-items:center;
+    h1 {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 900;
+      letter-spacing: -.04em;
+      margin-bottom: 14px;
+    }
 
-  color:white;
+    p {
+      color: var(--muted);
+      max-width: 700px;
+      margin: 0 auto 10px;
+      line-height: 1.7;
+      font-size: 16px;
+    }
 
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
+    .screens {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
 
-  padding:24px;
-}
+    .screens img {
+      width: 100%;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      display: block;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
 
-.container{
-  max-width:900px;
-  text-align:center;
-}
+    .screens img:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,.4);
+    }
 
-.logo{
-  width:280px;
-  margin-bottom:20px;
-}
+    .actions {
+      margin-top: 30px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-.badge{
-  display:inline-block;
-  padding:10px 14px;
-  border-radius:999px;
-  background:rgba(140,255,180,.12);
-  border:1px solid rgba(140,255,180,.3);
-  color:#8cffb4;
-  font-weight:700;
-  margin-bottom:20px;
-}
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+      background: var(--button);
+      color: var(--buttonText);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
 
-h1{
-  font-size:42px;
-  margin-bottom:12px;
-}
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(255,255,255,.15);
+    }
 
-p{
-  color:#d0d0d0;
-  max-width:700px;
-  margin:auto;
-  line-height:1.7;
-}
+    .websiteLink {
+      display: block;
+      margin-top: 22px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 15px;
+      transition: color var(--transition);
+    }
 
-.screens{
-  margin-top:35px;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-}
+    .websiteLink:hover { color: var(--accent); }
 
-.screens img{
-  width:100%;
-  border-radius:18px;
-}
+    @media (max-width: 700px) {
+      .screens { grid-template-columns: 1fr; }
+      h1 { font-size: 30px; }
+      .card { padding: 28px 18px; }
+      .actions { flex-direction: column; }
+      .btn { width: 100%; }
+    }
 
-.buttons{
-  margin-top:35px;
-}
-
-.btn{
-  display:inline-block;
-  margin:8px;
-  padding:14px 22px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:700;
-  background:white;
-  color:black;
-}
-
-.websiteLink{
-  display:block;
-  margin-top:20px;
-  color:white;
-  text-decoration:none;
-}
-
-@media(max-width:700px){
-
-  .screens{
-    grid-template-columns:1fr;
-  }
-
-  h1{
-    font-size:30px;
-  }
-
-}
-
-</style>
+    @media (prefers-reduced-motion: reduce) {
+      .btn:hover, .screens img:hover { transform: none; }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
+  <main class="card">
+    <img src="/assets/outsiide-logo.png" class="logo" alt="OUTSIIDE logo" />
 
-  <img src="/assets/outsiide-logo.png" class="logo">
+    <div class="badge">Opening OUTSIIDE…</div>
 
-  <div class="badge">
-    Opening OUTSIIDE...
-  </div>
+    <h1>Discover what's happening around you.</h1>
 
-  <h1>Discover what's happening around you.</h1>
+    <p>
+      If OUTSIIDE is not installed, you'll be redirected to the appropriate app store shortly.
+    </p>
 
-  <p>
-    If OUTSIIDE is not installed, you'll be redirected to the appropriate app store shortly.
-  </p>
+    <div class="screens">
+      <img src="/assets/screenshot-1.png" alt="OUTSIIDE app home feed" loading="lazy" />
+      <img src="/assets/screenshot-2.png" alt="OUTSIIDE app event details" loading="lazy" />
+      <img src="/assets/screenshot-3.png" alt="OUTSIIDE app discovery view" loading="lazy" />
+    </div>
 
-  <div class="screens">
+    <div class="actions">
+      <a class="btn" href="https://apps.apple.com/ca/app/outsiide/id6758898068" target="_blank" rel="noopener noreferrer">
+        Download on App Store
+      </a>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile" target="_blank" rel="noopener noreferrer">
+        Get it on Google Play
+      </a>
+    </div>
 
-    <img src="/assets/screenshot-1.png">
-    <img src="/assets/screenshot-2.png">
-    <img src="/assets/screenshot-3.png">
-
-  </div>
-
-  <div class="buttons">
-
-    <a class="btn"
-       href="https://apps.apple.com/ca/app/outsiide/id6758898068">
-      Download on App Store
+    <a class="websiteLink" href="https://outsiide.ca">
+      Continue on Website →
     </a>
+  </main>
 
-    <a class="btn"
-       href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile">
-      Get it on Google Play
-    </a>
-
-  </div>
-
-  <a class="websiteLink" href="https://outsiide.ca">
-    Continue on Website →
-  </a>
-
-</div>
-
-<script>
-
-(function(){
-
-  const ua = navigator.userAgent || "";
-
-  const isIOS =
-    /iphone|ipad|ipod/i.test(ua);
-
-  const isAndroid =
-    /android/i.test(ua);
-
-  const appStore =
-    "https://apps.apple.com/ca/app/outsiide/id6758898068";
-
-  const playStore =
-    "https://play.google.com/store/apps/details?id=ca.outsiide.mobile";
-
-  const storeUrl =
-    isIOS ? appStore :
-    isAndroid ? playStore :
-    null;
-
-  if(storeUrl){
-    setTimeout(()=>{
-      window.location.href = storeUrl;
-    },1500);
-  }
-
-})();
-
-</script>
-
+  <script>
+    (() => {
+      const ua = navigator.userAgent || '';
+      const isIOS = /iphone|ipad|ipod/i.test(ua);
+      const isAndroid = /android/i.test(ua);
+      const appStore = 'https://apps.apple.com/ca/app/outsiide/id6758898068';
+      const playStore = 'https://play.google.com/store/apps/details?id=ca.outsiide.mobile';
+      const storeUrl = isIOS ? appStore : isAndroid ? playStore : null;
+      if (storeUrl) {
+        setTimeout(() => { window.location.href = storeUrl; }, 1500);
+      }
+    })();
+  </script>
 </body>
 </html>
