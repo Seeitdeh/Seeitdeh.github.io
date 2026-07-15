@@ -28,12 +28,10 @@
       min-height: 100vh; color: var(--text);
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-      display: flex; align-items: flex-start; justify-content: center; padding: 28px;
-      background: linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.72)), url("../assets/outsiide-bg.jpg") center / cover no-repeat, var(--bg);
-      animation: slowZoom 40s ease-in-out infinite alternate;
+      padding: 32px 20px;
+      background: linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.84)), url("../assets/outsiide-bg.jpg") center / cover fixed no-repeat, var(--bg);
     }
-    @keyframes slowZoom { from { background-size: auto, 100% auto, auto; } to { background-size: auto, 108% auto, auto; } }
-    .wrap { width: min(1100px, 100%); display: flex; justify-content: center; }
+    .wrap { max-width: 940px; margin: 0 auto; }
     .card { width: min(940px, 100%); padding: 40px 32px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--card); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow: var(--shadow-card); }
     .logo { width: min(240px, 65vw); height: auto; display: block; margin: 0 auto 18px; filter: drop-shadow(0 16px 24px rgba(0,0,0,.5)); }
     .top { text-align: center; margin-bottom: 28px; }
@@ -48,13 +46,13 @@
     a { color: var(--accent); text-decoration: none; transition: opacity var(--transition); }
     a:hover { opacity: .8; }
     .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 32px; }
-    .btn { display: inline-flex; align-items: flex-start; justify-content: center; padding: 14px 22px; border-radius: var(--radius-pill); text-decoration: none; font-weight: 700; font-size: 15px; border: 1px solid var(--border); background: var(--ghost); color: var(--text); cursor: pointer; transition: transform var(--transition), background var(--transition); }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 22px; border-radius: var(--radius-pill); text-decoration: none; font-weight: 700; font-size: 15px; border: 1px solid var(--border); background: var(--ghost); color: var(--text); cursor: pointer; transition: transform var(--transition), background var(--transition); }
     .btn:hover { transform: translateY(-2px); background: rgba(255,255,255,.12); opacity: 1; }
     .footer { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border-light); text-align: center; font-size: 13px; color: rgba(245,245,245,.45); }
     .footer a { color: rgba(245,245,245,.75); margin: 0 8px; }
     .footer a:hover { color: var(--accent); opacity: 1; }
     @media (max-width: 640px) { .card { padding: 28px 18px; } }
-    @media (prefers-reduced-motion: reduce) { body { animation: none; } .btn:hover { transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .btn:hover { transform: none; } }
   </style>
 </head>
 <body>
