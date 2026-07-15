@@ -16,70 +16,54 @@
 
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #050505;
-      --text: #f5f5f5;
-      --muted: rgba(245,245,245,.68);
-      --card: rgba(255,255,255,.06);
-      --panel: rgba(0,0,0,.30);
-      --border: rgba(255,255,255,.10);
-      --border-light: rgba(255,255,255,.06);
-      --button: #ffffff;
-      --buttonText: #000000;
-      --ghost: rgba(255,255,255,.07);
-      --accent: #8cffb4;
-      --accent-dim: rgba(140,255,180,.15);
-      --accent-border: rgba(140,255,180,.30);
+      color-scheme: light;
+      --bg: #ffffff;
+      --bg-alt: #f7f7f5;
+      --text: #1a1a1a;
+      --text-body: #555555;
+      --text-muted: #888888;
+      --accent: #c6f221;
+      --accent-hover: #b5e010;
+      --accent-soft: rgba(198,242,33,.12);
+      --card-bg: #ffffff;
+      --card-shadow: 0 2px 16px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04);
+      --card-shadow-hover: 0 8px 32px rgba(0,0,0,.10);
+      --border: rgba(0,0,0,.08);
+      --border-accent: rgba(198,242,33,.5);
       --radius-sm: 14px;
-      --radius-md: 22px;
-      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-lg: 24px;
       --radius-pill: 999px;
-      --shadow-card: 0 24px 64px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.05);
       --transition: 200ms cubic-bezier(.4,0,.2,1);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      min-height: 100vh;
-      color: var(--text);
+      color: var(--text-body);
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 28px;
-      background:
-        linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.76)),
-        url("../assets/outsiide-bg.jpg") center / cover no-repeat,
-        var(--bg);
+      background: var(--bg);
     }
 
-    .wrap {
-      width: min(980px, 100%);
-      display: flex;
-      justify-content: center;
+    h1, h2, h3 { color: var(--text); }
+
+    .page {
+      width: min(960px, 100%);
+      margin: 0 auto;
+      padding: 0 28px;
     }
 
-    .card {
-      width: 100%;
-      padding: 40px 32px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      background: var(--card);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+    /* HERO */
+    .hero {
+      padding: 80px 0 50px;
       text-align: center;
-      box-shadow: var(--shadow-card);
     }
 
     .logo {
-      width: min(300px, 72vw);
-      height: auto;
+      width: min(260px, 60vw);
       display: block;
-      margin: 0 auto 18px;
-      filter: drop-shadow(0 16px 24px rgba(0,0,0,.5));
+      margin: 0 auto 20px;
     }
 
     h1 {
@@ -90,9 +74,8 @@
     }
 
     .lead {
-      max-width: 64ch;
+      max-width: 620px;
       margin: 0 auto 20px;
-      color: var(--muted);
       line-height: 1.75;
       font-size: 16px;
     }
@@ -100,23 +83,34 @@
     .offer {
       display: inline-block;
       margin: 8px auto 24px;
-      padding: 10px 16px;
+      padding: 8px 16px;
       border-radius: var(--radius-pill);
-      border: 1px solid var(--accent-border);
-      background: var(--accent-dim);
-      color: var(--accent);
+      border: 1px solid var(--border-accent);
+      background: var(--accent-soft);
+      color: #4a7a00;
       font-weight: 700;
-      letter-spacing: .04em;
+      letter-spacing: .03em;
       text-transform: uppercase;
       font-size: 12px;
     }
 
+    /* SECTIONS */
+    section { padding: 50px 0; }
+    .section-alt { background: var(--bg-alt); }
+
+    .sectionTitle {
+      margin: 0 0 10px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -.02em;
+    }
+
+    /* VIDEO */
     .videoWrap {
-      margin-top: 20px;
-      border-radius: var(--radius-md);
+      border-radius: var(--radius-lg);
       overflow: hidden;
       border: 1px solid var(--border);
-      box-shadow: 0 20px 48px rgba(0,0,0,.5);
+      box-shadow: var(--card-shadow);
       background: #000;
     }
 
@@ -127,66 +121,48 @@
       display: block;
     }
 
+    /* BENEFITS */
     .benefits {
       margin-top: 28px;
-      text-align: left;
-      padding: 22px;
+      padding: 24px;
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      background: var(--panel);
-    }
-
-    .benefits h2 {
-      margin: 0 0 14px;
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -.02em;
+      background: var(--card-bg);
+      box-shadow: var(--card-shadow);
     }
 
     .benefits ul {
-      margin: 0;
       padding-left: 22px;
-      color: var(--muted);
       line-height: 1.85;
       font-size: 15px;
     }
 
-    .benefits li {
-      padding: 2px 0;
-    }
+    .benefits li { padding: 2px 0; }
+    .benefits li::marker { color: #4a7a00; }
 
-    .benefits li::marker {
-      color: var(--accent);
-    }
-
+    /* DOWNLOAD */
     .downloadSection {
       margin-top: 28px;
-      padding: 22px;
+      padding: 24px;
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      background: var(--panel);
-    }
-
-    .downloadSection h2 {
-      margin: 0 0 10px;
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -.02em;
+      background: var(--card-bg);
+      box-shadow: var(--card-shadow);
+      text-align: center;
     }
 
     .downloadSection p {
-      margin: 0 auto 16px;
-      color: var(--muted);
-      line-height: 1.65;
+      margin: 10px auto 16px;
       max-width: 54ch;
+      line-height: 1.65;
     }
 
     .actions {
-      margin-top: 20px;
       display: flex;
       gap: 12px;
       justify-content: center;
       flex-wrap: wrap;
+      margin-top: 20px;
     }
 
     .btn {
@@ -198,8 +174,7 @@
       text-decoration: none;
       font-weight: 700;
       font-size: 15px;
-      letter-spacing: -.01em;
-      border: 1px solid transparent;
+      border: 2px solid transparent;
       cursor: pointer;
       min-width: 190px;
       transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
@@ -208,47 +183,49 @@
     .btn:hover { transform: translateY(-2px); }
 
     .btn.primary {
-      background: var(--button);
-      color: var(--buttonText);
+      background: var(--accent);
+      color: var(--text);
     }
 
     .btn.primary:hover {
-      box-shadow: 0 8px 28px rgba(255,255,255,.15);
+      background: var(--accent-hover);
+      box-shadow: 0 6px 24px rgba(198,242,33,.35);
     }
 
     .btn.ghost {
-      background: var(--ghost);
+      background: transparent;
       color: var(--text);
-      border-color: var(--border);
+      border-color: var(--text);
     }
 
     .btn.ghost:hover {
-      background: rgba(255,255,255,.12);
+      background: var(--text);
+      color: var(--bg);
     }
 
     .footer {
-      margin-top: 28px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-light);
+      padding: 28px 0 20px;
+      border-top: 1px solid var(--border);
       text-align: center;
       font-size: 13px;
-      color: rgba(245,245,245,.45);
+      color: var(--text-muted);
     }
 
     .footer a {
-      color: rgba(245,245,245,.75);
+      color: var(--text-body);
       text-decoration: none;
       margin: 0 8px;
       transition: color var(--transition);
     }
 
-    .footer a:hover { color: var(--accent); }
+    .footer a:hover { color: #4a7a00; }
 
     @media (max-width: 640px) {
-      .card { padding: 28px 18px; }
+      .hero { padding: 48px 0 36px; }
       iframe { height: 240px; }
       .btn { width: 100%; min-width: unset; }
       .actions { flex-direction: column; }
+      .page { padding: 0 18px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -258,73 +235,73 @@
 </head>
 
 <body>
-  <div class="wrap">
-    <main class="card">
-
+  <!-- HERO -->
+  <header class="hero">
+    <div class="page">
       <img src="../assets/outsiide-logo.png" class="logo" alt="OUTSIIDE logo" />
-
       <h1>Host on OUTSIIDE</h1>
-
       <p class="lead">
         OUTSIIDE helps hosts promote events, activities, and experiences directly to people looking for something to do.
         Watch the video below to learn how OUTSIIDE can help you reach the right audience and turn attention into attendance.
       </p>
-
       <div class="offer">First month free for all hosts</div>
+    </div>
+  </header>
 
-      <div class="videoWrap">
-        <iframe
-          src="https://www.youtube.com/embed/DkLr8lV80Qg"
-          title="OUTSIIDE Host Info Video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-        </iframe>
-      </div>
-
-      <section class="benefits">
-        <h2>Why Host on OUTSIIDE?</h2>
-        <ul>
-          <li>Promote your events, activities, and experiences in one place.</li>
-          <li>Reach people actively looking for things to do around the city.</li>
-          <li>Showcase your business, venue, community, or experience to local Outsiiders.</li>
-          <li>Drive more visibility, RSVPs, and real-world attendance.</li>
-          <li>Start with your first month free as an early host.</li>
-        </ul>
-      </section>
-
-      <section class="downloadSection">
-        <h2>Download OUTSIIDE</h2>
-        <p>
-          Get the app and start exploring how your events, activities, and experiences can be discovered by the OUTSIIDE community.
-        </p>
-
-        <div class="actions">
-          <a class="btn primary" href="https://apps.apple.com/ca/app/outsiide/id6758898068" target="_blank" rel="noopener noreferrer">
-            Download on App Store
-          </a>
-          <a class="btn primary" href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile&hl=en_CA" target="_blank" rel="noopener noreferrer">
-            Get it on Google Play
-          </a>
+  <main>
+    <!-- VIDEO -->
+    <section class="section-alt">
+      <div class="page">
+        <div class="videoWrap">
+          <iframe src="https://www.youtube.com/embed/DkLr8lV80Qg" title="OUTSIIDE Host Info Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-      </section>
-
-      <div class="actions">
-        <a class="btn ghost" href="mailto:info@outsiide.ca">Contact Us</a>
-        <a class="btn ghost" href="/">Back Home</a>
       </div>
+    </section>
 
-      <div class="footer">
-        <a href="/">Home</a>
-        <a href="/support/">Support</a>
-        <a href="/terms/">Terms of Service</a>
-        <a href="/conditions/">Conditions of Use</a>
-        <a href="/privacy/">Privacy Policy</a>
-        <br />
-        &copy; <span id="y"></span> OUTSIIDE
+    <!-- BENEFITS -->
+    <section>
+      <div class="page">
+        <div class="benefits">
+          <h2 class="sectionTitle">Why Host on OUTSIIDE?</h2>
+          <ul>
+            <li>Promote your events, activities, and experiences in one place.</li>
+            <li>Reach people actively looking for things to do around the city.</li>
+            <li>Showcase your business, venue, community, or experience to local Outsiiders.</li>
+            <li>Drive more visibility, RSVPs, and real-world attendance.</li>
+            <li>Start with your first month free as an early host.</li>
+          </ul>
+        </div>
+
+        <div class="downloadSection">
+          <h2 class="sectionTitle">Download OUTSIIDE</h2>
+          <p>
+            Get the app and start exploring how your events, activities, and experiences can be discovered by the OUTSIIDE community.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="https://apps.apple.com/ca/app/outsiide/id6758898068" target="_blank" rel="noopener noreferrer">Download on App Store</a>
+            <a class="btn primary" href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile&hl=en_CA" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+          </div>
+        </div>
+
+        <div class="actions" style="margin-top: 28px;">
+          <a class="btn ghost" href="mailto:info@outsiide.ca">Contact Us</a>
+          <a class="btn ghost" href="/">Back Home</a>
+        </div>
       </div>
+    </section>
+  </main>
 
-    </main>
-  </div>
+  <footer class="footer">
+    <div class="page">
+      <a href="/">Home</a>
+      <a href="/support/">Support</a>
+      <a href="/terms/">Terms of Service</a>
+      <a href="/conditions/">Conditions of Use</a>
+      <a href="/privacy/">Privacy Policy</a>
+      <br /><br />
+      &copy; <span id="y"></span> OUTSIIDE
+    </div>
+  </footer>
 
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();

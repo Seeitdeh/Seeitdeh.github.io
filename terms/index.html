@@ -16,173 +16,47 @@
 
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #050505;
-      --text: #f5f5f5;
-      --muted: rgba(245,245,245,.68);
-      --card: rgba(255,255,255,.06);
-      --border: rgba(255,255,255,.10);
-      --border-light: rgba(255,255,255,.06);
-      --ghost: rgba(255,255,255,.07);
-      --accent: #8cffb4;
-      --accent-dim: rgba(140,255,180,.15);
-      --accent-border: rgba(140,255,180,.30);
-      --radius-md: 22px;
-      --radius-lg: 28px;
+      color-scheme: light;
+      --bg: #ffffff;
+      --bg-alt: #f7f7f5;
+      --text: #1a1a1a;
+      --text-body: #555555;
+      --text-muted: #888888;
+      --card-bg: #ffffff;
+      --card-shadow: 0 2px 16px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04);
+      --border: rgba(0,0,0,.08);
+      --radius-lg: 24px;
       --radius-pill: 999px;
-      --shadow-card: 0 24px 64px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.05);
       --transition: 200ms cubic-bezier(.4,0,.2,1);
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
-      min-height: 100vh;
-      color: var(--text);
+      min-height: 100vh; color: var(--text-body);
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 28px;
-      background:
-        linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.72)),
-        url("../assets/outsiide-bg.jpg") center / cover no-repeat,
-        var(--bg);
-      animation: slowZoom 40s ease-in-out infinite alternate;
+      -webkit-font-smoothing: antialiased; display: flex; align-items: center;
+      justify-content: center; padding: 28px; background: var(--bg-alt);
     }
-
-    @keyframes slowZoom {
-      from { background-size: auto, 100% auto, auto; }
-      to   { background-size: auto, 108% auto, auto; }
-    }
-
-    .wrap {
-      width: min(1100px, 100%);
-      display: flex;
-      justify-content: center;
-    }
-
-    .card {
-      width: min(940px, 100%);
-      padding: 40px 32px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      background: var(--card);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: var(--shadow-card);
-    }
-
-    .logo {
-      width: min(240px, 65vw);
-      height: auto;
-      display: block;
-      margin: 0 auto 18px;
-      filter: drop-shadow(0 16px 24px rgba(0,0,0,.5));
-    }
-
-    .top {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(26px, 3.5vw, 38px);
-      font-weight: 900;
-      letter-spacing: -.03em;
-    }
-
-    h2 {
-      margin: 32px 0 12px;
-      font-size: 19px;
-      font-weight: 800;
-      letter-spacing: -.02em;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    h3 {
-      margin: 20px 0 8px;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    p, li {
-      color: var(--muted);
-      line-height: 1.8;
-      font-size: 15px;
-    }
-
+    h1, h2, h3 { color: var(--text); }
+    .wrap { width: min(1100px, 100%); display: flex; justify-content: center; }
+    .card { width: min(880px, 100%); padding: 40px 32px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--card-bg); box-shadow: var(--card-shadow); }
+    .logo { width: min(200px, 55vw); height: auto; display: block; margin: 0 auto 16px; }
+    .top { text-align: center; margin-bottom: 28px; }
+    h1 { margin: 0 0 10px; font-size: clamp(26px, 3.5vw, 36px); font-weight: 900; letter-spacing: -.03em; }
+    h2 { margin: 32px 0 12px; font-size: 18px; font-weight: 800; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    h3 { margin: 20px 0 8px; font-size: 16px; font-weight: 700; color: #4a7a00; }
+    p, li { color: var(--text-body); line-height: 1.8; font-size: 15px; }
     p { margin-bottom: 14px; }
-
-    ul {
-      padding-left: 22px;
-      margin-bottom: 14px;
-    }
-
+    ul { padding-left: 22px; margin-bottom: 14px; }
     li { padding: 2px 0; }
-
-    li::marker { color: rgba(245,245,245,.3); }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-top: 32px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: var(--radius-pill);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-      border: 1px solid var(--border);
-      background: var(--ghost);
-      color: var(--text);
-      cursor: pointer;
-      transition: transform var(--transition), background var(--transition);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      background: rgba(255,255,255,.12);
-    }
-
-    .footer {
-      margin-top: 28px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-light);
-      text-align: center;
-      font-size: 13px;
-      color: rgba(245,245,245,.45);
-    }
-
-    .footer a {
-      color: rgba(245,245,245,.75);
-      text-decoration: none;
-      margin: 0 8px;
-      transition: color var(--transition);
-    }
-
-    .footer a:hover { color: var(--accent); }
-
-    @media (max-width: 640px) {
-      .card { padding: 28px 18px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      body { animation: none; }
-      .btn:hover { transform: none; }
-    }
+    li::marker { color: rgba(0,0,0,.25); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 32px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 22px; border-radius: var(--radius-pill); text-decoration: none; font-weight: 700; font-size: 15px; border: 2px solid var(--text); background: transparent; color: var(--text); cursor: pointer; transition: transform var(--transition), background var(--transition), color var(--transition); }
+    .btn:hover { transform: translateY(-2px); background: var(--text); color: var(--bg); }
+    .footer { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; font-size: 13px; color: var(--text-muted); }
+    .footer a { color: var(--text-body); text-decoration: none; margin: 0 8px; transition: color var(--transition); }
+    .footer a:hover { color: #4a7a00; }
+    @media (max-width: 640px) { .card { padding: 28px 18px; } }
+    @media (prefers-reduced-motion: reduce) { .btn:hover { transform: none; } }
   </style>
 </head>
 <body>
@@ -194,31 +68,17 @@
         <p>Effective Date: December 27, 2025<br />Last Updated: December 27, 2025</p>
       </div>
 
-      <p>
-        These Terms of Service ("Terms") form a binding agreement between you ("you", "User", "Patron", "Host")
-        and Outsiide Inc. ("Outsiide", "we", "us", "our"). They govern your access to and use of the Outsiide
-        mobile apps (iOS and Android), website, and related services (collectively, the "Platform").
-      </p>
-
-      <p>
-        By creating an account, accessing, or using the Platform, you agree to these Terms. If you do not agree,
-        you must not use Outsiide.
-      </p>
-
-      <p>
-        Note: This is a global document designed to comply with Canadian law (including PIPEDA), U.S. standards
-        (including CCPA/CPRA where applicable), and EU GDPR principles, but it is not a substitute for independent legal advice.
-      </p>
+      <p>These Terms of Service ("Terms") form a binding agreement between you ("you", "User", "Patron", "Host") and Outsiide Inc. ("Outsiide", "we", "us", "our"). They govern your access to and use of the Outsiide mobile apps (iOS and Android), website, and related services (collectively, the "Platform").</p>
+      <p>By creating an account, accessing, or using the Platform, you agree to these Terms. If you do not agree, you must not use Outsiide.</p>
+      <p>Note: This is a global document designed to comply with Canadian law (including PIPEDA), U.S. standards (including CCPA/CPRA where applicable), and EU GDPR principles, but it is not a substitute for independent legal advice.</p>
 
       <h2>1. Roles &amp; Eligibility</h2>
-
       <h3>1.1 User Types</h3>
       <ul>
         <li><strong>Patrons (Outsiiders):</strong> Individuals using the Platform to discover, RSVP to, and attend events, activities, and experiences.</li>
         <li><strong>Hosts:</strong> Individuals or entities using the Platform to create, publish, and manage posts and interact with Patrons.</li>
         <li><strong>Admins:</strong> Outsiide personnel who manage and moderate content, analytics, reports, and platform operations.</li>
       </ul>
-
       <h3>1.2 Eligibility</h3>
       <ul>
         <li>You must be at least 13 years old to use Outsiide.</li>

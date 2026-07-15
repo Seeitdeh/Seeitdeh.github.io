@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -9,221 +9,194 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #050505;
-      --text: #f5f5f5;
-      --muted: rgba(245,245,245,.68);
-      --card: rgba(255,255,255,.06);
-      --panel: rgba(0,0,0,.30);
-      --border: rgba(255,255,255,.10);
-      --border-light: rgba(255,255,255,.06);
-      --button: #ffffff;
-      --buttonText: #000000;
-      --ghost: rgba(255,255,255,.07);
-      --accent: #8cffb4;
-      --accent-dim: rgba(140,255,180,.15);
-      --accent-border: rgba(140,255,180,.30);
-      --good: #8cffb4;
-      --bad: #ff8c8c;
+      color-scheme: light;
+      --bg: #ffffff;
+      --bg-alt: #f7f7f5;
+      --text: #1a1a1a;
+      --text-body: #555555;
+      --text-muted: #888888;
+      --accent: #c6f221;
+      --accent-hover: #b5e010;
+      --accent-soft: rgba(198,242,33,.12);
+      --card-bg: #ffffff;
+      --card-shadow: 0 2px 16px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04);
+      --card-shadow-hover: 0 8px 32px rgba(0,0,0,.10);
+      --border: rgba(0,0,0,.08);
+      --border-accent: rgba(198,242,33,.5);
       --radius-sm: 14px;
-      --radius-md: 22px;
-      --radius-lg: 28px;
+      --radius-md: 20px;
+      --radius-lg: 24px;
       --radius-pill: 999px;
-      --shadow-card: 0 24px 64px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.05);
-      --shadow-btn: 0 4px 16px rgba(0,0,0,.25);
       --transition: 200ms cubic-bezier(.4,0,.2,1);
     }
 
-    * { box-sizing: border-box; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      margin: 0;
-      color: var(--text);
+      color: var(--text-body);
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      background:
-        linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.84)),
-        url("assets/outsiide-bg.jpg") center / cover fixed no-repeat,
-        var(--bg);
+      background: var(--bg);
     }
+
+    h1, h2, h3 { color: var(--text); }
 
     .page {
-      width: min(1180px, 100%);
+      width: min(1140px, 100%);
       margin: 0 auto;
-      padding: 28px;
+      padding: 0 28px;
     }
 
-    /* ── Hero ─────────────────────────────────────────── */
+    /* HERO */
     .hero {
-      min-height: 82vh;
-      display: grid;
-      place-items: center;
+      padding: 80px 0 60px;
       text-align: center;
-    }
-
-    .card, .sectionCard {
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      background: var(--card);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: var(--shadow-card);
-    }
-
-    .card {
-      width: 100%;
-      padding: 46px 30px;
+      background: var(--bg);
     }
 
     .logo {
-      width: min(360px, 76vw);
+      width: min(280px, 60vw);
       display: block;
-      margin: 0 auto 20px;
-      filter: drop-shadow(0 18px 26px rgba(0,0,0,.55));
+      margin: 0 auto 28px;
     }
 
     .badge {
       display: inline-block;
-      margin-bottom: 18px;
-      padding: 7px 14px;
+      margin-bottom: 22px;
+      padding: 8px 16px;
       border-radius: var(--radius-pill);
-      border: 1px solid var(--accent-border);
-      background: var(--accent-dim);
-      color: var(--accent);
+      border: 1px solid var(--border-accent);
+      background: var(--accent-soft);
+      color: #4a7a00;
       font-weight: 700;
-      letter-spacing: .06em;
+      letter-spacing: .03em;
       text-transform: uppercase;
-      font-size: 11px;
+      font-size: 12px;
     }
 
     h1 {
-      margin: 0 auto 14px;
-      max-width: 900px;
-      font-size: clamp(38px, 7vw, 80px);
-      line-height: .96;
+      max-width: 800px;
+      margin: 0 auto 18px;
+      font-size: clamp(36px, 6vw, 68px);
+      line-height: .98;
       letter-spacing: -.06em;
-    }
-
-    h2 {
-      margin-top: 0;
+      font-weight: 900;
     }
 
     .lead {
-      max-width: 760px;
+      max-width: 680px;
       margin: 0 auto;
-      color: var(--muted);
-      font-size: clamp(16px, 2vw, 21px);
-      line-height: 1.72;
+      font-size: clamp(16px, 2vw, 19px);
+      line-height: 1.7;
+      color: var(--text-body);
     }
 
     .actions {
-      margin-top: 26px;
+      margin-top: 28px;
       display: flex;
       gap: 12px;
       justify-content: center;
       flex-wrap: wrap;
     }
 
-    /* ── Buttons ──────────────────────────────────────── */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 15px 20px;
+      padding: 14px 24px;
       border-radius: var(--radius-pill);
       text-decoration: none;
-      font-weight: 900;
-      min-width: 190px;
-      transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition), background var(--transition);
-      border: 1px solid transparent;
+      font-weight: 700;
+      font-size: 15px;
+      border: 2px solid transparent;
       cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
       font: inherit;
-      font-weight: 900;
+      font-weight: 700;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+    .btn:hover { transform: translateY(-2px); }
 
     .btn.primary {
-      background: var(--button);
-      color: var(--buttonText);
-      box-shadow: var(--shadow-btn);
+      background: var(--accent);
+      color: var(--text);
+      min-width: 180px;
     }
 
     .btn.primary:hover {
-      box-shadow: 0 6px 28px rgba(255,255,255,.22), 0 2px 10px rgba(255,255,255,.10);
+      background: var(--accent-hover);
+      box-shadow: 0 6px 24px rgba(198,242,33,.35);
     }
 
     .btn.ghost {
-      background: var(--ghost);
+      background: transparent;
       color: var(--text);
-      border-color: var(--border);
+      border-color: var(--text);
     }
 
     .btn.ghost:hover {
-      background: rgba(255,255,255,.12);
+      background: var(--text);
+      color: var(--bg);
     }
 
-    /* ── Sections ─────────────────────────────────────── */
+    /* SECTIONS */
     section {
-      margin-top: 36px;
+      padding: 60px 0;
     }
 
-    .sectionCard {
-      padding: 34px 28px;
+    .section-alt {
+      background: var(--bg-alt);
     }
 
     .sectionTitle {
-      margin: 0 0 10px;
+      margin: 0 0 12px;
       text-align: center;
-      font-size: clamp(26px, 4.5vw, 48px);
-      line-height: 1.05;
-      letter-spacing: -.05em;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.08;
+      letter-spacing: -.04em;
+      font-weight: 800;
     }
 
     .sectionText {
-      max-width: 760px;
-      margin: 0 auto 24px;
-      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto 32px;
       text-align: center;
       line-height: 1.7;
       font-size: 16px;
+      color: var(--text-body);
     }
 
-    /* ── Screenshots ──────────────────────────────────── */
+    /* SCREENSHOTS */
     .screenshots {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
+      gap: 16px;
       align-items: start;
     }
 
     .phoneShot {
-      border-radius: 26px;
+      border-radius: var(--radius-lg);
       overflow: hidden;
       border: 1px solid var(--border);
-      background: rgba(0,0,0,.35);
-      box-shadow: 0 22px 46px rgba(0,0,0,.42);
+      background: var(--bg);
+      box-shadow: var(--card-shadow);
       transition: transform var(--transition), box-shadow var(--transition);
     }
 
-    .phoneShot:nth-child(even) {
-      margin-top: 12px;
+    .phoneShot:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--card-shadow-hover);
     }
 
-    .phoneShot:hover {
-      transform: translateY(-8px) scale(1.03);
-      box-shadow: 0 32px 60px rgba(0,0,0,.55);
+    .phoneShot:nth-child(even) {
+      margin-top: 24px;
     }
 
     .phoneShot img {
@@ -231,88 +204,94 @@
       display: block;
     }
 
-    /* ── Tabs ─────────────────────────────────────────── */
+    /* TABS */
     .tabsGrid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
+      gap: 16px;
     }
 
-    .tabBox, .audienceBox, .featureBox {
-      padding: 20px 16px;
+    .tabBox, .featureBox, .audienceBox {
+      padding: 24px 20px;
       border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      background: linear-gradient(180deg, rgba(255,255,255,.05) 0%, var(--panel) 100%);
-      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      background: var(--card-bg);
+      box-shadow: var(--card-shadow);
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
     }
 
-    .tabBox:hover, .featureBox:hover {
-      border-color: rgba(255,255,255,.18);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(0,0,0,.35);
+    .tabBox:hover, .featureBox:hover, .audienceBox:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--card-shadow-hover);
+      border-color: var(--border-accent);
     }
 
     .tabBox { text-align: center; }
 
     .tabIcon {
-      font-size: 30px;
-      margin-bottom: 8px;
+      font-size: 32px;
+      margin-bottom: 10px;
     }
 
     .tabBox h3, .featureBox h3, .audienceBox h3 {
       margin: 0 0 8px;
-      font-size: 18px;
+      font-size: 17px;
+      font-weight: 700;
     }
 
     .tabBox p, .featureBox p, .audienceBox p {
       margin: 0;
-      color: var(--muted);
-      line-height: 1.58;
+      color: var(--text-body);
+      line-height: 1.6;
       font-size: 14px;
     }
 
-    /* ── Features ─────────────────────────────────────── */
+    /* FEATURES */
     .featuresGrid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
 
-    /* ── Choose your path ─────────────────────────────── */
+    .featureBox {
+      text-align: left;
+    }
+
+    /* AUDIENCE SPLIT */
     .split {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      gap: 20px;
     }
 
     .audienceBox {
       text-align: left;
-      padding: 26px;
-      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
-    }
-
-    .audienceBox:hover {
-      border-color: rgba(255,255,255,.18);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(0,0,0,.35);
+      padding: 28px;
     }
 
     .audienceBox h3 {
-      font-size: 24px;
+      font-size: 22px;
+      font-weight: 800;
     }
 
     .audienceBox p {
-      margin-bottom: 18px;
+      margin-bottom: 20px;
       font-size: 15px;
     }
 
-    /* ── Download ─────────────────────────────────────── */
-    .downloadBox {
+    /* DOWNLOAD */
+    .downloadBand {
+      background: var(--accent);
+      padding: 50px 0;
       text-align: center;
-      padding: 28px;
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      background: rgba(0,0,0,.25);
+    }
+
+    .downloadBand .sectionTitle {
+      color: var(--text);
+    }
+
+    .downloadBand .sectionText {
+      color: rgba(0,0,0,.6);
     }
 
     .storeBtn {
@@ -321,53 +300,51 @@
       align-items: flex-start;
       justify-content: center;
       min-width: 210px;
-      padding: 13px 18px;
-      border-radius: 16px;
-      background: #fff;
-      color: #000;
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      background: var(--text);
+      color: var(--bg);
       text-decoration: none;
-      font-weight: 900;
+      font-weight: 800;
       line-height: 1.15;
-      box-shadow: var(--shadow-btn);
       transition: transform var(--transition), box-shadow var(--transition);
     }
 
     .storeBtn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 28px rgba(255,255,255,.12);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,.2);
     }
 
     .storeBtn span {
       font-size: 12px;
-      font-weight: 700;
-      opacity: .75;
+      font-weight: 600;
+      opacity: .7;
     }
 
     .storeBtn strong {
       font-size: 18px;
     }
 
-    /* ── Footer ───────────────────────────────────────── */
+    /* FOOTER */
     .footer {
-      margin: 34px 0 8px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border-light);
+      padding: 32px 0 24px;
+      border-top: 1px solid var(--border);
       text-align: center;
-      font-size: 12px;
-      color: rgba(245,245,245,.56);
+      font-size: 13px;
+      color: var(--text-muted);
     }
 
     .footerLinks {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
-      margin-bottom: 16px;
+      gap: 16px;
+      margin-bottom: 14px;
     }
 
     .footer a,
     .footer button {
-      color: rgba(245,245,245,.86);
+      color: var(--text-body);
       text-decoration: none;
       background: none;
       border: none;
@@ -379,17 +356,15 @@
 
     .footer a:hover,
     .footer button:hover {
-      color: var(--accent);
-      text-decoration: underline;
+      color: #4a7a00;
     }
 
-    /* ── Modal ────────────────────────────────────────── */
+    /* MODAL */
     .modal {
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,.72);
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+      background: rgba(0,0,0,.4);
+      backdrop-filter: blur(4px);
       display: none;
       align-items: center;
       justify-content: center;
@@ -397,36 +372,32 @@
       padding: 20px;
     }
 
+    .modal.open { display: flex; }
+
     .modalContent {
       width: min(460px, 100%);
-      padding: 24px;
-      border-radius: var(--radius-md);
-      background: #111;
-      border: 1px solid var(--border);
-      box-shadow: 0 26px 70px rgba(0,0,0,.65);
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      background: var(--bg);
+      box-shadow: 0 24px 64px rgba(0,0,0,.18);
       position: relative;
-      animation: modalSlideUp 350ms cubic-bezier(.4,0,.2,1) both;
+      animation: slideUp 300ms ease;
     }
 
-    @keyframes modalSlideUp {
-      from {
-        opacity: 0;
-        transform: translateY(32px) scale(.97);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     .modalContent h2 {
       margin: 0 0 8px;
       text-align: center;
+      font-size: 22px;
     }
 
     .modalContent p {
-      margin: 0 0 14px;
-      color: var(--muted);
+      margin: 0 0 16px;
+      color: var(--text-body);
       text-align: center;
       line-height: 1.5;
     }
@@ -435,19 +406,21 @@
     .modalContent textarea {
       width: 100%;
       margin-top: 10px;
-      padding: 13px 14px;
+      padding: 13px 16px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--border);
-      background: #000;
-      color: #fff;
+      background: var(--bg-alt);
+      color: var(--text);
       font: inherit;
+      font-size: 15px;
       outline: none;
-      transition: border-color var(--transition);
+      transition: border-color var(--transition), box-shadow var(--transition);
     }
 
     .modalContent input:focus,
     .modalContent textarea:focus {
-      border-color: var(--accent-border);
+      border-color: var(--border-accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
     }
 
     .modalContent textarea {
@@ -461,16 +434,16 @@
       padding: 14px 18px;
       border-radius: var(--radius-pill);
       border: none;
-      background: #fff;
-      color: #000;
-      font-weight: 900;
+      background: var(--accent);
+      color: var(--text);
+      font-weight: 800;
+      font-size: 15px;
       cursor: pointer;
-      transition: transform var(--transition), box-shadow var(--transition);
+      transition: background var(--transition);
     }
 
     .modalContent button[type="submit"]:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 24px rgba(255,255,255,.18);
+      background: var(--accent-hover);
     }
 
     .closeModal {
@@ -479,28 +452,26 @@
       right: 16px;
       cursor: pointer;
       font-size: 24px;
-      color: #fff;
+      color: var(--text-muted);
       background: none;
       border: none;
-      transition: opacity var(--transition);
+      transition: color var(--transition);
     }
 
-    .closeModal:hover {
-      opacity: .6;
-    }
+    .closeModal:hover { color: var(--text); }
 
     .formMsg {
       margin-top: 12px;
       min-height: 18px;
       text-align: center;
       font-size: 14px;
-      color: var(--muted);
+      color: var(--text-muted);
     }
 
-    .formMsg.good { color: var(--good); }
-    .formMsg.bad { color: var(--bad); }
+    .formMsg.good { color: #2d7a00; }
+    .formMsg.bad { color: #c0392b; }
 
-    /* ── Reveal animations ────────────────────────────── */
+    /* REVEAL */
     .reveal {
       opacity: 0;
       transform: translateY(24px);
@@ -512,17 +483,19 @@
       transform: translateY(0);
     }
 
-    /* ── Responsive ───────────────────────────────────── */
+    /* RESPONSIVE */
     @media (max-width: 980px) {
       .screenshots { grid-template-columns: repeat(2, 1fr); }
       .tabsGrid { grid-template-columns: repeat(2, 1fr); }
       .featuresGrid { grid-template-columns: 1fr; }
       .split { grid-template-columns: 1fr; }
+      .phoneShot:nth-child(even) { margin-top: 0; }
     }
 
     @media (max-width: 620px) {
-      .page { padding: 18px; }
-      .card, .sectionCard { padding: 26px 18px; }
+      .hero { padding: 48px 0 40px; }
+      section { padding: 40px 0; }
+      .page { padding: 0 18px; }
       .screenshots { grid-template-columns: 1fr; }
       .tabsGrid { grid-template-columns: 1fr; }
       .actions { flex-direction: column; }
@@ -531,27 +504,24 @@
 
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1; transform: none; transition: none; }
-      .btn:hover, .phoneShot:hover, .storeBtn:hover, .tabBox:hover, .featureBox:hover, .audienceBox:hover { transform: none; }
+      .btn:hover, .phoneShot:hover, .tabBox:hover, .featureBox:hover, .audienceBox:hover, .storeBtn:hover { transform: none; }
       .modalContent { animation: none; }
     }
   </style>
 </head>
 
 <body>
-  <div class="page">
 
-    <header class="hero">
-      <div class="card reveal">
+  <!-- HERO -->
+  <header class="hero">
+    <div class="page">
+      <div class="reveal">
         <img class="logo" src="assets/outsiide-logo.png" alt="OUTSIIDE logo" />
-
         <div class="badge">Now available on iOS &amp; Android</div>
-
         <h1>Your city has plans. OUTSIIDE helps you find them.</h1>
-
         <p class="lead">
           Discover events, activities, and experiences happening around you. Whether you're looking for something to do or you're a host trying to reach the right audience, OUTSIIDE brings the city together in one place.
         </p>
-
         <div class="actions">
           <a class="btn primary" href="/user/">I'm a User</a>
           <a class="btn primary" href="/host/">I'm a Host</a>
@@ -559,137 +529,134 @@
           <button class="btn ghost" id="contactBtnHero" type="button">Contact Us</button>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main>
-
-      <section id="screenshots" class="sectionCard reveal">
+  <main>
+    <!-- SCREENSHOTS -->
+    <section class="section-alt reveal">
+      <div class="page">
         <h2 class="sectionTitle">A cleaner way to discover what's happening.</h2>
         <p class="sectionText">
           OUTSIIDE is built for quick discovery: browse, explore, save, and connect with local events, activities, and experiences from your phone.
         </p>
-
         <div class="screenshots">
           <div class="phoneShot"><img src="assets/screenshot-1.png" alt="OUTSIIDE app home feed" /></div>
-          <div class="phoneShot"><img src="assets/screenshot-2.png" alt="OUTSIIDE app event details view" loading="lazy" /></div>
-          <div class="phoneShot"><img src="assets/screenshot-3.png" alt="OUTSIIDE app map discovery screen" loading="lazy" /></div>
-          <div class="phoneShot"><img src="assets/screenshot-4.png" alt="OUTSIIDE app saved events list" loading="lazy" /></div>
-          <div class="phoneShot"><img src="assets/screenshot-5.png" alt="OUTSIIDE app user profile page" loading="lazy" /></div>
+          <div class="phoneShot"><img src="assets/screenshot-2.png" alt="OUTSIIDE app event details" loading="lazy" /></div>
+          <div class="phoneShot"><img src="assets/screenshot-3.png" alt="OUTSIIDE app discovery view" loading="lazy" /></div>
+          <div class="phoneShot"><img src="assets/screenshot-4.png" alt="OUTSIIDE app map and live events" loading="lazy" /></div>
+          <div class="phoneShot"><img src="assets/screenshot-5.png" alt="OUTSIIDE app saved events list" loading="lazy" /></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="sectionCard reveal">
+    <!-- TABS -->
+    <section class="reveal">
+      <div class="page">
         <h2 class="sectionTitle">Built around how people actually explore.</h2>
         <p class="sectionText">
           Move through the city by category, timing, vibe, and saved interests.
         </p>
-
         <div class="tabsGrid">
           <div class="tabBox">
             <div class="tabIcon">🎉</div>
             <h3>Events</h3>
             <p>Concerts, socials, markets, parties, shows, launches, and special gatherings.</p>
           </div>
-
           <div class="tabBox">
             <div class="tabIcon">🏃</div>
             <h3>Activities</h3>
             <p>Classes, clubs, fitness, games, workshops, outdoor plans, and things to do.</p>
           </div>
-
           <div class="tabBox">
             <div class="tabIcon">🌆</div>
             <h3>Experiences</h3>
             <p>Venues, vibes, ambience, hidden gems, lounges, patios, and local favourites.</p>
           </div>
-
           <div class="tabBox">
             <div class="tabIcon">📍</div>
             <h3>Live</h3>
             <p>Find what's happening nearby and explore based on where you are.</p>
           </div>
-
           <div class="tabBox">
             <div class="tabIcon">⭐</div>
             <h3>Saved</h3>
             <p>Keep track of the things you want to attend, visit, or revisit later.</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="sectionCard reveal">
+    <!-- WHY OUTSIIDE -->
+    <section class="section-alt reveal">
+      <div class="page">
         <h2 class="sectionTitle">Why OUTSIIDE?</h2>
         <p class="sectionText">
           OUTSIIDE helps reduce the noise. Instead of scrolling everywhere, users can quickly find what fits their mood, city, and plans.
         </p>
-
         <div class="featuresGrid">
           <div class="featureBox">
             <h3>Local Discovery</h3>
             <p>Find real things happening around your city without jumping between apps, flyers, and social feeds.</p>
           </div>
-
           <div class="featureBox">
             <h3>For Hosts</h3>
             <p>Give your event, activity, or experience a direct discovery channel to people looking for something to do.</p>
           </div>
-
           <div class="featureBox">
             <h3>For the Community</h3>
             <p>Make it easier for people to connect with local culture, businesses, creators, and experiences.</p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="sectionCard reveal">
+    <!-- CHOOSE YOUR PATH -->
+    <section class="reveal">
+      <div class="page">
         <h2 class="sectionTitle">Choose your path.</h2>
         <p class="sectionText">
           Start where you belong: discover as a user or grow your visibility as a host.
         </p>
-
         <div class="split">
           <div class="audienceBox">
             <h3>I'm a User</h3>
-            <p>
-              Discover events, activities, and experiences around you. Save what you like, explore what's happening, and find your next move.
-            </p>
+            <p>Discover events, activities, and experiences around you. Save what you like, explore what's happening, and find your next move.</p>
             <a class="btn primary" href="/user/">Explore as a User</a>
           </div>
-
           <div class="audienceBox">
             <h3>I'm a Host</h3>
-            <p>
-              Promote what you host, showcase your experience, and reach people actively looking for things to do. First month free for early hosts.
-            </p>
+            <p>Promote what you host, showcase your experience, and reach people actively looking for things to do. First month free for early hosts.</p>
             <a class="btn primary" href="/host/">Learn About Hosting</a>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="download" class="sectionCard reveal">
-        <div class="downloadBox">
-          <h2 class="sectionTitle">Download OUTSIIDE</h2>
-          <p class="sectionText">
-            Available now on the App Store and Google Play.
-          </p>
-
-          <div class="actions">
-            <a class="storeBtn" href="https://apps.apple.com/ca/app/outsiide/id6758898068" target="_blank" rel="noopener noreferrer">
-              <span>Download on the</span>
-              <strong>App Store</strong>
-            </a>
-
-            <a class="storeBtn" href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile&hl=en_CA" target="_blank" rel="noopener noreferrer">
-              <span>Get it on</span>
-              <strong>Google Play</strong>
-            </a>
-          </div>
+    <!-- DOWNLOAD -->
+    <section id="download" class="downloadBand reveal">
+      <div class="page">
+        <h2 class="sectionTitle">Download OUTSIIDE</h2>
+        <p class="sectionText">
+          Available now on the App Store and Google Play.
+        </p>
+        <div class="actions">
+          <a class="storeBtn" href="https://apps.apple.com/ca/app/outsiide/id6758898068" target="_blank" rel="noopener noreferrer">
+            <span>Download on the</span>
+            <strong>App Store</strong>
+          </a>
+          <a class="storeBtn" href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile&hl=en_CA" target="_blank" rel="noopener noreferrer">
+            <span>Get it on</span>
+            <strong>Google Play</strong>
+          </a>
         </div>
-      </section>
+      </div>
+    </section>
+  </main>
 
-    </main>
-
-    <footer class="footer">
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="page">
       <div class="footerLinks">
         <a href="/user/">User</a>
         <a href="/host/">Host</a>
@@ -700,18 +667,16 @@
         <button id="contactBtnFooter" type="button">Contact Us</button>
         <a href="mailto:info@outsiide.ca">info@outsiide.ca</a>
       </div>
-
       &copy; <span id="y"></span> OUTSIIDE
-    </footer>
+    </div>
+  </footer>
 
-  </div>
-
-  <div id="contactModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+  <!-- CONTACT MODAL -->
+  <div id="contactModal" class="modal" aria-hidden="true">
     <div class="modalContent">
       <button class="closeModal" id="closeModal" type="button" aria-label="Close contact form">&times;</button>
       <h2>Contact Us</h2>
       <p>Have a question, issue, or suggestion? Send us a message below.</p>
-
       <form id="contactForm">
         <input type="text" name="name" placeholder="Your name" required />
         <input type="email" name="email" placeholder="Your email" required />
@@ -725,59 +690,47 @@
   <script>
     document.getElementById("y").textContent = new Date().getFullYear();
 
-    /* ── Reveal on scroll ──────────────────────────── */
+    // Scroll reveal
     const reveals = document.querySelectorAll(".reveal");
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("show");
       });
-    }, { threshold: 0.12 });
-
+    }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
 
-    /* ── Modal ─────────────────────────────────────── */
+    // Contact modal
     const modal = document.getElementById("contactModal");
     const closeModalBtn = document.getElementById("closeModal");
-    const contactBtnHero = document.getElementById("contactBtnHero");
-    const contactBtnFooter = document.getElementById("contactBtnFooter");
     const contactForm = document.getElementById("contactForm");
     const formMsg = document.getElementById("formMsg");
 
     function openContact() {
-      modal.style.display = "flex";
+      modal.classList.add("open");
       modal.setAttribute("aria-hidden", "false");
     }
 
     function closeContact() {
-      modal.style.display = "none";
+      modal.classList.remove("open");
       modal.setAttribute("aria-hidden", "true");
       formMsg.textContent = "";
       formMsg.className = "formMsg";
     }
 
-    contactBtnHero.addEventListener("click", openContact);
-    contactBtnFooter.addEventListener("click", openContact);
+    document.getElementById("contactBtnHero").addEventListener("click", openContact);
+    document.getElementById("contactBtnFooter").addEventListener("click", openContact);
     closeModalBtn.addEventListener("click", closeContact);
 
     window.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        closeContact();
-      }
+      if (e.target === modal) closeContact();
     });
 
     window.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && modal.style.display === "flex") {
-        closeContact();
-      }
+      if (e.key === "Escape" && modal.classList.contains("open")) closeContact();
     });
 
-    /* ── Form submission ───────────────────────────── */
     contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-
       formMsg.textContent = "Sending...";
       formMsg.className = "formMsg";
 
@@ -794,10 +747,7 @@
           contactForm.reset();
           formMsg.textContent = "Message sent. Thank you!";
           formMsg.classList.add("good");
-
-          setTimeout(() => {
-            closeContact();
-          }, 1800);
+          setTimeout(() => closeContact(), 1800);
         } else {
           formMsg.textContent = "Something went wrong. Please try again.";
           formMsg.classList.add("bad");

@@ -8,7 +8,6 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="OUTSIIDE" />
   <meta property="og:description" content="Discover events and experiences near you." />
-  <meta property="og:url" content="https://outsiide.ca" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -19,195 +18,49 @@
 
   <style>
     :root {
-      color-scheme: dark;
-      --bg: #050505;
-      --text: #f5f5f5;
-      --muted: rgba(245,245,245,.68);
-      --card: rgba(255,255,255,.06);
-      --border: rgba(255,255,255,.10);
-      --border-light: rgba(255,255,255,.06);
-      --button: #ffffff;
-      --buttonText: #000000;
-      --accent: #8cffb4;
-      --accent-dim: rgba(140,255,180,.15);
-      --accent-border: rgba(140,255,180,.30);
-      --radius-md: 22px;
-      --radius-lg: 28px;
-      --radius-pill: 999px;
-      --shadow-card: 0 24px 64px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.05);
+      color-scheme: light; --bg: #ffffff; --bg-alt: #f7f7f5; --text: #1a1a1a; --text-body: #555555;
+      --accent: #c6f221; --accent-hover: #b5e010;
+      --card-bg: #ffffff; --card-shadow: 0 2px 16px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04);
+      --card-shadow-hover: 0 8px 32px rgba(0,0,0,.10);
+      --border: rgba(0,0,0,.08); --border-accent: rgba(198,242,33,.5);
+      --radius-md: 20px; --radius-lg: 24px; --radius-pill: 999px;
       --transition: 200ms cubic-bezier(.4,0,.2,1);
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      min-height: 100vh;
-      color: var(--text);
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 28px;
-      background:
-        linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.82)),
-        url('/assets/outsiide-bg.jpg') center / cover no-repeat,
-        var(--bg);
-    }
-
-    .card {
-      max-width: 900px;
-      width: 100%;
-      padding: 40px 32px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      background: var(--card);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: var(--shadow-card);
-      text-align: center;
-    }
-
-    .logo {
-      width: min(280px, 70vw);
-      height: auto;
-      display: block;
-      margin: 0 auto 20px;
-      filter: drop-shadow(0 16px 24px rgba(0,0,0,.5));
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 10px 16px;
-      border-radius: var(--radius-pill);
-      background: var(--accent-dim);
-      border: 1px solid var(--accent-border);
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 12px;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      margin-bottom: 22px;
-    }
-
-    h1 {
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 900;
-      letter-spacing: -.04em;
-      margin-bottom: 14px;
-    }
-
-    p {
-      color: var(--muted);
-      max-width: 700px;
-      margin: 0 auto 10px;
-      line-height: 1.7;
-      font-size: 16px;
-    }
-
-    .screens {
-      margin-top: 30px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .screens img {
-      width: 100%;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border);
-      display: block;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-
-    .screens img:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(0,0,0,.4);
-    }
-
-    .actions {
-      margin-top: 30px;
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 24px;
-      border-radius: var(--radius-pill);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-      background: var(--button);
-      color: var(--buttonText);
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(255,255,255,.15);
-    }
-
-    .websiteLink {
-      display: block;
-      margin-top: 22px;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 15px;
-      transition: color var(--transition);
-    }
-
-    .websiteLink:hover { color: var(--accent); }
-
-    @media (max-width: 700px) {
-      .screens { grid-template-columns: 1fr; }
-      h1 { font-size: 30px; }
-      .card { padding: 28px 18px; }
-      .actions { flex-direction: column; }
-      .btn { width: 100%; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .btn:hover, .screens img:hover { transform: none; }
-    }
+    body { min-height: 100vh; color: var(--text-body); font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; -webkit-font-smoothing: antialiased; display: flex; justify-content: center; align-items: center; padding: 28px; background: var(--bg-alt); }
+    .card { max-width: 860px; width: 100%; padding: 40px 32px; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--card-bg); box-shadow: var(--card-shadow); text-align: center; }
+    .logo { width: min(240px, 60vw); height: auto; display: block; margin: 0 auto 20px; }
+    .badge { display: inline-block; padding: 8px 16px; border-radius: var(--radius-pill); background: rgba(198,242,33,.12); border: 1px solid var(--border-accent); color: #4a7a00; font-weight: 700; font-size: 12px; letter-spacing: .03em; text-transform: uppercase; margin-bottom: 18px; }
+    h1 { color: var(--text); font-size: clamp(26px, 4vw, 40px); font-weight: 900; letter-spacing: -.04em; margin-bottom: 12px; }
+    p { max-width: 600px; margin: 0 auto 10px; line-height: 1.7; font-size: 16px; }
+    .screens { margin-top: 28px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .screens img { width: 100%; border-radius: var(--radius-md); border: 1px solid var(--border); display: block; transition: transform var(--transition), box-shadow var(--transition); }
+    .screens img:hover { transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+    .actions { margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 24px; border-radius: var(--radius-pill); text-decoration: none; font-weight: 700; font-size: 15px; background: var(--accent); color: var(--text); border: none; transition: transform var(--transition), box-shadow var(--transition), background var(--transition); }
+    .btn:hover { transform: translateY(-2px); background: var(--accent-hover); box-shadow: 0 6px 24px rgba(198,242,33,.35); }
+    .websiteLink { display: block; margin-top: 20px; color: var(--text-body); text-decoration: none; font-size: 15px; transition: color var(--transition); }
+    .websiteLink:hover { color: #4a7a00; }
+    @media (max-width: 700px) { .screens { grid-template-columns: 1fr; } h1 { font-size: 28px; } .card { padding: 28px 18px; } .actions { flex-direction: column; } .btn { width: 100%; } }
+    @media (prefers-reduced-motion: reduce) { .btn:hover, .screens img:hover { transform: none; } }
   </style>
 </head>
 <body>
-
   <main class="card">
     <img src="/assets/outsiide-logo.png" class="logo" alt="OUTSIIDE logo" />
-
     <div class="badge">Opening OUTSIIDE…</div>
-
     <h1>Discover what's happening around you.</h1>
-
-    <p>
-      If OUTSIIDE is not installed, you'll be redirected to the appropriate app store shortly.
-    </p>
-
+    <p>If OUTSIIDE is not installed, you'll be redirected to the appropriate app store shortly.</p>
     <div class="screens">
       <img src="/assets/screenshot-1.png" alt="OUTSIIDE app home feed" loading="lazy" />
       <img src="/assets/screenshot-2.png" alt="OUTSIIDE app event details" loading="lazy" />
       <img src="/assets/screenshot-3.png" alt="OUTSIIDE app discovery view" loading="lazy" />
     </div>
-
     <div class="actions">
-      <a class="btn" href="https://apps.apple.com/ca/app/outsiide/id6758898068" target="_blank" rel="noopener noreferrer">
-        Download on App Store
-      </a>
-      <a class="btn" href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile" target="_blank" rel="noopener noreferrer">
-        Get it on Google Play
-      </a>
+      <a class="btn" href="https://apps.apple.com/ca/app/outsiide/id6758898068" target="_blank" rel="noopener noreferrer">Download on App Store</a>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
     </div>
-
-    <a class="websiteLink" href="https://outsiide.ca">
-      Continue on Website →
-    </a>
+    <a class="websiteLink" href="https://outsiide.ca">Continue on Website →</a>
   </main>
 
   <script>
@@ -215,12 +68,8 @@
       const ua = navigator.userAgent || '';
       const isIOS = /iphone|ipad|ipod/i.test(ua);
       const isAndroid = /android/i.test(ua);
-      const appStore = 'https://apps.apple.com/ca/app/outsiide/id6758898068';
-      const playStore = 'https://play.google.com/store/apps/details?id=ca.outsiide.mobile';
-      const storeUrl = isIOS ? appStore : isAndroid ? playStore : null;
-      if (storeUrl) {
-        setTimeout(() => { window.location.href = storeUrl; }, 1500);
-      }
+      const storeUrl = isIOS ? 'https://apps.apple.com/ca/app/outsiide/id6758898068' : isAndroid ? 'https://play.google.com/store/apps/details?id=ca.outsiide.mobile' : null;
+      if (storeUrl) setTimeout(() => { window.location.href = storeUrl; }, 1500);
     })();
   </script>
 </body>
