@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>OUTSIIDE — Redirecting</title>
+<title>OUTSIIDE â€” Redirecting</title>
 <meta name="description" content="Discover events and experiences near you with OUTSIIDE. Redirecting to the app store.">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
-<link rel="shortcut icon" href="/assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -73,12 +73,23 @@ h1{font-size:1.75rem;font-weight:700;letter-spacing:-.03em;margin-bottom:12px;li
   transition:color var(--transition);
 }
 .continue:hover{color:var(--text);opacity:1}
+
+@media(max-width:620px){
+  .card{padding:32px 20px}
+  h1{font-size:1.4rem}
+  .screenshots{grid-template-columns:1fr}
+  .actions{flex-direction:column}
+  .btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .btn:hover,.screenshots img:hover{transform:none}
+}
 </style>
 </head>
 <body>
 <div class="card">
   <img src="/assets/outsiide-logo.png" alt="OUTSIIDE" class="logo">
-  <div class="badge">Opening OUTSIIDE…</div>
+  <div class="badge">Opening OUTSIIDEâ€¦</div>
   <h1>Discover what's happening around you.</h1>
   <p class="lead">If OUTSIIDE is not installed, you'll be redirected to the app store shortly.</p>
 
@@ -93,7 +104,7 @@ h1{font-size:1.75rem;font-weight:700;letter-spacing:-.03em;margin-bottom:12px;li
     <a href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile&hl=en_CA" class="btn primary" id="btn-android"> Google Play</a>
   </div>
 
-  <a href="https://outsiide.ca" class="continue">Continue on Website →</a>
+  <a href="https://outsiide.ca" class="continue">Continue on Website â†’</a>
 </div>
 
 <script>

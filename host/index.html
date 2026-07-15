@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Host on OUTSIIDE</title>
 <meta name="description" content="Host your events, activities, and experiences on OUTSIIDE. First month free for all hosts.">
-<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
-<link rel="shortcut icon" href="../assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -83,7 +83,7 @@ h2{font-size:1.4rem;font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
 }
 .benefits li:last-child{border-bottom:none}
 .benefits li::before{
-  content:'✓';flex-shrink:0;width:26px;height:26px;border-radius:50%;
+  content:'âœ“';flex-shrink:0;width:26px;height:26px;border-radius:50%;
   background:var(--accent-dim);color:var(--accent);display:inline-flex;
   align-items:center;justify-content:center;font-weight:700;font-size:.82rem;
 }
@@ -94,12 +94,25 @@ h2{font-size:1.4rem;font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
 
 /* Scroll reveal */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal.show{opacity:1;transform:translateY(0)}
 
 footer{text-align:center;padding:32px 20px 40px;font-size:.78rem;color:var(--muted);border-top:1px solid var(--border-light)}
 footer nav{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}
 footer nav a{color:var(--muted);font-weight:500}
 footer nav a:hover{color:var(--text)}
+
+@media(max-width:620px){
+  section{padding:40px 0}
+  .container{padding:0 18px}
+  h1{font-size:1.6rem}
+  .glass{padding:28px 20px}
+  .actions{flex-direction:column}
+  .btn{width:100%;min-width:unset}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .btn:hover{transform:none}
+}
 </style>
 </head>
 <body>
@@ -109,7 +122,7 @@ footer nav a:hover{color:var(--text)}
   <div class="container">
     <img src="../assets/outsiide-logo.png" alt="OUTSIIDE" class="logo">
     <h1>Host on OUTSIIDE</h1>
-    <p class="lead">Whether you're organizing a community event, hosting a fitness class, or running a local experience — OUTSIIDE helps you reach the people who are looking for exactly what you offer.</p>
+    <p class="lead">Whether you're organizing a community event, hosting a fitness class, or running a local experience â€” OUTSIIDE helps you reach the people who are looking for exactly what you offer.</p>
     <div class="badge">First month free for all hosts</div>
   </div>
 </section>
@@ -134,7 +147,7 @@ footer nav a:hover{color:var(--text)}
         <li>Reach new customers and grow your community beyond social media algorithms.</li>
         <li>Showcase what makes your offering unique with rich media and details.</li>
         <li>Drive real attendance with location-based discovery and notifications.</li>
-        <li>Get started risk-free — your first month of hosting is completely free.</li>
+        <li>Get started risk-free â€” your first month of hosting is completely free.</li>
       </ul>
     </div>
   </div>
@@ -158,8 +171,8 @@ footer nav a:hover{color:var(--text)}
 <section class="reveal" style="padding-top:0;padding-bottom:20px">
   <div class="container">
     <div class="actions">
-      <a href="mailto:info@outsiide.ca" class="btn ghost">✉ Contact Us</a>
-      <a href="../" class="btn ghost">← Back Home</a>
+      <a href="mailto:info@outsiide.ca" class="btn ghost">âœ‰ Contact Us</a>
+      <a href="../" class="btn ghost">â† Back Home</a>
     </div>
   </div>
 </section>
@@ -178,7 +191,7 @@ footer nav a:hover{color:var(--text)}
 <script>
 const reveals=document.querySelectorAll('.reveal');
 const io=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}});
 },{threshold:.15});
 reveals.forEach(r=>io.observe(r));
 </script>

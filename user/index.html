@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Users | OUTSIIDE</title>
 <meta name="description" content="Download OUTSIIDE and start discovering events, activities, and experiences happening around you.">
-<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
-<link rel="shortcut icon" href="../assets/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -104,12 +104,24 @@ h2{font-size:1.5rem;font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
 
 /* Scroll reveal */
 .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal.show{opacity:1;transform:translateY(0)}
 
 footer{text-align:center;padding:32px 20px 40px;font-size:.78rem;color:var(--muted);border-top:1px solid var(--border-light)}
 footer nav{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}
 footer nav a{color:var(--muted);font-weight:500}
 footer nav a:hover{color:var(--text)}
+
+@media(max-width:620px){
+  section{padding:40px 0}
+  .container{padding:0 18px}
+  h1{font-size:1.6rem}
+  .actions{flex-direction:column}
+  .btn{width:100%;min-width:unset}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .btn:hover{transform:none}
+}
 </style>
 </head>
 <body>
@@ -120,13 +132,13 @@ footer nav a:hover{color:var(--text)}
     <img src="../assets/outsiide-logo.png" alt="OUTSIIDE" class="logo">
     <div class="badge">Now Available on iOS &amp; Android</div>
     <h1>Discover what's happening around you.</h1>
-    <p class="lead">OUTSIIDE connects you with local events, activities, and experiences — all in one place. Find what's happening nearby and never miss out again.</p>
+    <p class="lead">OUTSIIDE connects you with local events, activities, and experiences â€” all in one place. Find what's happening nearby and never miss out again.</p>
     <div class="actions">
       <a href="https://apps.apple.com/ca/app/outsiide/id6758898068" class="btn primary"> App Store</a>
       <a href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile&hl=en_CA" class="btn primary"> Google Play</a>
     </div>
     <div class="actions" style="margin-top:12px">
-      <a href="../" class="btn ghost">← Back Home</a>
+      <a href="../" class="btn ghost">â† Back Home</a>
     </div>
   </div>
 </section>
@@ -159,12 +171,12 @@ footer nav a:hover{color:var(--text)}
       <div class="step">
         <div class="step-num">3</div>
         <h3>Verify &amp; Explore</h3>
-        <p>Check your email to verify — look in spam or junk if needed — then start exploring.</p>
+        <p>Check your email to verify â€” look in spam or junk if needed â€” then start exploring.</p>
       </div>
     </div>
 
     <div class="incentive">
-      <h3>🎁 Early User Incentives</h3>
+      <h3>ðŸŽ Early User Incentives</h3>
       <p>Be one of the first to join and unlock exclusive perks, early access features, and special rewards.</p>
     </div>
   </div>
@@ -185,7 +197,7 @@ footer nav a:hover{color:var(--text)}
 <script>
 const reveals=document.querySelectorAll('.reveal');
 const io=new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}});
 },{threshold:.15});
 reveals.forEach(r=>io.observe(r));
 </script>
