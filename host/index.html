@@ -1,310 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Host on OUTSIIDE</title>
-  <meta name="description" content="Host your events, activities, and experiences on OUTSIIDE. First month free for all hosts." />
-  <meta name="robots" content="index,follow" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Host on OUTSIIDE</title>
+<meta name="description" content="Host your events, activities, and experiences on OUTSIIDE. First month free for all hosts.">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png">
+<link rel="shortcut icon" href="../assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  color-scheme:dark;
+  --bg:#050505;--text:#f5f5f5;--muted:rgba(245,245,245,.68);
+  --card:rgba(255,255,255,.06);--border:rgba(255,255,255,.10);--border-light:rgba(255,255,255,.06);
+  --ghost:rgba(255,255,255,.07);--accent:#c6f221;--accent-dim:rgba(198,242,33,.15);
+  --accent-border:rgba(198,242,33,.30);--radius-sm:14px;--radius-md:22px;--radius-lg:28px;--radius-pill:999px;
+  --shadow-card:0 24px 64px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.05);
+  --transition:200ms cubic-bezier(.4,0,.2,1);
+}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  color:var(--text);
+  background:linear-gradient(rgba(0,0,0,.58),rgba(0,0,0,.72)),url("../assets/outsiide-bg.jpg") center/cover no-repeat fixed,var(--bg);
+  min-height:100vh;line-height:1.6;
+}
+a{color:var(--accent);text-decoration:none;transition:opacity var(--transition)}
+a:hover{opacity:.8}
 
-  <style>
-    :root {
-      color-scheme: light;
-      --bg: #ffffff;
-      --bg-alt: #f7f7f5;
-      --text: #1a1a1a;
-      --text-body: #555555;
-      --text-muted: #888888;
-      --accent: #c6f221;
-      --accent-hover: #b5e010;
-      --accent-soft: rgba(198,242,33,.12);
-      --card-bg: #ffffff;
-      --card-shadow: 0 2px 16px rgba(0,0,0,.06), 0 1px 4px rgba(0,0,0,.04);
-      --card-shadow-hover: 0 8px 32px rgba(0,0,0,.10);
-      --border: rgba(0,0,0,.08);
-      --border-accent: rgba(198,242,33,.5);
-      --radius-sm: 14px;
-      --radius-md: 20px;
-      --radius-lg: 24px;
-      --radius-pill: 999px;
-      --transition: 200ms cubic-bezier(.4,0,.2,1);
-    }
+.container{max-width:680px;margin:0 auto;padding:0 20px}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+section{padding:60px 0;text-align:center}
 
-    body {
-      color: var(--text-body);
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      background: var(--bg);
-    }
+.glass{
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);
+  box-shadow:var(--shadow-card);padding:40px 36px;
+}
 
-    h1, h2, h3 { color: var(--text); }
+.logo{width:110px;margin-bottom:24px;filter:drop-shadow(0 4px 24px rgba(0,0,0,.5))}
 
-    .page {
-      width: min(960px, 100%);
-      margin: 0 auto;
-      padding: 0 28px;
-    }
+h1{font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:12px;line-height:1.2}
+h2{font-size:1.4rem;font-weight:700;letter-spacing:-.02em;margin-bottom:12px}
+.lead{color:var(--muted);font-size:1rem;max-width:520px;margin:0 auto 24px}
 
-    /* HERO */
-    .hero {
-      padding: 80px 0 50px;
-      text-align: center;
-    }
+.badge{
+  display:inline-block;padding:7px 18px;border-radius:var(--radius-pill);font-size:.8rem;font-weight:600;
+  border:1px solid var(--accent-border);background:var(--accent-dim);color:var(--accent);
+  margin-bottom:20px;letter-spacing:.02em;
+}
 
-    .logo {
-      width: min(260px, 60vw);
-      display: block;
-      margin: 0 auto 20px;
-    }
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 30px;border-radius:var(--radius-pill);font-family:inherit;font-size:.92rem;
+  font-weight:600;cursor:pointer;transition:all var(--transition);border:none;text-decoration:none;
+}
+.btn.primary{background:var(--accent);color:#000}
+.btn.primary:hover{box-shadow:0 6px 24px rgba(198,242,33,.3);transform:translateY(-2px)}
+.btn.ghost{background:var(--ghost);border:1px solid var(--border);color:var(--text)}
+.btn.ghost:hover{background:rgba(255,255,255,.12)}
 
-    h1 {
-      margin: 0 0 14px;
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 900;
-      letter-spacing: -.04em;
-    }
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px}
 
-    .lead {
-      max-width: 620px;
-      margin: 0 auto 20px;
-      line-height: 1.75;
-      font-size: 16px;
-    }
+/* Video */
+.video-wrap{
+  max-width:640px;margin:24px auto 0;border-radius:var(--radius-md);overflow:hidden;
+  border:1px solid var(--border);box-shadow:var(--shadow-card);
+  background:var(--card);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+}
+.video-wrap iframe{width:100%;aspect-ratio:16/9;display:block;border:none}
 
-    .offer {
-      display: inline-block;
-      margin: 8px auto 24px;
-      padding: 8px 16px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border-accent);
-      background: var(--accent-soft);
-      color: #4a7a00;
-      font-weight: 700;
-      letter-spacing: .03em;
-      text-transform: uppercase;
-      font-size: 12px;
-    }
+/* Benefits */
+.benefits{text-align:left;margin-top:40px}
+.benefits ul{list-style:none;padding:0;margin-top:16px}
+.benefits li{
+  padding:14px 0;border-bottom:1px solid var(--border-light);font-size:.94rem;
+  display:flex;align-items:flex-start;gap:12px;
+}
+.benefits li:last-child{border-bottom:none}
+.benefits li::before{
+  content:'✓';flex-shrink:0;width:26px;height:26px;border-radius:50%;
+  background:var(--accent-dim);color:var(--accent);display:inline-flex;
+  align-items:center;justify-content:center;font-weight:700;font-size:.82rem;
+}
 
-    /* SECTIONS */
-    section { padding: 50px 0; }
-    .section-alt { background: var(--bg-alt); }
+/* Download card */
+.download-card{margin-top:40px}
+.download-card p{color:var(--muted);font-size:.92rem;margin-bottom:20px}
 
-    .sectionTitle {
-      margin: 0 0 10px;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -.02em;
-    }
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
 
-    /* VIDEO */
-    .videoWrap {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      box-shadow: var(--card-shadow);
-      background: #000;
-    }
-
-    iframe {
-      width: 100%;
-      height: 460px;
-      border: 0;
-      display: block;
-    }
-
-    /* BENEFITS */
-    .benefits {
-      margin-top: 28px;
-      padding: 24px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      background: var(--card-bg);
-      box-shadow: var(--card-shadow);
-    }
-
-    .benefits ul {
-      padding-left: 22px;
-      line-height: 1.85;
-      font-size: 15px;
-    }
-
-    .benefits li { padding: 2px 0; }
-    .benefits li::marker { color: #4a7a00; }
-
-    /* DOWNLOAD */
-    .downloadSection {
-      margin-top: 28px;
-      padding: 24px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      background: var(--card-bg);
-      box-shadow: var(--card-shadow);
-      text-align: center;
-    }
-
-    .downloadSection p {
-      margin: 10px auto 16px;
-      max-width: 54ch;
-      line-height: 1.65;
-    }
-
-    .actions {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px 22px;
-      border-radius: var(--radius-pill);
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 15px;
-      border: 2px solid transparent;
-      cursor: pointer;
-      min-width: 190px;
-      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
-    }
-
-    .btn:hover { transform: translateY(-2px); }
-
-    .btn.primary {
-      background: var(--accent);
-      color: var(--text);
-    }
-
-    .btn.primary:hover {
-      background: var(--accent-hover);
-      box-shadow: 0 6px 24px rgba(198,242,33,.35);
-    }
-
-    .btn.ghost {
-      background: transparent;
-      color: var(--text);
-      border-color: var(--text);
-    }
-
-    .btn.ghost:hover {
-      background: var(--text);
-      color: var(--bg);
-    }
-
-    .footer {
-      padding: 28px 0 20px;
-      border-top: 1px solid var(--border);
-      text-align: center;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .footer a {
-      color: var(--text-body);
-      text-decoration: none;
-      margin: 0 8px;
-      transition: color var(--transition);
-    }
-
-    .footer a:hover { color: #4a7a00; }
-
-    @media (max-width: 640px) {
-      .hero { padding: 48px 0 36px; }
-      iframe { height: 240px; }
-      .btn { width: 100%; min-width: unset; }
-      .actions { flex-direction: column; }
-      .page { padding: 0 18px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .btn:hover { transform: none; }
-    }
-  </style>
+footer{text-align:center;padding:32px 20px 40px;font-size:.78rem;color:var(--muted);border-top:1px solid var(--border-light)}
+footer nav{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:8px}
+footer nav a{color:var(--muted);font-weight:500}
+footer nav a:hover{color:var(--text)}
+</style>
 </head>
-
 <body>
-  <!-- HERO -->
-  <header class="hero">
-    <div class="page">
-      <img src="../assets/outsiide-logo.png" class="logo" alt="OUTSIIDE logo" />
-      <h1>Host on OUTSIIDE</h1>
-      <p class="lead">
-        OUTSIIDE helps hosts promote events, activities, and experiences directly to people looking for something to do.
-        Watch the video below to learn how OUTSIIDE can help you reach the right audience and turn attention into attendance.
-      </p>
-      <div class="offer">First month free for all hosts</div>
+
+<!-- Hero -->
+<section class="reveal">
+  <div class="container">
+    <img src="../assets/outsiide-logo.png" alt="OUTSIIDE" class="logo">
+    <h1>Host on OUTSIIDE</h1>
+    <p class="lead">Whether you're organizing a community event, hosting a fitness class, or running a local experience — OUTSIIDE helps you reach the people who are looking for exactly what you offer.</p>
+    <div class="badge">First month free for all hosts</div>
+  </div>
+</section>
+
+<!-- Video -->
+<section class="reveal" style="padding-top:0">
+  <div class="container">
+    <h2>See how hosting works</h2>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/DkLr8lV80Qg" title="Host on OUTSIIDE" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main>
-    <!-- VIDEO -->
-    <section class="section-alt">
-      <div class="page">
-        <div class="videoWrap">
-          <iframe src="https://www.youtube.com/embed/DkLr8lV80Qg" title="OUTSIIDE Host Info Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- BENEFITS -->
-    <section>
-      <div class="page">
-        <div class="benefits">
-          <h2 class="sectionTitle">Why Host on OUTSIIDE?</h2>
-          <ul>
-            <li>Promote your events, activities, and experiences in one place.</li>
-            <li>Reach people actively looking for things to do around the city.</li>
-            <li>Showcase your business, venue, community, or experience to local Outsiiders.</li>
-            <li>Drive more visibility, RSVPs, and real-world attendance.</li>
-            <li>Start with your first month free as an early host.</li>
-          </ul>
-        </div>
-
-        <div class="downloadSection">
-          <h2 class="sectionTitle">Download OUTSIIDE</h2>
-          <p>
-            Get the app and start exploring how your events, activities, and experiences can be discovered by the OUTSIIDE community.
-          </p>
-          <div class="actions">
-            <a class="btn primary" href="https://apps.apple.com/ca/app/outsiide/id6758898068" target="_blank" rel="noopener noreferrer">Download on App Store</a>
-            <a class="btn primary" href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile&hl=en_CA" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
-          </div>
-        </div>
-
-        <div class="actions" style="margin-top: 28px;">
-          <a class="btn ghost" href="mailto:info@outsiide.ca">Contact Us</a>
-          <a class="btn ghost" href="/">Back Home</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="page">
-      <a href="/">Home</a>
-      <a href="/support/">Support</a>
-      <a href="/terms/">Terms of Service</a>
-      <a href="/conditions/">Conditions of Use</a>
-      <a href="/privacy/">Privacy Policy</a>
-      <br /><br />
-      &copy; <span id="y"></span> OUTSIIDE
+<!-- Benefits -->
+<section class="reveal" style="padding-top:0">
+  <div class="container">
+    <div class="glass benefits">
+      <h2>Why Host on OUTSIIDE?</h2>
+      <ul>
+        <li>Promote your events, activities, and experiences to a local audience actively looking for things to do.</li>
+        <li>Reach new customers and grow your community beyond social media algorithms.</li>
+        <li>Showcase what makes your offering unique with rich media and details.</li>
+        <li>Drive real attendance with location-based discovery and notifications.</li>
+        <li>Get started risk-free — your first month of hosting is completely free.</li>
+      </ul>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+<!-- Download -->
+<section class="reveal" style="padding-top:0">
+  <div class="container">
+    <div class="glass download-card">
+      <h2>Download OUTSIIDE</h2>
+      <p>Create your host profile and start listing your events today. Available on iOS and Android.</p>
+      <div class="actions">
+        <a href="https://apps.apple.com/ca/app/outsiide/id6758898068" class="btn primary"> App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=ca.outsiide.mobile&hl=en_CA" class="btn primary"> Google Play</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bottom Actions -->
+<section class="reveal" style="padding-top:0;padding-bottom:20px">
+  <div class="container">
+    <div class="actions">
+      <a href="mailto:info@outsiide.ca" class="btn ghost">✉ Contact Us</a>
+      <a href="../" class="btn ghost">← Back Home</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <nav>
+    <a href="../">Home</a>
+    <a href="../support/">Support</a>
+    <a href="../terms/">Terms of Service</a>
+    <a href="../conditions/">Conditions of Use</a>
+    <a href="../privacy/">Privacy Policy</a>
+  </nav>
+  <span>&copy; <script>document.write(new Date().getFullYear())</script> OUTSIIDE. All rights reserved.</span>
+</footer>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+},{threshold:.15});
+reveals.forEach(r=>io.observe(r));
+</script>
 </body>
 </html>
