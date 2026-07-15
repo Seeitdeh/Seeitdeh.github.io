@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -23,11 +23,12 @@
       --transition: 200ms cubic-bezier(.4,0,.2,1);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       min-height: 100vh; color: var(--text);
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-      display: flex; align-items: center; justify-content: center; padding: 28px;
+      display: flex; align-items: flex-start; justify-content: center; padding: 28px;
       background: linear-gradient(rgba(0,0,0,.58), rgba(0,0,0,.72)), url("../assets/outsiide-bg.jpg") center / cover no-repeat, var(--bg);
       animation: slowZoom 40s ease-in-out infinite alternate;
     }
@@ -123,7 +124,7 @@
         <li>Allow Hosts to create and manage events, experiences, and capacities</li>
         <li>Process RSVPs, track ticket allocation, and record check-ins</li>
         <li>Show synced RSVPs and profile data across your devices</li>
-        <li>Operate reporting and complaint workflows (User â†’ Admin â†’ Host if necessary)</li>
+        <li>Operate reporting and complaint workflows (User to Admin to Host if necessary)</li>
         <li>Provide analytics dashboards (aggregate statistics) to Hosts and admins</li>
         <li>Improve and optimize Platform performance and user experience</li>
         <li>Comply with legal requests and enforce our Terms and Conditions</li>
@@ -353,7 +354,7 @@
       <p>You can delete your data directly within the Outsiide App:</p>
 
       <p>
-        <strong>Delete Your Entire Account</strong> â€”
+        <strong>Delete Your Entire Account</strong> -
         Navigate to Settings &gt; Account &gt; Delete Account.
       </p>
 
@@ -371,14 +372,14 @@
       <p>This action cannot be undone.</p>
 
       <p>
-        <strong>Delete Host Profile Only</strong> â€”
+        <strong>Delete Host Profile Only</strong> -
         If you have a host (business) profile, you can delete just the host profile from your Host Profile
         screen. This will delete your business profile, all your posts, and notify Outsiiders (patrons) who RSVPed.
         Your profile will continue as an Outsiider only.
       </p>
 
       <p>
-        <strong>Subscriptions</strong> â€”
+        <strong>Subscriptions</strong> -
         Deleting your account does not automatically cancel your subscription. You must cancel your subscription
         separately through the App Store (iOS) or Google Play Store (Android) before deleting your account.
       </p>
