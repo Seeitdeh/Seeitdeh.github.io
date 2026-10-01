@@ -53,7 +53,8 @@ jobs:
         if: github.event_name == 'pull_request'
         run: |
           npx --yes firebase-tools@${FIREBASE_TOOLS_VERSION} hosting:channel:deploy "pr-${{ github.event.number }}" \
-            --project "$PROJECT_ID" --expires 7d --non-interactive --json > preview.json
+            --project "$PROJECT_ID" --expires 7d --non-interactive --json > preview.json \
+            || { cat preview.json; exit 1; }
           url=$(node -p "Object.values(require('./preview.json').result)[0].url")
           echo "url=$url" >> "$GITHUB_OUTPUT"
 
