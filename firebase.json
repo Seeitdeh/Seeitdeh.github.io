@@ -1,0 +1,37 @@
+{
+  "hosting": {
+    "site": "outsiide-prod",
+    "public": ".",
+    "cleanUrls": true,
+    "ignore": [
+      "firebase.json",
+      ".firebaserc",
+      ".firebase/**",
+      ".git/**",
+      ".github/**",
+      ".gitignore",
+      ".nojekyll",
+      "CNAME",
+      "README.md",
+      "**/.gitkeep",
+      "**/.DS_Store",
+      "**/node_modules/**"
+    ],
+    "headers": [
+      {
+        "source": "/.well-known/apple-app-site-association",
+        "headers": [{ "key": "Content-Type", "value": "application/json" }]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/post/**",
+        "run": { "serviceId": "outsiide-backend", "region": "northamerica-northeast1" }
+      },
+      {
+        "source": "/web/**",
+        "run": { "serviceId": "outsiide-backend", "region": "northamerica-northeast1" }
+      }
+    ]
+  }
+}
